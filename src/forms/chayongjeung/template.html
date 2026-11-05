@@ -20,7 +20,7 @@
 <table>
 <tr><th>채 권 자</th><td>{{lender_name}} <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>
 <tr><th>채 무 자</th><td>{{borrower_name}} <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>
-{{#__minor}}<tr><th>법정대리인<br><span class="small">(동의)</span></th><td>{{parent_name}} ({{parent_relation}}, {{parent_phone}}) <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>{{/__minor}}
+{{#__minor}}<tr><th>법정대리인<br><span class="small">(동의)</span></th><td>{{parent_name}} ({{parent_relation}}, {{parent_rrn}}, {{parent_phone}}) <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>{{/__minor}}
 {{#guarantor_name}}<tr><th>연대보증인</th><td>{{guarantor_name}} ({{guarantor_rrn}}) {{guarantor_addr}} <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>{{/guarantor_name}}
 </table>
 {{schedule}}

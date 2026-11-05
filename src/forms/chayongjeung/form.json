@@ -192,6 +192,16 @@
    }
   },
   {
+   "key": "parent_rrn",
+   "label": "법정대리인 주민등록번호",
+   "type": "text",
+   "format": "rrn",
+   "show_if": {
+    "key": "minor",
+    "eq": "예"
+   }
+  },
+  {
    "key": "parent_phone",
    "label": "법정대리인 연락처",
    "type": "text",
