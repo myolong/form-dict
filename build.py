@@ -103,7 +103,9 @@ def layout(*, title, description, path, body, menus, active=None, json_ld=None, 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;600;800&display=swap">
+<link rel="icon" href="{url('/favicon.ico')}" sizes="48x48">
 <link rel="icon" href="{url('/assets/favicon.svg')}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{url('/assets/apple-touch-icon.png')}">
 <link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)}" href="{url('/rss.xml')}">
 <link rel="stylesheet" href="{asset('/assets/style.css')}">
 {chr(10).join(head)}
@@ -111,7 +113,7 @@ def layout(*, title, description, path, body, menus, active=None, json_ld=None, 
 <body>
 <header class="site-header">
   <div class="wrap">
-    <div class="top"><a class="logo" href="{url('/')}">{esc(SITE_NAME)}</a><span class="tagline">{esc(SITE_TAGLINE)}</span></div>
+    <div class="top"><a class="logo" href="{url('/')}"><img src="{url('/assets/favicon.svg')}" alt="" width="30" height="30">{esc(SITE_NAME)}</a><span class="tagline">{esc(SITE_TAGLINE)}</span></div>
     <nav class="menu" aria-label="메뉴">{nav}</nav>
   </div>
 </header>
@@ -226,6 +228,7 @@ def main():
         shutil.rmtree(OUT)
     OUT.mkdir()
     shutil.copytree(SRC / "assets", OUT / "assets")
+    shutil.copy(SRC / "assets" / "favicon.ico", OUT / "favicon.ico")  # 검색엔진이 찾는 기본 위치
     (OUT / ".nojekyll").write_text("")
     menus = json.loads((SRC / "menus.json").read_text(encoding="utf-8"))
     forms = read_forms()
