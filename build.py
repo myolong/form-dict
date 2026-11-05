@@ -104,6 +104,7 @@ def layout(*, title, description, path, body, menus, active=None, json_ld=None, 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;600;800&display=swap">
 <link rel="icon" href="{url('/assets/favicon.svg')}" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)}" href="{url('/rss.xml')}">
 <link rel="stylesheet" href="{asset('/assets/style.css')}">
 {chr(10).join(head)}
 </head>
@@ -302,6 +303,14 @@ def main():
     paths = ["/"] + [f"/{m['id']}/" for m in menus] + [f["path"] for f in forms] + ["/about/", "/terms/", "/privacy/", "/contact/"]
     sm = "".join(f"<url><loc>{esc(SITE_URL + p)}</loc><lastmod>{UPDATED}</lastmod></url>" for p in paths)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n', encoding="utf-8")
+    items = "".join(
+        f"<item><title>{esc(f['seo_title'])}</title><link>{esc(SITE_URL + f['path'])}</link>"
+        f"<guid>{esc(SITE_URL + f['path'])}</guid><description>{esc(f['description'])}</description></item>"
+        for f in forms)
+    (OUT / "rss.xml").write_text(
+        f'<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>{esc(SITE_NAME)}</title>'
+        f"<link>{esc(SITE_URL)}/</link><description>{esc(SITE_TAGLINE)}</description><language>ko</language>"
+        f"{items}</channel></rss>\n", encoding="utf-8")
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
     if CUSTOM_DOMAIN:
         (OUT / "CNAME").write_text(CUSTOM_DOMAIN + "\n")
