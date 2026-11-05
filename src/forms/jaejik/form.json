@@ -57,9 +57,9 @@
    "key": "job",
    "label": "담당 업무",
    "type": "textarea",
-   "numbered": true,
-   "placeholder": "1. 경영지원\n2. 급여·4대보험 관리",
-   "hint": "엔터를 치면 다음 번호가 자동으로 붙습니다. 업무가 하나면 한 줄만 적으세요."
+   "bullet": "▶",
+   "placeholder": "▶ 경영지원\n▶ 급여·4대보험 관리",
+   "hint": "엔터를 치면 다음 줄에 ▶가 자동으로 붙습니다. 업무가 하나면 한 줄만 적으세요."
   },
   {
    "key": "purpose",
