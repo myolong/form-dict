@@ -218,12 +218,15 @@
   function load() {
     try { var s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) state = s; } catch (e) {}
   }
+  var DEFAULTS_VERSION = 2; /* 기본값(예시 문구)을 새로 넣으면 올린다: 예전 입력 기록이 있어도 빈 칸에 한 번 채워짐 */
   function defaults() {
+    var refill = (state.__dv || 0) < DEFAULTS_VERSION;
     (F.fields || []).forEach(function (f) {
-      if (state[f.key] === undefined && f.default !== undefined) {
+      if ((state[f.key] === undefined || (refill && state[f.key] === "")) && f.default !== undefined) {
         state[f.key] = f.default === "today" ? new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10) : f.default;
       }
     });
+    state.__dv = DEFAULTS_VERSION;
     if (F.has_items && !state.items) state.items = [{ name: "", spec: "", qty: "", price: "" }];
   }
   function itemsEditor() {

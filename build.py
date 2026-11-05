@@ -41,6 +41,13 @@ def url(path):
     return BASE_PATH + path
 
 
+def asset(path):
+    """자산 주소에 내용 해시를 붙여, 수정 후 브라우저가 옛 파일을 쓰지 않게 한다."""
+    import hashlib
+    h = hashlib.md5((SRC / path.lstrip("/")).read_bytes()).hexdigest()[:8]
+    return url(path) + "?v=" + h
+
+
 def esc(text):
     return html.escape(str(text), quote=True)
 
@@ -97,7 +104,7 @@ def layout(*, title, description, path, body, menus, active=None, json_ld=None, 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;600;800&display=swap">
 <link rel="icon" href="{url('/assets/favicon.svg')}" type="image/svg+xml">
-<link rel="stylesheet" href="{url('/assets/style.css')}">
+<link rel="stylesheet" href="{asset('/assets/style.css')}">
 {chr(10).join(head)}
 </head>
 <body>
@@ -203,7 +210,7 @@ def form_page(f, forms, menus):
         lds.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", a)}} for q, a in faq]})
     scripts = ("<script>window.FORM=" + json.dumps(cfg, ensure_ascii=False).replace("</", "<\\/") + ";</script>"
-               f'<script src="{url("/assets/form.js")}"></script>')
+               f'<script src="{asset("/assets/form.js")}"></script>')
     write(f["path"], layout(title=f["seo_title"], page_title=f'{f["seo_title"]} | {SITE_NAME}', description=f["description"],
                             path=f["path"], body=body, menus=menus, active=f["menu"], json_ld=lds, scripts=scripts))
 
@@ -250,7 +257,7 @@ def main():
 {AD}"""
     write("/", layout(title=SITE_NAME, page_title=f"{SITE_NAME} - {SITE_TAGLINE}",
                       description="사직서, 차용증, 위임장, 재직증명서, 견적서, 거래명세서 등 자주 쓰는 문서 양식을 회원가입·다운로드 없이 바로 작성하고 인쇄·PDF 저장하는 무료 사이트.",
-                      path="/", body=home, menus=menus, scripts=f'<script src="{url("/assets/home.js")}"></script>',
+                      path="/", body=home, menus=menus, scripts=f'<script src="{asset("/assets/home.js")}"></script>',
                       json_ld=[{"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/"}]))
 
     # 안내 페이지
