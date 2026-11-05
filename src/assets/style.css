@@ -70,6 +70,9 @@ h3{font-size:17px;margin:20px 0 6px}
 .ad-slot{margin:24px 0;min-height:0}
 .site-footer{border-top:1px solid var(--line);background:var(--card);color:var(--muted);font-size:13px;padding:20px 0}
 .site-footer a{color:var(--muted)}
+.site-footer .series-links{font-size:13px}
+.site-footer .series-links .current{color:var(--ink);font-weight:700}
+@media print{.series-links{display:none !important}}
 /* A4 종이 */
 .paper{width:210mm;min-height:297mm;background:#fff;color:#000;padding:16mm 17mm;box-shadow:0 2px 12px rgba(0,0,0,.12);font-family:"Nanum Myeongjo","Batang",serif;font-size:11pt;line-height:1.7}
 .paper h1.doc-title{font-size:24pt;text-align:center;letter-spacing:12px;margin:0 0 8mm;font-weight:800}

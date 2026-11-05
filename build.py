@@ -52,6 +52,24 @@ def esc(text):
     return html.escape(str(text), quote=True)
 
 
+
+# 컨닝 시리즈 (푸터 한 줄)
+SERIES = [
+    ("살림컨닝", "https://salimdict.com"),
+    ("첫직장컨닝", "https://firstjobdict.co.kr"),
+    ("양식컨닝", "https://formcunning.co.kr"),
+]
+
+
+def series_line():
+    parts = []
+    for name, href in SERIES:
+        if name == SITE_NAME:
+            parts.append(f'<strong class="current" aria-current="page">{esc(name)}</strong>')
+        else:
+            parts.append(f'<a href="{href}/">{esc(name)}</a>')
+    return '<p class="series-links">컨닝 시리즈: ' + " · ".join(parts) + "</p>"
+
 def read_forms():
     forms = []
     for d in sorted((SRC / "forms").iterdir()):
@@ -124,6 +142,7 @@ def layout(*, title, description, path, body, menus, active=None, json_ld=None, 
   <div class="wrap">
     <p>이 사이트의 양식과 설명은 일반적인 참고용입니다. 회사·기관·관공서에 정해진 양식이 있으면 그 양식을 우선 사용하고, 법률 문제는 전문가 상담을 받으세요. 입력한 내용은 서버로 전송·저장되지 않습니다.</p>
     <p><a href="{url('/about/')}">사이트 소개</a> · <a href="{url('/terms/')}">이용 안내</a> · <a href="{url('/privacy/')}">개인정보처리방침</a> · <a href="{url('/contact/')}">문의</a></p>
+    {series_line()}
     <p>© {date.today().year} {esc(SITE_NAME)}</p>
   </div>
 </footer>
