@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://myolong.github.io/form-dict/sitemap.xml
+Sitemap: https://formcunning.co.kr/sitemap.xml

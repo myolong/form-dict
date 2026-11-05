@@ -20,8 +20,8 @@ from datetime import date
 from pathlib import Path
 
 # ── 사이트 설정 (이름·도메인·애드센스가 정해지면 여기만 바꾸고 다시 빌드) ──────
-SITE_URL = "https://myolong.github.io/form-dict"  # 임시 주소. 도메인 구매 후 "https://도메인" 으로 바꾸고 CUSTOM_DOMAIN 도 입력
-CUSTOM_DOMAIN = ""                        # 도메인 연결 시 "yangsikdict.com" 처럼 입력 → docs/CNAME 생성
+SITE_URL = "https://formcunning.co.kr"
+CUSTOM_DOMAIN = "formcunning.co.kr"
 SITE_NAME = "양식컨닝"
 SITE_TAGLINE = "업무 양식 컨닝페이퍼"
 CONTACT_EMAIL = "salimdict.help@gmail.com"  # 문의 메일 (본업과 분리된 공용 주소)
