@@ -161,7 +161,46 @@
       return blankMode || !state[k] ? inner : "";
     }).replace(/\{\{(\w+)(?:\|(\w+))?\}\}/g, function (_, k, f) { return value(k, f); });
     paper.innerHTML = html;
+    fill();
     fit();
+  }
+  /* 내용이 적어도 A4 한 장이 알맞게 차도록: 빈 품목 줄 추가 → 남는 높이를 data-grow 칸에 나눠 줌 */
+  var PAGE_PX = 293 * 96 / 25.4; /* 인쇄 시 2장으로 넘어가지 않도록 297mm보다 조금 작게 */
+  function contentH() {
+    var m = paper.style.minHeight; paper.style.minHeight = "0";
+    var h = paper.offsetHeight; paper.style.minHeight = m; return h;
+  }
+  function fill() {
+    var tbl = paper.querySelector("table[data-fill-rows]");
+    if (tbl && tbl.rows.length > 2) {
+      var cols = 0, head = tbl.rows[0].cells;
+      for (var i = 0; i < head.length; i++) cols += head[i].colSpan;
+      var last = tbl.rows[tbl.rows.length - 1], n = tbl.rows.length - 1;
+      for (var g = 0; g < 40; g++) {
+        var tr = document.createElement("tr");
+        for (var c = 0; c < cols; c++) { var td = document.createElement("td"); td.innerHTML = c === 0 ? "" : "&nbsp;"; if (c === 0) td.className = "c"; tr.appendChild(td); }
+        last.parentNode.insertBefore(tr, last);
+        if (contentH() > PAGE_PX) { tr.parentNode.removeChild(tr); break; }
+      }
+    }
+    var grows = paper.querySelectorAll("[data-grow]");
+    if (!grows.length) return;
+    var left = PAGE_PX - contentH();
+    if (left <= 4) return;
+    var total = 0, base = [];
+    for (var j = 0; j < grows.length; j++) { total += +grows[j].getAttribute("data-grow") || 1; base.push(grows[j].offsetHeight); }
+    for (var k = 0; k < grows.length; k++) {
+      var el = grows[k], add = Math.floor(left * (+el.getAttribute("data-grow") || 1) / total);
+      if (/^T[DH]$/.test(el.tagName)) el.style.height = (base[k] + add) + "px";
+      else if (el.children.length || el.textContent.trim() || el.className) el.style.minHeight = (base[k] + add) + "px";
+      else el.style.height = add + "px";
+    }
+    /* 여백 겹침(margin collapse) 등으로 넘치면 마지막 칸에서 넘친 만큼 줄임 */
+    var over = contentH() - PAGE_PX;
+    if (over > 0) {
+      var e2 = grows[grows.length - 1], prop = e2.style.minHeight ? "minHeight" : "height";
+      e2.style[prop] = Math.max(0, parseFloat(e2.style[prop]) - over - 1) + "px";
+    }
   }
   function fit() {
     var avail = wrap.clientWidth - parseFloat(getComputedStyle(wrap).paddingLeft) * 2;
@@ -337,5 +376,5 @@
   window.addEventListener("resize", fit);
 
   load(); defaults(); build(); render();
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(render);
 })();

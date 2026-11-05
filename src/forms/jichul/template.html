@@ -8,13 +8,13 @@
 {{#account}}<tr><th>입금계좌</th><td colspan="3">{{account}}</td></tr>{{/account}}
 </table>
 <div class="amount-box"><span>금 액 &nbsp;일금 {{sum_total|kor}}원정</span><span>(₩ {{sum_total|won}})</span></div>
-<table class="items">
+<table class="items" data-fill-rows>
 <tr><th class="c" style="width:10mm">No</th><th class="c">적 요</th><th class="c" style="width:18mm">수 량</th><th class="c" style="width:28mm">단 가</th><th class="c" style="width:32mm">금 액</th></tr>
 {{items_rows}}
 <tr><th colspan="4" class="c">합 계</th><td class="num">{{sum_total|won}}</td></tr>
 </table>
 <table>
 <tr><th>첨 부</th><td>{{attach}}</td></tr>
-<tr><th>비 고</th><td style="white-space:pre-wrap;height:16mm">{{note}}</td></tr>
+<tr><th>비 고</th><td style="white-space:pre-wrap;height:16mm" data-grow="1">{{note}}</td></tr>
 </table>
 <p class="center" style="margin-top:8mm">위 금액을 지출하고자 하오니 결재하여 주시기 바랍니다.</p>

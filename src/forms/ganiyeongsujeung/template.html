@@ -10,7 +10,7 @@
 <table>
 <tr><th>작성일</th><td>{{rcpt_date|date}}</td><th>금액 합계</th><td>일금 {{sum_total|kor}}원정 (₩ {{sum_total|won}})</td></tr>
 </table>
-<table class="items">
+<table class="items" data-fill-rows>
 <tr><th class="c" style="width:10mm">No</th><th class="c">품 목</th><th class="c" style="width:18mm">수 량</th><th class="c" style="width:28mm">단 가</th><th class="c" style="width:32mm">금 액</th></tr>
 {{items_rows}}
 <tr><th colspan="4" class="c">합 계</th><td class="num">{{sum_total|won}}</td></tr>
