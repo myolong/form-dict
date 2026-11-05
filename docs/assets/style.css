@@ -119,3 +119,32 @@ h3{font-size:17px;margin:20px 0 6px}
 
 .paper .page-break{break-before:page;page-break-before:always;padding-top:16mm}
 @media screen{.paper .page-break{border-top:2px dashed #bbb;margin-top:10mm;padding-top:8mm}}
+
+/* ── 디자인: 컨닝페이퍼 쪽지 (B안) ── */
+/* B: 컨닝페이퍼 쪽지 — 모눈 노트 배경, 노란 포스트잇, 손글씨 제목 */
+
+:root{--bg:#fbfaf5;--ink:#2b2a27;--muted:#6b675d;--line:#e6e1d3;--brand:#e2543b;--soft:#fff3c4}
+body{background-color:var(--bg);background-image:linear-gradient(#efeadb 1px,transparent 1px),linear-gradient(90deg,#efeadb 1px,transparent 1px);background-size:24px 24px}
+.site-header{background:#fffdf6;border-bottom:2px solid #2b2a27}
+.logo{font-family:"Nanum Pen Script",cursive;font-size:38px;font-weight:400;letter-spacing:0}
+.logo::after{content:"✎";font-size:22px;color:var(--brand);margin-left:4px}
+.tagline{font-family:"Nanum Pen Script",cursive;font-size:22px;color:var(--brand)}
+.menu a{background:#fff;border:1.5px solid #2b2a27;border-radius:6px}
+.menu a[aria-current]{background:#2b2a27;color:#fff}
+.hero{background:#fff3a8;border:0;border-radius:2px;box-shadow:4px 6px 0 rgba(0,0,0,.08);transform:rotate(-.6deg);position:relative;padding:36px 32px}
+.hero::before{content:"";position:absolute;left:50%;top:-12px;width:120px;height:26px;margin-left:-60px;background:rgba(226,84,59,.35);transform:rotate(2deg)}
+.hero h1{font-family:"Nanum Pen Script",cursive;font-size:52px;font-weight:400;line-height:1.1}
+.badges span{background:#fff;color:#2b2a27;border:1.5px dashed #2b2a27}
+.search{border:2px solid #2b2a27;border-radius:8px}
+.section-block h2{font-family:"Nanum Pen Script",cursive;font-size:34px;font-weight:400;display:inline-block;background:linear-gradient(transparent 60%,#ffe66d 60%)}
+.cards a{background:#fff;border:1.5px solid #2b2a27;border-radius:4px;box-shadow:3px 3px 0 #2b2a27}
+.cards a:hover{border-color:#2b2a27;transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--brand)}
+.cards li:nth-child(3n+1) a{background:#fffbe6}.cards li:nth-child(3n+2) a{background:#f1f8ff}.cards li:nth-child(3n) a{background:#fff1f0}
+main>h1{font-family:"Nanum Pen Script",cursive;font-size:44px;font-weight:400}
+.panel{border:1.5px solid #2b2a27;border-radius:6px;box-shadow:3px 3px 0 #2b2a27}
+.btn{border:1.5px solid #2b2a27;border-radius:6px}
+.btn.primary{background:var(--brand);border-color:#2b2a27}
+.preview-wrap{background:#efe9d8}
+.group-title{color:var(--brand)}
+.article{border:1.5px solid #2b2a27;border-radius:6px}
+@media print{body{background:#fff !important;background-image:none !important}}
