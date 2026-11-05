@@ -24,8 +24,7 @@
   {
    "key": "birth",
    "label": "생년월일",
-   "type": "text",
-   "placeholder": "1995. 3. 15."
+   "type": "text"
   },
   {
    "key": "address",

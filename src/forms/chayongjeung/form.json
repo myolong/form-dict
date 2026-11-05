@@ -26,8 +26,7 @@
   {
    "key": "lender_birth",
    "label": "생년월일",
-   "type": "text",
-   "placeholder": "1965. 5. 1."
+   "type": "text"
   },
   {
    "key": "lender_addr",
@@ -143,6 +142,36 @@
    "key": "extra",
    "label": "그 밖의 약속 (선택)",
    "type": "textarea"
+  },
+  {
+   "type": "group",
+   "label": "빌린 사람이 미성년자라면 (만 19세 미만)"
+  },
+  {
+   "key": "minor",
+   "label": "빌린 사람이 미성년자인가요?",
+   "type": "select",
+   "options": [
+    "아니요",
+    "예"
+   ],
+   "hint": "미성년자가 돈을 빌릴 때는 부모 등 법정대리인의 동의가 필요합니다(민법 제5조). '예'를 고르면 동의란이 추가됩니다."
+  },
+  {
+   "key": "parent_name",
+   "label": "법정대리인 성명",
+   "type": "text"
+  },
+  {
+   "key": "parent_relation",
+   "label": "채무자와의 관계",
+   "type": "text",
+   "placeholder": "부 / 모 / 후견인"
+  },
+  {
+   "key": "parent_phone",
+   "label": "법정대리인 연락처",
+   "type": "text"
   },
   {
    "type": "group",

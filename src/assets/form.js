@@ -154,6 +154,7 @@
     state.__split = state.repay_method === "매월 분할상환" ? "1" : "";
     state.__norate = state.rate !== undefined && state.rate !== "" && num(state.rate) === 0 ? "1" : "";
     state.__nolate = state.late_rate ? "" : "1";
+    state.__minor = state.minor === "예" ? "1" : "";
     var html = F.template.replace(/\{\{#(\w+)\}\}([\s\S]*?)\{\{\/\1\}\}/g, function (_, k, inner) {
       return !blankMode && state[k] ? inner : "";
     }).replace(/\{\{\^(\w+)\}\}([\s\S]*?)\{\{\/\1\}\}/g, function (_, k, inner) {
@@ -172,6 +173,45 @@
   }
 
   /* ── 입력 칸 만들기 ── */
+  /* 숫자만 입력해도 점·하이픈 자동: 생년월일 1995.03.15 / 사업자번호 000-00-00000 / 전화 010-0000-0000 */
+  function fmtKind(f) {
+    if (f.format) return f.format;
+    if (/birth$/.test(f.key)) return "birth";
+    if (/biz_?no$/.test(f.key)) return "bizno";
+    if (/(phone|tel)$/.test(f.key)) return "phone";
+    return "";
+  }
+  function autoFormat(kind, v) {
+    var d = v.replace(/[^0-9]/g, "");
+    if (kind === "birth") {
+      d = d.slice(0, 8);
+      if (d.length <= 4) return d;
+      if (d.length <= 6) return d.slice(0, 4) + "." + d.slice(4);
+      return d.slice(0, 4) + "." + d.slice(4, 6) + "." + d.slice(6);
+    }
+    if (kind === "bizno") {
+      d = d.slice(0, 10);
+      if (d.length <= 3) return d;
+      if (d.length <= 5) return d.slice(0, 3) + "-" + d.slice(3);
+      return d.slice(0, 3) + "-" + d.slice(3, 5) + "-" + d.slice(5);
+    }
+    if (kind === "phone") {
+      d = d.slice(0, 11);
+      if (/^02/.test(d)) {
+        if (d.length <= 2) return d;
+        if (d.length <= 5) return d.slice(0, 2) + "-" + d.slice(2);
+        if (d.length <= 9) return d.slice(0, 2) + "-" + d.slice(2, d.length - 4) + "-" + d.slice(-4);
+        return d.slice(0, 2) + "-" + d.slice(2, 6) + "-" + d.slice(6, 10);
+      }
+      if (/^1[5-9]/.test(d) && d.length <= 8) return d.length <= 4 ? d : d.slice(0, 4) + "-" + d.slice(4);
+      if (d.length <= 3) return d;
+      if (d.length <= 6) return d.slice(0, 3) + "-" + d.slice(3);
+      if (d.length <= 10) return d.slice(0, 3) + "-" + d.slice(3, 6) + "-" + d.slice(6);
+      return d.slice(0, 3) + "-" + d.slice(3, 7) + "-" + d.slice(7);
+    }
+    return v;
+  }
+
   function save() {
     try { localStorage.setItem(KEY, JSON.stringify(state)); savedNote.textContent = "입력 내용은 이 브라우저에만 임시 저장됩니다."; } catch (e) {}
   }
@@ -238,6 +278,7 @@
         input = document.createElement("input");
         input.type = f.type === "date" ? "date" : "text";
         if (f.type === "money" || f.type === "number") input.inputMode = "decimal";
+        if (fmtKind(f)) { input.inputMode = "numeric"; if (!f.placeholder) f.placeholder = { birth: "숫자만 입력 (예: 19950315)", bizno: "숫자만 입력 (10자리)", phone: "숫자만 입력 (예: 01012345678)" }[fmtKind(f)]; }
       }
       input.id = id;
       if (f.placeholder) input.placeholder = f.placeholder;
@@ -248,6 +289,10 @@
           var digits = input.value.replace(/[^0-9]/g, "");
           state[f.key] = digits;
           input.value = digits ? won(+digits) : "";
+        } else if (fmtKind(f)) {
+          var nv = autoFormat(fmtKind(f), input.value);
+          if (nv !== input.value) input.value = nv;
+          state[f.key] = nv;
         } else state[f.key] = input.value;
         save(); render();
       });
