@@ -8,7 +8,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",s
 a{color:var(--brand)}
 .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
 .site-header{background:var(--card);border-bottom:1px solid var(--line)}
-.site-header .top{display:flex;align-items:baseline;gap:12px;padding:14px 0 8px;flex-wrap:wrap}
+.site-header .top{display:flex;align-items:baseline;justify-content:space-between;gap:4px 12px;padding:14px 0 8px;flex-wrap:wrap}
 .logo{font-weight:800;font-size:22px;color:var(--ink);text-decoration:none;letter-spacing:-.5px}
 .logo b{color:var(--brand)}
 .tagline{color:var(--muted);font-size:14px}
