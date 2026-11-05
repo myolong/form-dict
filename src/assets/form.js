@@ -256,6 +256,13 @@
     draw();
     return box;
   }
+  /* show_if: {"key":..., "eq":...} 조건이 맞을 때만 칸을 보여 준다 */
+  function updateVisibility() {
+    panel.querySelectorAll("[data-show-key]").forEach(function (el) {
+      var on = (state[el.dataset.showKey] || "") === el.dataset.showEq;
+      el.hidden = !on;
+    });
+  }
   function build() {
     panel.innerHTML = "";
     (F.fields || []).forEach(function (f) {
@@ -294,9 +301,10 @@
           if (nv !== input.value) input.value = nv;
           state[f.key] = nv;
         } else state[f.key] = input.value;
-        save(); render();
+        save(); render(); updateVisibility();
       });
       wrapF.innerHTML = "<label for='" + id + "'>" + esc(f.label) + "</label>";
+      if (f.show_if) { wrapF.dataset.showKey = f.show_if.key; wrapF.dataset.showEq = f.show_if.eq; }
       wrapF.appendChild(input);
       if (f.hint) { var h = document.createElement("div"); h.className = "hint"; h.textContent = f.hint; wrapF.appendChild(h); }
       if (f.type === "money") {
@@ -306,6 +314,7 @@
       }
       panel.appendChild(wrapF);
     });
+    updateVisibility();
   }
 
   document.getElementById("btn-print").addEventListener("click", function () { blankMode = false; render(); window.print(); });

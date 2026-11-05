@@ -112,19 +112,31 @@
   },
   {
    "key": "due_date",
-   "label": "갚을 날 (일시상환일 때)",
-   "type": "date"
+   "label": "갚을 날",
+   "type": "date",
+   "show_if": {
+    "key": "repay_method",
+    "eq": "만기 일시상환"
+   }
   },
   {
    "key": "months",
-   "label": "분할 개월 수 (분할상환일 때)",
+   "label": "분할 개월 수",
    "type": "number",
-   "placeholder": "12"
+   "placeholder": "12",
+   "show_if": {
+    "key": "repay_method",
+    "eq": "매월 분할상환"
+   }
   },
   {
    "key": "first_due",
-   "label": "첫 상환일 (분할상환일 때)",
-   "type": "date"
+   "label": "첫 상환일",
+   "type": "date",
+   "show_if": {
+    "key": "repay_method",
+    "eq": "매월 분할상환"
+   }
   },
   {
    "key": "account",
@@ -160,18 +172,30 @@
   {
    "key": "parent_name",
    "label": "법정대리인 성명",
-   "type": "text"
+   "type": "text",
+   "show_if": {
+    "key": "minor",
+    "eq": "예"
+   }
   },
   {
    "key": "parent_relation",
    "label": "채무자와의 관계",
    "type": "text",
-   "placeholder": "부 / 모 / 후견인"
+   "placeholder": "부 / 모 / 후견인",
+   "show_if": {
+    "key": "minor",
+    "eq": "예"
+   }
   },
   {
    "key": "parent_phone",
    "label": "법정대리인 연락처",
-   "type": "text"
+   "type": "text",
+   "show_if": {
+    "key": "minor",
+    "eq": "예"
+   }
   },
   {
    "type": "group",
