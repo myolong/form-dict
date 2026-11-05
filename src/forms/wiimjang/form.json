@@ -23,9 +23,10 @@
    "type": "text"
   },
   {
-   "key": "from_birth",
-   "label": "생년월일",
-   "type": "text"
+   "key": "from_rrn",
+   "label": "주민등록번호",
+   "type": "text",
+   "format": "rrn"
   },
   {
    "key": "from_addr",
@@ -47,9 +48,10 @@
    "type": "text"
   },
   {
-   "key": "to_birth",
-   "label": "생년월일",
-   "type": "text"
+   "key": "to_rrn",
+   "label": "주민등록번호",
+   "type": "text",
+   "format": "rrn"
   },
   {
    "key": "to_addr",
