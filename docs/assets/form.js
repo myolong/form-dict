@@ -189,6 +189,10 @@
       if (d.length <= 6) return d.slice(0, 4) + "." + d.slice(4);
       return d.slice(0, 4) + "." + d.slice(4, 6) + "." + d.slice(6);
     }
+    if (kind === "rrn") {
+      d = d.slice(0, 13);
+      return d.length <= 6 ? d : d.slice(0, 6) + "-" + d.slice(6);
+    }
     if (kind === "bizno") {
       d = d.slice(0, 10);
       if (d.length <= 3) return d;
@@ -218,7 +222,7 @@
   function load() {
     try { var s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) state = s; } catch (e) {}
   }
-  var DEFAULTS_VERSION = 2; /* 기본값(예시 문구)을 새로 넣으면 올린다: 예전 입력 기록이 있어도 빈 칸에 한 번 채워짐 */
+  var DEFAULTS_VERSION = 3; /* 기본값(예시 문구)을 새로 넣으면 올린다: 예전 입력 기록이 있어도 빈 칸에 한 번 채워짐 */
   function defaults() {
     var refill = (state.__dv || 0) < DEFAULTS_VERSION;
     (F.fields || []).forEach(function (f) {
@@ -288,7 +292,7 @@
         input = document.createElement("input");
         input.type = f.type === "date" ? "date" : "text";
         if (f.type === "money" || f.type === "number") input.inputMode = "decimal";
-        if (fmtKind(f)) { input.inputMode = "numeric"; if (!f.placeholder) f.placeholder = { birth: "숫자만 입력 (예: 19950315)", bizno: "숫자만 입력 (10자리)", phone: "숫자만 입력 (예: 01012345678)" }[fmtKind(f)]; }
+        if (fmtKind(f)) { input.inputMode = "numeric"; if (!f.placeholder) f.placeholder = { birth: "숫자만 입력 (예: 19950315)", bizno: "숫자만 입력 (10자리)", rrn: "숫자만 입력 (13자리)", phone: "숫자만 입력 (예: 01012345678)" }[fmtKind(f)]; }
       }
       input.id = id;
       if (f.placeholder) input.placeholder = f.placeholder;

@@ -1,9 +1,9 @@
 <h1 class="doc-title">차 용 증</h1>
 <div class="amount-box"><span>금 {{principal|kor}}원정</span><span>(₩ {{principal|won}})</span></div>
 <table>
-<tr><th rowspan="2">채 권 자<br><span class="small">(빌려준 사람)</span></th><th>성 명</th><td>{{lender_name}}</td><th>생년월일</th><td>{{lender_birth}}</td></tr>
+<tr><th rowspan="2">채 권 자<br><span class="small">(빌려준 사람)</span></th><th>성 명</th><td>{{lender_name}}</td><th>주민등록번호</th><td>{{lender_rrn}}</td></tr>
 <tr><th>주 소</th><td>{{lender_addr}}</td><th>연 락 처</th><td>{{lender_phone}}</td></tr>
-<tr><th rowspan="2">채 무 자<br><span class="small">(빌린 사람)</span></th><th>성 명</th><td>{{borrower_name}}</td><th>생년월일</th><td>{{borrower_birth}}</td></tr>
+<tr><th rowspan="2">채 무 자<br><span class="small">(빌린 사람)</span></th><th>성 명</th><td>{{borrower_name}}</td><th>주민등록번호</th><td>{{borrower_rrn}}</td></tr>
 <tr><th>주 소</th><td>{{borrower_addr}}</td><th>연 락 처</th><td>{{borrower_phone}}</td></tr>
 </table>
 <ol class="terms">
@@ -21,6 +21,6 @@
 <tr><th>채 권 자</th><td>{{lender_name}} <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>
 <tr><th>채 무 자</th><td>{{borrower_name}} <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>
 {{#__minor}}<tr><th>법정대리인<br><span class="small">(동의)</span></th><td>{{parent_name}} ({{parent_relation}}, {{parent_phone}}) <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>{{/__minor}}
-{{#guarantor_name}}<tr><th>연대보증인</th><td>{{guarantor_name}} ({{guarantor_birth}}) {{guarantor_addr}} <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>{{/guarantor_name}}
+{{#guarantor_name}}<tr><th>연대보증인</th><td>{{guarantor_name}} ({{guarantor_rrn}}) {{guarantor_addr}} <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>{{/guarantor_name}}
 </table>
 {{schedule}}
