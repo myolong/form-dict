@@ -27,7 +27,7 @@ SITE_TAGLINE = "업무 양식 컨닝페이퍼"
 CONTACT_EMAIL = "salimdict.help@gmail.com"  # 문의 메일 (본업과 분리된 공용 주소)
 ADSENSE_CLIENT = ""                       # 승인 후 "ca-pub-..." 입력 → 광고 스크립트·ads.txt 생성
 GOOGLE_VERIFICATION = ""
-NAVER_VERIFICATION = ""
+NAVER_VERIFICATION = "c27abaacf7acf26970a9db7a4b149e927e392597"
 UPDATED = date.today().isoformat()
 # ───────────────────────────────────────────────────────────────────────
 
