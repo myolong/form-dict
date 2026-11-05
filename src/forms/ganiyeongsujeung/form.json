@@ -1,0 +1,90 @@
+{
+ "title": "간이영수증",
+ "menu": "trade",
+ "order": 3,
+ "aka": [
+  "영수증 양식",
+  "간이 영수증",
+  "영수증"
+ ],
+ "card": "돈을 받았다는 확인증. 합계·한글 금액 자동",
+ "h1": "간이영수증 양식 — 칸 채우고 바로 인쇄",
+ "seo_title": "간이영수증 양식 무료 작성·인쇄 (합계 자동)",
+ "lead": "받는 분·품목·금액만 넣으면 합계와 한글 금액이 자동으로 들어간 간이영수증이 완성됩니다.",
+ "description": "간이영수증 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 품목과 금액을 넣으면 합계와 한글 금액이 자동으로 표시됩니다.",
+ "has_items": true,
+ "min_rows": 8,
+ "simple_items": true,
+ "vat_default": "없음",
+ "fields": [
+  {
+   "type": "group",
+   "label": "받는 분"
+  },
+  {
+   "key": "to",
+   "label": "받는 분 (귀하)",
+   "type": "text",
+   "placeholder": "홍길동"
+  },
+  {
+   "key": "rcpt_date",
+   "label": "작성일",
+   "type": "date",
+   "default": "today"
+  },
+  {
+   "type": "group",
+   "label": "공급자 (돈을 받은 쪽)"
+  },
+  {
+   "key": "sup_name",
+   "label": "상호",
+   "type": "text"
+  },
+  {
+   "key": "sup_bizno",
+   "label": "사업자등록번호",
+   "type": "text"
+  },
+  {
+   "key": "sup_ceo",
+   "label": "성명(대표자)",
+   "type": "text"
+  },
+  {
+   "key": "sup_addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "sup_tel",
+   "label": "전화번호",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "품목"
+  },
+  {
+   "type": "items",
+   "key": "items",
+   "label": "품목·수량·단가"
+  },
+  {
+   "key": "kind",
+   "label": "구분",
+   "type": "select",
+   "options": [
+    "영수",
+    "청구"
+   ],
+   "hint": "돈을 받았으면 '영수', 받을 돈이면 '청구'"
+  }
+ ],
+ "related": [
+  "gyeonjeokseo",
+  "georae",
+  "jichul"
+ ]
+}

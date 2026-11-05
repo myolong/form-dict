@@ -1,0 +1,12 @@
+<h1 class="doc-title">각 서</h1>
+<table>
+<tr><th rowspan="2">작 성 자</th><th>성 명</th><td>{{name}}</td><th>생년월일</th><td>{{birth}}</td></tr>
+<tr><th>주 소</th><td>{{addr}}</td><th>연 락 처</th><td>{{phone}}</td></tr>
+</table>
+<p>본인은 {{to_name}}에게 다음 사항을 약속하며, 이를 성실히 지킬 것을 확인합니다.</p>
+<div class="box" style="min-height:90mm">{{content}}</div>
+{{#penalty}}<div class="box" style="min-height:25mm">{{penalty}}</div>{{/penalty}}
+<p>본인은 위 내용을 충분히 이해하고 자유로운 의사에 따라 이 각서를 작성합니다.</p>
+<p class="date-line">{{write_date|date}}</p>
+<div class="sign">작성자 &nbsp; {{name}} <span class="seal">(서명 또는 인)</span></div>
+<p class="to">{{to_name}} 귀하</p>

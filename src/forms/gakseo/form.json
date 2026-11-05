@@ -1,0 +1,76 @@
+{
+ "title": "각서",
+ "menu": "proxy",
+ "order": 4,
+ "aka": [
+  "서약서",
+  "약속 각서"
+ ],
+ "card": "약속한 내용을 문서로 남길 때",
+ "h1": "각서 양식 — 칸 채우고 바로 인쇄",
+ "seo_title": "각서 양식 무료 작성·인쇄 (쓰는 법·예시)",
+ "lead": "누가, 누구에게, 무엇을 약속하는지와 지키지 않으면 어떻게 할지를 적으면 A4 각서가 완성됩니다.",
+ "description": "각서 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 각서에 들어가야 할 내용, 쓰는 법과 주의할 점을 정리했습니다.",
+ "fields": [
+  {
+   "type": "group",
+   "label": "작성자 (약속하는 사람)"
+  },
+  {
+   "key": "name",
+   "label": "성명",
+   "type": "text"
+  },
+  {
+   "key": "birth",
+   "label": "생년월일",
+   "type": "text"
+  },
+  {
+   "key": "addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "phone",
+   "label": "연락처",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "받는 사람"
+  },
+  {
+   "key": "to_name",
+   "label": "성명 또는 회사명",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "약속 내용"
+  },
+  {
+   "key": "content",
+   "label": "약속 내용",
+   "type": "textarea",
+   "placeholder": "1. 본인은 ...\n2. 본인은 ..."
+  },
+  {
+   "key": "penalty",
+   "label": "지키지 않을 경우 (선택)",
+   "type": "textarea",
+   "placeholder": "위 약속을 지키지 않을 경우 ..."
+  },
+  {
+   "key": "write_date",
+   "label": "작성일",
+   "type": "date",
+   "default": "today"
+  }
+ ],
+ "related": [
+  "chayongjeung",
+  "simalseo",
+  "wiimjang"
+ ]
+}

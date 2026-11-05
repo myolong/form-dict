@@ -1,0 +1,90 @@
+{
+ "title": "시말서",
+ "menu": "hr",
+ "order": 4,
+ "aka": [
+  "반성문",
+  "사유서"
+ ],
+ "card": "업무상 실수·잘못에 대한 경위와 재발 방지를 적는 양식",
+ "h1": "시말서 양식 — 칸 채우고 바로 인쇄",
+ "seo_title": "시말서 양식 무료 작성·인쇄 (예시 포함)",
+ "lead": "무슨 일이 있었는지, 원인은 무엇인지, 앞으로 어떻게 하겠는지를 칸에 맞춰 적으면 A4 시말서가 완성됩니다.",
+ "description": "시말서 양식을 무료로 작성하고 인쇄하세요. 시말서 쓰는 법, 경위서와의 차이, 문장 예시를 정리했습니다.",
+ "fields": [
+  {
+   "type": "group",
+   "label": "작성자"
+  },
+  {
+   "key": "dept",
+   "label": "소속",
+   "type": "text"
+  },
+  {
+   "key": "position",
+   "label": "직위",
+   "type": "text"
+  },
+  {
+   "key": "name",
+   "label": "성명",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "내용"
+  },
+  {
+   "key": "incident_date",
+   "label": "일시",
+   "type": "text",
+   "placeholder": "2026년 11월 3일 오전 10시경"
+  },
+  {
+   "key": "place",
+   "label": "장소",
+   "type": "text",
+   "placeholder": "본사 3층 사무실"
+  },
+  {
+   "key": "summary",
+   "label": "건명(한 줄 요약)",
+   "type": "text",
+   "placeholder": "거래처 납품 일정 착오"
+  },
+  {
+   "key": "detail",
+   "label": "경위 (무슨 일이 있었는지)",
+   "type": "textarea",
+   "placeholder": "시간 순서대로 사실만 적습니다."
+  },
+  {
+   "key": "cause",
+   "label": "원인",
+   "type": "textarea"
+  },
+  {
+   "key": "plan",
+   "label": "반성 및 재발 방지 대책",
+   "type": "textarea"
+  },
+  {
+   "key": "submit_date",
+   "label": "제출일",
+   "type": "date",
+   "default": "today"
+  },
+  {
+   "key": "recipient",
+   "label": "받는 사람",
+   "type": "text",
+   "default": "대표이사 귀하"
+  }
+ ],
+ "related": [
+  "gyeongwiseo",
+  "gakseo",
+  "sajikseo"
+ ]
+}

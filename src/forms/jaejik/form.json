@@ -1,0 +1,118 @@
+{
+ "title": "재직증명서",
+ "menu": "hr",
+ "order": 2,
+ "aka": [
+  "재직 증명서",
+  "재직확인서"
+ ],
+ "card": "은행·관공서 제출용. 회사 담당자가 발급할 때 쓰는 양식",
+ "h1": "재직증명서 양식 — 칸 채우고 바로 인쇄",
+ "seo_title": "재직증명서 양식 무료 작성·인쇄",
+ "lead": "인적 사항과 재직 사항만 채우면 A4 재직증명서가 완성됩니다. 작은 회사에서 직접 발급할 때 바로 쓰세요.",
+ "description": "재직증명서 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 들어가야 할 항목, 주민등록번호 표기 요령, 발급 의무까지 정리했습니다.",
+ "fields": [
+  {
+   "type": "group",
+   "label": "직원 인적 사항"
+  },
+  {
+   "key": "name",
+   "label": "성명",
+   "type": "text",
+   "placeholder": "홍길동"
+  },
+  {
+   "key": "birth",
+   "label": "생년월일",
+   "type": "text",
+   "placeholder": "1995. 3. 15.",
+   "hint": "주민등록번호 전체 대신 생년월일만 적는 경우가 많습니다. 제출처가 요구할 때만 전체를 적으세요."
+  },
+  {
+   "key": "address",
+   "label": "주소",
+   "type": "text",
+   "placeholder": "서울시 ○○구 ○○로 00"
+  },
+  {
+   "type": "group",
+   "label": "재직 사항"
+  },
+  {
+   "key": "dept",
+   "label": "소속(부서)",
+   "type": "text"
+  },
+  {
+   "key": "position",
+   "label": "직위",
+   "type": "text"
+  },
+  {
+   "key": "hire_date",
+   "label": "입사일",
+   "type": "date"
+  },
+  {
+   "key": "job",
+   "label": "담당 업무",
+   "type": "text",
+   "placeholder": "경영지원"
+  },
+  {
+   "key": "purpose",
+   "label": "용도(제출처)",
+   "type": "text",
+   "placeholder": "금융기관 제출용"
+  },
+  {
+   "type": "group",
+   "label": "회사 정보"
+  },
+  {
+   "key": "company",
+   "label": "회사명",
+   "type": "text",
+   "placeholder": "(주)○○○○"
+  },
+  {
+   "key": "biz_no",
+   "label": "사업자등록번호",
+   "type": "text",
+   "placeholder": "000-00-00000"
+  },
+  {
+   "key": "company_addr",
+   "label": "회사 주소",
+   "type": "text"
+  },
+  {
+   "key": "company_tel",
+   "label": "회사 전화번호",
+   "type": "text"
+  },
+  {
+   "key": "ceo",
+   "label": "대표자 성명",
+   "type": "text"
+  },
+  {
+   "key": "issue_no",
+   "label": "발급번호 (선택)",
+   "type": "text",
+   "placeholder": "제 2026-001 호"
+  },
+  {
+   "key": "issue_date",
+   "label": "발급일",
+   "type": "date",
+   "default": "today"
+  }
+ ],
+ "related": [
+  "gyeongryeok",
+  "sajikseo",
+  "wiimjang"
+ ]
+}

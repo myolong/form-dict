@@ -1,0 +1,139 @@
+{
+ "title": "거래명세서",
+ "menu": "trade",
+ "order": 2,
+ "aka": [
+  "거래명세표",
+  "거래명세서 양식",
+  "납품서"
+ ],
+ "card": "물건·서비스를 넘길 때 함께 주는 명세. 합계 자동",
+ "h1": "거래명세서 양식 — 합계·부가세 자동 계산",
+ "seo_title": "거래명세서 양식 무료 작성 (합계 자동, 인쇄·PDF)",
+ "lead": "공급자·공급받는자와 품목만 넣으면 공급가액·세액·합계가 자동 계산되는 거래명세서(거래명세표)가 완성됩니다.",
+ "description": "거래명세서(거래명세표) 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 합계·부가세·한글 금액 자동 계산, 거래명세서 쓰는 법과 견적서와의 차이를 정리했습니다.",
+ "has_items": true,
+ "min_rows": 8,
+ "fields": [
+  {
+   "type": "group",
+   "label": "거래 정보"
+  },
+  {
+   "key": "trade_date",
+   "label": "거래일",
+   "type": "date",
+   "default": "today"
+  },
+  {
+   "key": "doc_no",
+   "label": "번호 (선택)",
+   "type": "text",
+   "placeholder": "2026-1105-01"
+  },
+  {
+   "type": "group",
+   "label": "공급자 (보내는 쪽)"
+  },
+  {
+   "key": "sup_name",
+   "label": "상호",
+   "type": "text"
+  },
+  {
+   "key": "sup_bizno",
+   "label": "사업자등록번호",
+   "type": "text",
+   "placeholder": "000-00-00000"
+  },
+  {
+   "key": "sup_ceo",
+   "label": "대표자",
+   "type": "text"
+  },
+  {
+   "key": "sup_addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "sup_type",
+   "label": "업태 / 종목",
+   "type": "text",
+   "placeholder": "서비스 / 디자인"
+  },
+  {
+   "key": "sup_tel",
+   "label": "전화번호",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "공급받는자 (받는 쪽)"
+  },
+  {
+   "key": "buy_name",
+   "label": "상호",
+   "type": "text"
+  },
+  {
+   "key": "buy_bizno",
+   "label": "사업자등록번호",
+   "type": "text"
+  },
+  {
+   "key": "buy_ceo",
+   "label": "대표자",
+   "type": "text"
+  },
+  {
+   "key": "buy_addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "buy_tel",
+   "label": "전화번호",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "품목"
+  },
+  {
+   "key": "vat_mode",
+   "label": "부가세",
+   "type": "select",
+   "options": [
+    "별도",
+    "포함",
+    "없음"
+   ],
+   "hint": "별도: 단가에 10%를 더함 / 포함: 단가에 이미 포함 / 없음: 부가세를 따로 표시하지 않음"
+  },
+  {
+   "type": "items",
+   "key": "items",
+   "label": "품목·수량·단가"
+  },
+  {
+   "type": "group",
+   "label": "기타"
+  },
+  {
+   "key": "prev_balance",
+   "label": "전잔금 (선택)",
+   "type": "money"
+  },
+  {
+   "key": "note",
+   "label": "비고",
+   "type": "textarea"
+  }
+ ],
+ "related": [
+  "gyeonjeokseo",
+  "ganiyeongsujeung",
+  "jichul"
+ ]
+}

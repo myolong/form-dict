@@ -1,0 +1,32 @@
+<div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4mm">
+<h1 class="doc-title" style="margin:0">거래명세서</h1>
+<div class="small" style="text-align:right">{{#doc_no}}No. {{doc_no}}<br>{{/doc_no}}거래일: {{trade_date|date}}<br>(공급받는자 보관용)</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin-bottom:4mm">
+<table class="mini" style="margin:0">
+<tr><th rowspan="6" style="width:7mm;writing-mode:vertical-rl;letter-spacing:6px">공급자</th><th>등록번호</th><td>{{sup_bizno}}</td></tr>
+<tr><th>상 호</th><td>{{sup_name}}</td></tr>
+<tr><th>대 표 자</th><td>{{sup_ceo}} <span style="float:right;color:#777">(인)</span></td></tr>
+<tr><th>주 소</th><td>{{sup_addr}}</td></tr>
+<tr><th>업태/종목</th><td>{{sup_type}}</td></tr>
+<tr><th>전 화</th><td>{{sup_tel}}</td></tr>
+</table>
+<table class="mini" style="margin:0">
+<tr><th rowspan="6" style="width:7mm;writing-mode:vertical-rl;letter-spacing:1px">공급받는자</th><th>등록번호</th><td>{{buy_bizno}}</td></tr>
+<tr><th>상 호</th><td>{{buy_name}}</td></tr>
+<tr><th>대 표 자</th><td>{{buy_ceo}}</td></tr>
+<tr><th>주 소</th><td>{{buy_addr}}</td></tr>
+<tr><th>전 화</th><td>{{buy_tel}}</td></tr>
+<tr><th>&nbsp;</th><td></td></tr>
+</table>
+</div>
+<div class="amount-box"><span>합계금액 &nbsp;일금 {{sum_total|kor}}원정</span><span>(₩ {{sum_total|won}}) {{vat_label}}</span></div>
+<table class='items'>
+<tr><th class='c' style='width:9mm'>No</th><th class='c'>품 목</th><th class='c' style='width:18mm'>규 격</th><th class='c' style='width:14mm'>수량</th><th class='c' style='width:24mm'>단 가</th><th class='c' style='width:28mm'>공급가액</th><th class='c' style='width:22mm'>세 액</th></tr>
+{{items_rows}}
+<tr><th colspan="5" class="c">합 계</th><td class="num">{{sum_supply|won}}</td><td class="num">{{sum_vat|won}}</td></tr>
+</table>
+<table>
+<tr><th>전 잔 금</th><td class="num">{{prev_balance|won}}</td><th>합 계</th><td class="num">{{sum_total|won}}</td><th>인 수 자</th><td style="width:40mm"><span style="float:right;color:#777">(인)</span></td></tr>
+<tr><th>비 고</th><td colspan="5" style="white-space:pre-wrap;height:14mm">{{note}}</td></tr>
+</table>

@@ -1,0 +1,18 @@
+<h1 class="doc-title">영 수 증</h1>
+<p class="center" style="margin:-7mm 0 6mm">(간 이)</p>
+<p style="font-size:14pt;font-weight:700;border-bottom:1px solid #000;padding-bottom:1mm;width:70mm">{{to}} &nbsp;귀하</p>
+<table>
+<tr><th rowspan="4" style="width:8mm;writing-mode:vertical-rl;letter-spacing:6px">공급자</th><th>사업자번호</th><td colspan="3">{{sup_bizno}}</td></tr>
+<tr><th>상 호</th><td>{{sup_name}}</td><th style="width:18mm">성 명</th><td>{{sup_ceo}} <span style="color:#777">(인)</span></td></tr>
+<tr><th>주 소</th><td colspan="3">{{sup_addr}}</td></tr>
+<tr><th>전 화</th><td colspan="3">{{sup_tel}}</td></tr>
+</table>
+<table>
+<tr><th>작성일</th><td>{{rcpt_date|date}}</td><th>금액 합계</th><td>일금 {{sum_total|kor}}원정 (₩ {{sum_total|won}})</td></tr>
+</table>
+<table class="items">
+<tr><th class="c" style="width:10mm">No</th><th class="c">품 목</th><th class="c" style="width:18mm">수 량</th><th class="c" style="width:28mm">단 가</th><th class="c" style="width:32mm">금 액</th></tr>
+{{items_rows}}
+<tr><th colspan="4" class="c">합 계</th><td class="num">{{sum_total|won}}</td></tr>
+</table>
+<p class="center" style="font-size:13pt;margin-top:8mm">위 금액을 정히 {{kind}}함.</p>

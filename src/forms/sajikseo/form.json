@@ -1,0 +1,88 @@
+{
+ "title": "사직서",
+ "menu": "hr",
+ "order": 1,
+ "aka": [
+  "사표",
+  "퇴사",
+  "사직원"
+ ],
+ "card": "퇴사할 때 내는 기본 양식. 사유·퇴직일만 채우면 완성",
+ "h1": "사직서 양식 — 칸 채우고 바로 인쇄",
+ "seo_title": "사직서 양식 무료 작성·인쇄 (회원가입 없음)",
+ "lead": "소속·이름·퇴직 희망일·사유만 채우면 A4 사직서가 완성됩니다. 바로 인쇄하거나 PDF로 저장해 메일로 보낼 수 있어요.",
+ "description": "사직서 양식을 다운로드 없이 바로 작성하고 인쇄·PDF 저장하세요. 사직서 쓰는 법, 사직 사유 예시, 퇴사 효력 발생 시기까지 정리했습니다.",
+ "fields": [
+  {
+   "type": "group",
+   "label": "회사 정보"
+  },
+  {
+   "key": "company",
+   "label": "회사명",
+   "type": "text",
+   "placeholder": "(주)○○○○"
+  },
+  {
+   "key": "recipient",
+   "label": "받는 사람",
+   "type": "text",
+   "default": "대표이사 귀하"
+  },
+  {
+   "type": "group",
+   "label": "본인 정보"
+  },
+  {
+   "key": "dept",
+   "label": "소속(부서)",
+   "type": "text",
+   "placeholder": "영업팀"
+  },
+  {
+   "key": "position",
+   "label": "직위·직급",
+   "type": "text",
+   "placeholder": "대리"
+  },
+  {
+   "key": "name",
+   "label": "성명",
+   "type": "text",
+   "placeholder": "홍길동"
+  },
+  {
+   "key": "hire_date",
+   "label": "입사일",
+   "type": "date"
+  },
+  {
+   "type": "group",
+   "label": "사직 내용"
+  },
+  {
+   "key": "resign_date",
+   "label": "퇴직 희망일",
+   "type": "date",
+   "hint": "회사와 협의한 마지막 근무일 다음 날 또는 퇴직일"
+  },
+  {
+   "key": "reason",
+   "label": "사직 사유",
+   "type": "textarea",
+   "default": "일신상의 사유로 인하여 사직하고자 합니다.",
+   "hint": "개인 사정이면 '일신상의 사유'로 충분합니다. 권고사직·계약만료 등 회사 사정이면 사실대로 적으세요."
+  },
+  {
+   "key": "submit_date",
+   "label": "제출일",
+   "type": "date",
+   "default": "today"
+  }
+ ],
+ "related": [
+  "gyeongryeok",
+  "jaejik",
+  "simalseo"
+ ]
+}

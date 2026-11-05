@@ -1,0 +1,183 @@
+{
+ "title": "차용증",
+ "menu": "proxy",
+ "order": 1,
+ "aka": [
+  "차용증서",
+  "금전차용증",
+  "가족간 차용증",
+  "돈 빌려줄때"
+ ],
+ "card": "돈을 빌리고 빌려줄 때. 한글 금액·분할 상환표 자동",
+ "h1": "차용증 양식 — 칸 채우고 바로 인쇄",
+ "seo_title": "차용증 양식 무료 작성·인쇄 (분할 상환표 자동)",
+ "lead": "빌려준 사람·빌린 사람·금액·이자·갚을 날만 채우면 A4 차용증이 완성됩니다. 금액은 한글(일금 ○○원정)로 자동 표기되고, 분할 상환을 고르면 상환 일정표가 붙습니다.",
+ "description": "차용증 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 금액 한글 표기와 분할 상환 일정표가 자동으로 만들어집니다. 차용증에 꼭 들어갈 내용과 작성 요령을 정리했습니다.",
+ "fields": [
+  {
+   "type": "group",
+   "label": "빌려준 사람 (채권자)"
+  },
+  {
+   "key": "lender_name",
+   "label": "성명",
+   "type": "text"
+  },
+  {
+   "key": "lender_birth",
+   "label": "생년월일",
+   "type": "text",
+   "placeholder": "1965. 5. 1."
+  },
+  {
+   "key": "lender_addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "lender_phone",
+   "label": "연락처",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "빌린 사람 (채무자)"
+  },
+  {
+   "key": "borrower_name",
+   "label": "성명",
+   "type": "text"
+  },
+  {
+   "key": "borrower_birth",
+   "label": "생년월일",
+   "type": "text"
+  },
+  {
+   "key": "borrower_addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "borrower_phone",
+   "label": "연락처",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "빌린 금액과 조건"
+  },
+  {
+   "key": "principal",
+   "label": "빌린 금액(원금)",
+   "type": "money",
+   "placeholder": "10,000,000"
+  },
+  {
+   "key": "loan_date",
+   "label": "빌려준 날",
+   "type": "date"
+  },
+  {
+   "key": "how_given",
+   "label": "전달 방법",
+   "type": "select",
+   "options": [
+    "계좌이체",
+    "현금",
+    "수표"
+   ]
+  },
+  {
+   "key": "rate",
+   "label": "이자율 (연 %)",
+   "type": "number",
+   "placeholder": "예: 3",
+   "hint": "무이자면 0을 입력하세요. 이자제한법상 최고이자율을 넘는 부분은 무효입니다."
+  },
+  {
+   "key": "interest_day",
+   "label": "이자 지급일",
+   "type": "text",
+   "placeholder": "매월 25일",
+   "hint": "이자가 없으면 비워 두세요."
+  },
+  {
+   "key": "repay_method",
+   "label": "갚는 방법",
+   "type": "select",
+   "options": [
+    "만기 일시상환",
+    "매월 분할상환"
+   ]
+  },
+  {
+   "key": "due_date",
+   "label": "갚을 날 (일시상환일 때)",
+   "type": "date"
+  },
+  {
+   "key": "months",
+   "label": "분할 개월 수 (분할상환일 때)",
+   "type": "number",
+   "placeholder": "12"
+  },
+  {
+   "key": "first_due",
+   "label": "첫 상환일 (분할상환일 때)",
+   "type": "date"
+  },
+  {
+   "key": "account",
+   "label": "갚을 계좌 (채권자 계좌)",
+   "type": "text",
+   "placeholder": "○○은행 000-0000-0000 예금주 ○○○"
+  },
+  {
+   "key": "late_rate",
+   "label": "지연이자율 (연 %, 선택)",
+   "type": "number",
+   "hint": "갚을 날을 넘겼을 때 붙일 이자율. 비워 두면 조항이 빠집니다."
+  },
+  {
+   "key": "extra",
+   "label": "그 밖의 약속 (선택)",
+   "type": "textarea"
+  },
+  {
+   "type": "group",
+   "label": "연대보증인 (선택)"
+  },
+  {
+   "key": "guarantor_name",
+   "label": "성명",
+   "type": "text"
+  },
+  {
+   "key": "guarantor_birth",
+   "label": "생년월일",
+   "type": "text"
+  },
+  {
+   "key": "guarantor_addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "작성일"
+  },
+  {
+   "key": "write_date",
+   "label": "작성일",
+   "type": "date",
+   "default": "today"
+  }
+ ],
+ "notice": "이 양식은 금전 대차의 일반적인 형식을 정리한 참고용입니다. 금액이 크거나 분쟁이 걱정되면 공증(공정증서)이나 법률 상담을 함께 검토하세요.",
+ "related": [
+  "wiimjang",
+  "gakseo",
+  "ganiyeongsujeung"
+ ]
+}

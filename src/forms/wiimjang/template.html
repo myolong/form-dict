@@ -1,0 +1,19 @@
+<h1 class="doc-title">위 임 장</h1>
+<table>
+<tr><th rowspan="3">위 임 인</th><th>성 명</th><td>{{from_name}}</td><th>생년월일</th><td>{{from_birth}}</td></tr>
+<tr><th>주 소</th><td colspan="3">{{from_addr}}</td></tr>
+<tr><th>연 락 처</th><td colspan="3">{{from_phone}}</td></tr>
+<tr><th rowspan="3">대 리 인<br><span class="small">(수임인)</span></th><th>성 명</th><td>{{to_name}}</td><th>생년월일</th><td>{{to_birth}}</td></tr>
+<tr><th>주 소</th><td colspan="3">{{to_addr}}</td></tr>
+<tr><th>연 락 처</th><td>{{to_phone}}</td><th>관 계</th><td>{{relation}}</td></tr>
+</table>
+<p>본인은 위 대리인에게 다음 사항에 관한 권한을 위임합니다.</p>
+<table>
+<tr><th>제 출 처</th><td>{{submit_to}}</td></tr>
+<tr><th style="height:55mm">위임 사항</th><td style="white-space:pre-wrap;vertical-align:top">{{content}}</td></tr>
+{{#period}}<tr><th>위임 기간</th><td>{{period}}</td></tr>{{/period}}
+<tr><th>첨부 서류</th><td>{{attach}}</td></tr>
+</table>
+<p class="date-line">{{write_date|date}}</p>
+<div class="sign">위 임 인 &nbsp; {{from_name}} <span class="seal">(서명 또는 인)</span><br>대 리 인 &nbsp; {{to_name}} <span class="seal">(서명 또는 인)</span></div>
+<p class="to">{{submit_to}} 귀중</p>

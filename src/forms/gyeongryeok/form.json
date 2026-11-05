@@ -1,0 +1,112 @@
+{
+ "title": "경력증명서",
+ "menu": "hr",
+ "order": 3,
+ "aka": [
+  "경력 증명서",
+  "근무증명서"
+ ],
+ "card": "퇴사한 회사에서 받는 근무 경력 증명 양식",
+ "h1": "경력증명서 양식 — 칸 채우고 바로 인쇄",
+ "seo_title": "경력증명서 양식 무료 작성·인쇄",
+ "lead": "근무 기간·소속·담당 업무를 채우면 A4 경력증명서가 완성됩니다. 근무지가 여러 곳이면 담당 업무 칸에 줄을 바꿔 적으세요.",
+ "description": "경력증명서 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 들어갈 항목과 퇴사 후 발급 청구 기한(퇴직 후 3년)을 정리했습니다.",
+ "fields": [
+  {
+   "type": "group",
+   "label": "직원 인적 사항"
+  },
+  {
+   "key": "name",
+   "label": "성명",
+   "type": "text"
+  },
+  {
+   "key": "birth",
+   "label": "생년월일",
+   "type": "text",
+   "placeholder": "1995. 3. 15."
+  },
+  {
+   "key": "address",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "경력 사항"
+  },
+  {
+   "key": "start_date",
+   "label": "근무 시작일",
+   "type": "date"
+  },
+  {
+   "key": "end_date",
+   "label": "근무 종료일(퇴직일)",
+   "type": "date"
+  },
+  {
+   "key": "dept",
+   "label": "최종 소속",
+   "type": "text"
+  },
+  {
+   "key": "position",
+   "label": "최종 직위",
+   "type": "text"
+  },
+  {
+   "key": "job",
+   "label": "담당 업무",
+   "type": "textarea",
+   "placeholder": "2022.03~2024.02 영업관리\n2024.03~2026.10 영업기획"
+  },
+  {
+   "key": "purpose",
+   "label": "용도(제출처)",
+   "type": "text",
+   "placeholder": "입사 지원 제출용"
+  },
+  {
+   "type": "group",
+   "label": "회사 정보"
+  },
+  {
+   "key": "company",
+   "label": "회사명",
+   "type": "text"
+  },
+  {
+   "key": "biz_no",
+   "label": "사업자등록번호",
+   "type": "text"
+  },
+  {
+   "key": "company_addr",
+   "label": "회사 주소",
+   "type": "text"
+  },
+  {
+   "key": "company_tel",
+   "label": "회사 전화번호",
+   "type": "text"
+  },
+  {
+   "key": "ceo",
+   "label": "대표자 성명",
+   "type": "text"
+  },
+  {
+   "key": "issue_date",
+   "label": "발급일",
+   "type": "date",
+   "default": "today"
+  }
+ ],
+ "related": [
+  "jaejik",
+  "sajikseo",
+  "simalseo"
+ ]
+}

@@ -1,0 +1,118 @@
+{
+ "title": "견적서",
+ "menu": "trade",
+ "order": 1,
+ "aka": [
+  "견적서 양식",
+  "견적서 엑셀",
+  "견적 내기"
+ ],
+ "card": "품목·수량·단가만 넣으면 합계·부가세·한글 금액 자동",
+ "h1": "견적서 양식 — 합계·부가세 자동 계산",
+ "seo_title": "견적서 양식 무료 작성 (합계·부가세 자동, 인쇄·PDF)",
+ "lead": "품목·수량·단가만 넣으면 공급가액·부가세·합계와 한글 금액(일금 ○○원정)이 자동으로 계산됩니다. 엑셀 없이 바로 인쇄하거나 PDF로 보내세요.",
+ "description": "견적서 양식을 무료로 작성하세요. 품목과 단가만 넣으면 합계·부가세·한글 금액이 자동 계산되고 A4로 인쇄·PDF 저장됩니다. 견적서 쓰는 법과 유효기간 표기 요령도 정리했습니다.",
+ "has_items": true,
+ "min_rows": 8,
+ "fields": [
+  {
+   "type": "group",
+   "label": "받는 쪽"
+  },
+  {
+   "key": "to",
+   "label": "수신 (받는 분)",
+   "type": "text",
+   "placeholder": "(주)○○○○"
+  },
+  {
+   "key": "title",
+   "label": "건명",
+   "type": "text",
+   "placeholder": "홈페이지 제작"
+  },
+  {
+   "key": "est_date",
+   "label": "견적일",
+   "type": "date",
+   "default": "today"
+  },
+  {
+   "key": "valid",
+   "label": "유효기간",
+   "type": "text",
+   "default": "견적일로부터 30일"
+  },
+  {
+   "type": "group",
+   "label": "공급자 (보내는 쪽)"
+  },
+  {
+   "key": "sup_name",
+   "label": "상호",
+   "type": "text"
+  },
+  {
+   "key": "sup_bizno",
+   "label": "사업자등록번호",
+   "type": "text",
+   "placeholder": "000-00-00000"
+  },
+  {
+   "key": "sup_ceo",
+   "label": "대표자",
+   "type": "text"
+  },
+  {
+   "key": "sup_addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "sup_type",
+   "label": "업태 / 종목",
+   "type": "text",
+   "placeholder": "서비스 / 디자인"
+  },
+  {
+   "key": "sup_tel",
+   "label": "전화번호",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "품목"
+  },
+  {
+   "key": "vat_mode",
+   "label": "부가세",
+   "type": "select",
+   "options": [
+    "별도",
+    "포함",
+    "없음"
+   ],
+   "hint": "별도: 단가에 10%를 더함 / 포함: 단가에 이미 포함 / 없음: 부가세를 따로 표시하지 않음"
+  },
+  {
+   "type": "items",
+   "key": "items",
+   "label": "품목·수량·단가"
+  },
+  {
+   "type": "group",
+   "label": "기타"
+  },
+  {
+   "key": "note",
+   "label": "비고 (납기·결제 조건 등)",
+   "type": "textarea",
+   "placeholder": "납기: 계약 후 2주\n결제: 계약금 50%, 잔금 50%"
+  }
+ ],
+ "related": [
+  "georae",
+  "ganiyeongsujeung",
+  "jichul"
+ ]
+}

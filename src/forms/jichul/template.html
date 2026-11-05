@@ -1,0 +1,20 @@
+<h1 class="doc-title" style="margin-bottom:6mm">지 출 결 의 서</h1>
+{{approval_box}}
+<table>
+<tr><th>부 서</th><td>{{dept}}</td><th>작 성 자</th><td>{{writer}}</td></tr>
+<tr><th>작 성 일</th><td>{{write_date|date}}</td><th>지 출 일</th><td>{{pay_date|date}}</td></tr>
+<tr><th>건 명</th><td colspan="3">{{title}}</td></tr>
+<tr><th>지 급 처</th><td>{{pay_to}}</td><th>지급방법</th><td>{{pay_method}}</td></tr>
+{{#account}}<tr><th>입금계좌</th><td colspan="3">{{account}}</td></tr>{{/account}}
+</table>
+<div class="amount-box"><span>금 액 &nbsp;일금 {{sum_total|kor}}원정</span><span>(₩ {{sum_total|won}})</span></div>
+<table class="items">
+<tr><th class="c" style="width:10mm">No</th><th class="c">적 요</th><th class="c" style="width:18mm">수 량</th><th class="c" style="width:28mm">단 가</th><th class="c" style="width:32mm">금 액</th></tr>
+{{items_rows}}
+<tr><th colspan="4" class="c">합 계</th><td class="num">{{sum_total|won}}</td></tr>
+</table>
+<table>
+<tr><th>첨 부</th><td>{{attach}}</td></tr>
+<tr><th>비 고</th><td style="white-space:pre-wrap;height:16mm">{{note}}</td></tr>
+</table>
+<p class="center" style="margin-top:8mm">위 금액을 지출하고자 하오니 결재하여 주시기 바랍니다.</p>

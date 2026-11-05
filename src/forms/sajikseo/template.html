@@ -1,0 +1,13 @@
+<h1 class="doc-title">사 직 서</h1>
+<table>
+<tr><th>소 속</th><td>{{dept}}</td><th>직 위</th><td>{{position}}</td></tr>
+<tr><th>성 명</th><td colspan="3">{{name}}</td></tr>
+<tr><th>입 사 일</th><td>{{hire_date|date}}</td><th>퇴직 희망일</th><td>{{resign_date|date}}</td></tr>
+</table>
+<table>
+<tr><th style="height:50mm">사 유</th><td style="white-space:pre-wrap;vertical-align:top">{{reason}}</td></tr>
+</table>
+<p class="body-text" style="min-height:0">본인은 위와 같은 사유로 {{resign_date|date}}자로 사직하고자 하오니 허락하여 주시기 바랍니다.</p>
+<p class="date-line">{{submit_date|date}}</p>
+<div class="sign">위 본인 &nbsp; {{name}} <span class="seal">(서명 또는 인)</span></div>
+<p class="to">{{company}} &nbsp;{{recipient}}</p>

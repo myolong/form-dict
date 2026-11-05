@@ -1,0 +1,24 @@
+<h1 class="doc-title">차 용 증</h1>
+<div class="amount-box"><span>금 {{principal|kor}}원정</span><span>(₩ {{principal|won}})</span></div>
+<table>
+<tr><th rowspan="2">채 권 자<br><span class="small">(빌려준 사람)</span></th><th>성 명</th><td>{{lender_name}}</td><th>생년월일</th><td>{{lender_birth}}</td></tr>
+<tr><th>주 소</th><td>{{lender_addr}}</td><th>연 락 처</th><td>{{lender_phone}}</td></tr>
+<tr><th rowspan="2">채 무 자<br><span class="small">(빌린 사람)</span></th><th>성 명</th><td>{{borrower_name}}</td><th>생년월일</th><td>{{borrower_birth}}</td></tr>
+<tr><th>주 소</th><td>{{borrower_addr}}</td><th>연 락 처</th><td>{{borrower_phone}}</td></tr>
+</table>
+<ol class="terms">
+<li>채무자는 채권자로부터 위 금액을 {{loan_date|date}}에 {{how_given}}(으)로 틀림없이 빌렸습니다.</li>
+{{^__norate}}<li>이자는 연 {{rate}}%로 하고, {{interest_day}}에 채권자에게 지급합니다.</li>{{/__norate}}{{#__norate}}<li>이자는 없는 것으로 합니다.</li>{{/__norate}}
+{{^__split}}<li>채무자는 원금을 {{due_date|date}}까지 채권자에게 갚습니다.</li>{{/__split}}{{#__split}}<li>채무자는 원금을 {{first_due|date}}부터 {{months}}개월 동안 매월 나누어 갚으며, 회차별 금액은 아래 상환 일정표와 같습니다. 분할금을 2회 이상 갚지 않으면 남은 원금을 한꺼번에 갚습니다.</li>{{/__split}}
+<li>원금과 이자는 채권자 계좌({{account}})로 보냅니다.</li>
+{{^__nolate}}<li>갚을 날까지 갚지 않으면 그다음 날부터 다 갚는 날까지 연 {{late_rate}}%의 지연손해금을 더하여 지급합니다.</li>{{/__nolate}}
+{{#extra}}<li style="white-space:pre-wrap">{{extra}}</li>{{/extra}}
+<li>이 차용증은 2통을 작성하여 채권자와 채무자가 서명(날인)한 뒤 각 1통씩 보관합니다.</li>
+</ol>
+<p class="date-line" style="margin:6mm 0">{{write_date|date}}</p>
+<table>
+<tr><th>채 권 자</th><td>{{lender_name}} <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>
+<tr><th>채 무 자</th><td>{{borrower_name}} <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>
+{{#guarantor_name}}<tr><th>연대보증인</th><td>{{guarantor_name}} ({{guarantor_birth}}) {{guarantor_addr}} <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>{{/guarantor_name}}
+</table>
+{{schedule}}
