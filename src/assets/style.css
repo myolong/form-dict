@@ -107,14 +107,15 @@ h3{font-size:17px;margin:20px 0 6px}
 }
 @media print{
   @page{size:A4;margin:0}
-  body{background:#fff}
-  body *{visibility:hidden}
-  .paper,.paper *{visibility:visible}
-  .site-header,.site-footer,.form-panel,.article,.related,.crumbs,main>h1,main>.lead,.ad-slot,.notice{display:none !important}
-  .paper{position:absolute;left:0;top:0;box-shadow:none;margin:0}
-  .preview-wrap{background:none;padding:0}
-  .preview-scale{transform:none !important}
-  main,.wrap{padding:0;margin:0;max-width:none}
+  html,body{width:210mm;margin:0;padding:0;background:#fff !important;background-image:none !important}
+  body>*:not(main){display:none !important}
+  main.wrap{padding:0 !important;margin:0 !important;max-width:none !important;width:210mm}
+  main>*:not(.form-layout){display:none !important}
+  .form-layout{display:block !important;gap:0}
+  .form-layout>*:not(:last-child){display:none !important}
+  .preview-wrap{background:none !important;padding:0 !important;border-radius:0;overflow:visible !important}
+  .preview-scale{transform:none !important;width:auto !important;height:auto !important}
+  .paper{position:static;box-shadow:none;margin:0;width:210mm;min-height:296mm}
 }
 
 .paper .page-break{break-before:page;page-break-before:always;padding-top:16mm}
