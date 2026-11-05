@@ -302,6 +302,41 @@
     draw();
     return box;
   }
+  /* numbered: true 인 여러 줄 칸 — 엔터를 치면 "1. → 2. → 3." 순서로 번호를 붙인다.
+     한글 입력 중 엔터도 놓치지 않도록 줄바꿈이 들어간 '뒤'(input 이벤트)에 처리한다. */
+  function renumber(text) {
+    var n = 0;
+    return text.split("\n").map(function (line) {
+      var m = line.match(/^\s*\d+\.\s?(.*)$/);
+      if (!m) return line;
+      n += 1;
+      return n + ". " + m[1];
+    }).join("\n");
+  }
+  function numberedList(ta) {
+    ta.addEventListener("focus", function () {
+      if (!ta.value) { ta.value = "1. "; ta.setSelectionRange(3, 3); ta.dispatchEvent(new Event("input")); }
+    });
+    ta.addEventListener("blur", function () {
+      if (/^\s*1\.\s*$/.test(ta.value)) { ta.value = ""; ta.dispatchEvent(new Event("input")); }
+    });
+    ta.addEventListener("input", function (e) {
+      if (!e.inputType || (e.inputType !== "insertLineBreak" && e.inputType !== "insertParagraph")) return;
+      var pos = ta.selectionStart, v = ta.value;
+      var before = v.slice(0, pos), after = v.slice(pos);
+      var prevLine = before.slice(0, -1).split("\n").pop();
+      if (/^\s*\d+\.\s*$/.test(prevLine)) {          // 빈 번호 줄에서 엔터 → 번호 끝내기
+        before = before.slice(0, before.length - 1 - prevLine.length);
+        ta.value = renumber(before + after);
+        ta.setSelectionRange(before.length, before.length);
+        return;
+      }
+      var head = renumber(before + "0. ");             // 새 줄에 임시 번호를 넣고 전체를 다시 매김
+      var full = renumber(before + "0. " + after);
+      ta.value = full;
+      ta.setSelectionRange(head.length, head.length);
+    }, true);
+  }
   /* show_if: {"key":..., "eq":...} 조건이 맞을 때만 칸을 보여 준다 */
   function updateVisibility() {
     panel.querySelectorAll("[data-show-key]").forEach(function (el) {
@@ -337,6 +372,7 @@
       if (f.placeholder) input.placeholder = f.placeholder;
       input.value = state[f.key] == null ? "" : state[f.key];
       if (f.type === "money" && input.value) input.value = won(num(input.value));
+      if (f.numbered) numberedList(input);
       input.addEventListener("input", function () {
         if (f.type === "money") {
           var digits = input.value.replace(/[^0-9]/g, "");
