@@ -149,3 +149,5 @@ main>h1{font-family:"Nanum Pen Script",cursive;font-size:44px;font-weight:400}
 .group-title{color:var(--brand)}
 .article{border:1.5px solid #2b2a27;border-radius:6px}
 @media print{body{background:#fff !important;background-image:none !important}}
+.logo{display:inline-flex;align-items:center;gap:9px}
+.logo img{display:block;border-radius:7px;flex:none}
