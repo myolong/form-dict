@@ -151,11 +151,28 @@
    "placeholder": "있음 (○○○원) / 없음"
   },
   {
+   "key": "meal",
+   "label": "식대",
+   "type": "select",
+   "options": [
+    "위 임금에 포함",
+    "위 임금과 별도 지급",
+    "지급하지 않음"
+   ],
+   "hint": "식대가 위 임금 금액에 들어 있는지, 따로 주는지 고르세요."
+  },
+  {
+   "key": "meal_amount",
+   "label": "식대 금액 (월, 원)",
+   "type": "money",
+   "hint": "지급하지 않으면 비워 두세요."
+  },
+  {
    "key": "extra_pay",
    "label": "기타 급여(수당 등)",
    "type": "text",
    "default": "없음",
-   "placeholder": "식대 ○○원, 자격수당 ○○원"
+   "placeholder": "자격수당 ○○원, 교통비 ○○원"
   },
   {
    "key": "pay_day",
