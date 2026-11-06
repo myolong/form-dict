@@ -1,0 +1,89 @@
+{
+ "title": "사실확인서",
+ "menu": "proxy",
+ "order": 6,
+ "aka": [
+  "사실 확인서",
+  "확인서 양식",
+  "사실확인서 작성법",
+  "인우보증서"
+ ],
+ "card": "내가 보고 들은 사실을 확인해 줄 때",
+ "h1": "사실확인서 양식 — 칸 채우고 바로 인쇄",
+ "seo_title": "사실확인서 양식 무료 작성·인쇄 (쓰는 법·예시)",
+ "lead": "확인하는 사람의 인적사항과 확인할 사실을 적으면 A4 사실확인서가 완성됩니다. 회사·관공서·보험사 등에 제출할 때 쓰세요.",
+ "description": "사실확인서 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 사실확인서에 들어갈 내용, 쓰는 법, 신분증 사본 등 함께 낼 서류를 정리했습니다.",
+ "fields": [
+  {
+   "type": "group",
+   "label": "확인하는 사람 (확인자)"
+  },
+  {
+   "key": "name",
+   "label": "성명",
+   "type": "text"
+  },
+  {
+   "key": "birth",
+   "label": "생년월일",
+   "type": "text"
+  },
+  {
+   "key": "addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "phone",
+   "label": "연락처",
+   "type": "text"
+  },
+  {
+   "key": "relation",
+   "label": "대상자와의 관계 (선택)",
+   "type": "text",
+   "placeholder": "직장 동료 / 이웃 / 가족"
+  },
+  {
+   "type": "group",
+   "label": "확인 내용"
+  },
+  {
+   "key": "title",
+   "label": "제목 (선택)",
+   "type": "text",
+   "placeholder": "근무 사실 확인"
+  },
+  {
+   "key": "content",
+   "label": "확인할 사실",
+   "type": "textarea",
+   "default": "본인은 ○○○이(가) 2026년 ○월 ○일부터 ○월 ○일까지 ○○에서 ○○한 사실을 직접 보고 알고 있으므로 이를 확인합니다.",
+   "hint": "언제, 어디서, 누가, 무엇을 했는지 본인이 직접 겪은 사실만 적으세요."
+  },
+  {
+   "key": "submit_to",
+   "label": "제출처",
+   "type": "text",
+   "placeholder": "○○회사 인사팀"
+  },
+  {
+   "key": "attach",
+   "label": "첨부 서류",
+   "type": "text",
+   "default": "확인자 신분증 사본 1부"
+  },
+  {
+   "key": "write_date",
+   "label": "작성일",
+   "type": "date",
+   "default": "today"
+  }
+ ],
+ "notice": "법원·수사기관에 내는 진술서, 관공서가 정한 확인서 서식이 있는 경우에는 그 서식을 우선 쓰세요. 사실과 다른 내용을 적으면 법적 책임이 따를 수 있습니다.",
+ "related": [
+  "hapuiseo",
+  "gakseo",
+  "wiimjang"
+ ]
+}

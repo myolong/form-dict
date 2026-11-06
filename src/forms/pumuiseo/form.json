@@ -1,0 +1,97 @@
+{
+ "title": "품의서",
+ "menu": "approval",
+ "order": 2,
+ "aka": [
+  "품의서 양식",
+  "구매 품의서",
+  "지출 품의서",
+  "기안 품의서"
+ ],
+ "card": "일을 진행하기 전에 윗사람 승인을 받는 문서. 결재란 선택",
+ "h1": "품의서 양식 — 결재란 선택·예상 비용 자동 합계",
+ "seo_title": "품의서 양식 무료 작성 (결재란 선택·구매 품의서 예시)",
+ "lead": "결재란 직위를 원하는 대로 바꾸고, 품의 내용과 예상 비용을 적으면 합계가 자동으로 들어간 A4 품의서가 완성됩니다.",
+ "description": "품의서 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 결재란 칸 수 변경, 예상 비용 합계 자동 계산, 품의서 쓰는 법과 지출결의서와의 차이를 정리했습니다.",
+ "has_items": true,
+ "min_rows": 3,
+ "simple_items": true,
+ "vat_default": "없음",
+ "approval_default": "담당,팀장,대표",
+ "fields": [
+  {
+   "type": "group",
+   "label": "결재란"
+  },
+  {
+   "key": "approval",
+   "label": "결재 직위 (쉼표로 구분)",
+   "type": "text",
+   "default": "담당,팀장,대표",
+   "hint": "예: 담당,팀장,이사,대표 (최대 6칸)"
+  },
+  {
+   "type": "group",
+   "label": "기본 정보"
+  },
+  {
+   "key": "dept",
+   "label": "기안 부서",
+   "type": "text"
+  },
+  {
+   "key": "writer",
+   "label": "기안자",
+   "type": "text"
+  },
+  {
+   "key": "write_date",
+   "label": "기안일",
+   "type": "date",
+   "default": "today"
+  },
+  {
+   "key": "do_date",
+   "label": "시행(예정)일",
+   "type": "date"
+  },
+  {
+   "key": "title",
+   "label": "제목",
+   "type": "text",
+   "placeholder": "사무용 노트북 구입 품의"
+  },
+  {
+   "key": "content",
+   "label": "품의 내용",
+   "type": "textarea",
+   "default": "1. 목적: \n2. 내용: \n3. 기대 효과: ",
+   "hint": "목적·내용·기대 효과 순으로 적으면 읽기 쉬워요."
+  },
+  {
+   "type": "group",
+   "label": "예상 비용 (없으면 비워 두기)"
+  },
+  {
+   "type": "items",
+   "key": "items",
+   "label": "항목·수량·단가"
+  },
+  {
+   "key": "attach",
+   "label": "첨부",
+   "type": "text",
+   "default": "견적서 1부"
+  },
+  {
+   "key": "note",
+   "label": "비고",
+   "type": "textarea"
+  }
+ ],
+ "related": [
+  "jichul",
+  "gyeonjeokseo",
+  "georae"
+ ]
+}

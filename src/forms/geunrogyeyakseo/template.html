@@ -1,0 +1,26 @@
+<h1 class="doc-title" style="margin-bottom:5mm">근 로 계 약 서</h1>
+<p style="margin:0 0 3mm">{{company}} (이하 "사업주"라 함)과(와) {{emp_name}} (이하 "근로자"라 함)은 다음과 같이 근로계약을 체결한다.</p>
+<ol class="terms" style="font-size:10.5pt">
+<li><b>근로계약기간</b>: {{start_date|date}}부터 {{#__fixed}}{{end_date|date}}까지{{/__fixed}}{{^__fixed}}(기간의 정함이 없음){{/__fixed}}</li>
+<li><b>근무 장소</b>: {{work_place}}</li>
+<li><b>업무의 내용</b>: {{job}}</li>
+<li><b>소정근로시간</b>: {{work_time}} (휴게시간: {{break_time}})</li>
+<li><b>근무일/휴일</b>: {{work_days}}, 주휴일 {{holiday}}</li>
+<li><b>임금</b>
+<table style="margin:1.5mm 0 1mm"><tr><th>{{wage_type}}</th><td>{{wage|won}} 원</td><th>상 여 금</th><td>{{bonus}}</td></tr>
+<tr><th>기타급여</th><td colspan="3">{{extra_pay}}</td></tr>
+<tr><th>지 급 일</th><td>{{pay_day}}</td><th>지급방법</th><td>{{pay_method}}</td></tr></table></li>
+<li><b>연차유급휴가</b>: 연차유급휴가는 근로기준법에서 정하는 바에 따라 부여한다.</li>
+<li><b>사회보험 적용</b>: {{insurance}}</li>
+<li><b>근로계약서 교부</b>: 사업주는 근로계약을 체결함과 동시에 이 계약서를 사본하여 근로자의 교부 요구와 관계없이 근로자에게 교부한다(근로기준법 제17조).</li>
+<li><b>성실한 이행 의무</b>: 사업주와 근로자는 각자가 근로계약, 취업규칙, 단체협약을 지키고 성실하게 이행하여야 한다.</li>
+{{#etc}}<li style="white-space:pre-wrap"><b>기타</b>: {{etc}}</li>{{/etc}}
+</ol>
+<div data-grow="1"></div>
+<p class="date-line" style="margin:5mm 0 4mm">{{write_date|date}}</p>
+<table>
+<tr><th rowspan="2">사 업 주</th><th style="width:20mm">사업체명</th><td>{{company}}</td><th style="width:16mm">전 화</th><td>{{company_tel}}</td></tr>
+<tr><th>주 소</th><td colspan="3">{{company_addr}}<br>대표자 {{ceo}} <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>
+<tr><th rowspan="2">근 로 자</th><th>주 소</th><td colspan="3">{{emp_addr}}</td></tr>
+<tr><th>연 락 처</th><td>{{emp_phone}}</td><th>성 명</th><td>{{emp_name}} <span style="float:right;color:#777">(서명 또는 인)</span></td></tr>
+</table>

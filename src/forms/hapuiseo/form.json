@@ -1,0 +1,126 @@
+{
+ "title": "합의서",
+ "menu": "proxy",
+ "order": 5,
+ "aka": [
+  "합의서 양식",
+  "합의서 작성법",
+  "개인 합의서"
+ ],
+ "card": "다툼이나 약속을 서로 합의한 내용으로 정리할 때",
+ "h1": "합의서 양식 — 칸 채우고 바로 인쇄",
+ "seo_title": "합의서 양식 무료 작성·인쇄 (쓰는 법·예시)",
+ "lead": "두 사람(갑·을)이 무엇을 합의했는지, 돈을 주고받는다면 얼마를 언제 어떻게 주는지 적으면 A4 합의서가 완성됩니다.",
+ "description": "합의서 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 합의서에 꼭 들어갈 내용, 합의금 적는 법, 주의할 점을 정리했습니다.",
+ "fields": [
+  {
+   "type": "group",
+   "label": "당사자 갑"
+  },
+  {
+   "key": "a_name",
+   "label": "성명(상호)",
+   "type": "text"
+  },
+  {
+   "key": "a_birth",
+   "label": "생년월일",
+   "type": "text"
+  },
+  {
+   "key": "a_addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "a_phone",
+   "label": "연락처",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "당사자 을"
+  },
+  {
+   "key": "b_name",
+   "label": "성명(상호)",
+   "type": "text"
+  },
+  {
+   "key": "b_birth",
+   "label": "생년월일",
+   "type": "text"
+  },
+  {
+   "key": "b_addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "b_phone",
+   "label": "연락처",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "합의 내용"
+  },
+  {
+   "key": "subject",
+   "label": "합의 대상(사건)",
+   "type": "text",
+   "placeholder": "2026. 10. 30. ○○에서 발생한 접촉 사고"
+  },
+  {
+   "key": "content",
+   "label": "합의 사항",
+   "type": "textarea",
+   "default": "1. 갑과 을은 위 건에 관하여 아래와 같이 원만히 합의한다.\n2. \n3. ",
+   "hint": "번호를 붙여 하나씩 적으세요."
+  },
+  {
+   "key": "money",
+   "label": "합의금 (원, 없으면 비워 두기)",
+   "type": "money"
+  },
+  {
+   "key": "pay_who",
+   "label": "지급하는 사람",
+   "type": "text",
+   "placeholder": "을이 갑에게"
+  },
+  {
+   "key": "pay_date",
+   "label": "지급일",
+   "type": "date"
+  },
+  {
+   "key": "pay_how",
+   "label": "지급 방법",
+   "type": "text",
+   "default": "계좌이체",
+   "placeholder": "갑 명의 ○○은행 000-000-000000"
+  },
+  {
+   "key": "no_claim",
+   "label": "이후 추가 청구 안 하기 조항",
+   "type": "select",
+   "options": [
+    "넣기",
+    "빼기"
+   ]
+  },
+  {
+   "key": "write_date",
+   "label": "작성일",
+   "type": "date",
+   "default": "today"
+  }
+ ],
+ "notice": "교통사고 형사합의, 이혼, 부동산 등 법적 효과가 큰 합의는 정해진 서식이나 절차가 따로 있을 수 있습니다. 분쟁 금액이 크거나 내용이 복잡하면 대한법률구조공단(국번 없이 132) 등에 먼저 상담하세요.",
+ "related": [
+  "gakseo",
+  "chayongjeung",
+  "sasilhwaginseo"
+ ]
+}

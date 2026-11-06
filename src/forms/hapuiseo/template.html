@@ -1,0 +1,16 @@
+<h1 class="doc-title">합 의 서</h1>
+<table>
+<tr><th rowspan="2">갑</th><th>성명(상호)</th><td>{{a_name}}</td><th>생년월일</th><td>{{a_birth}}</td></tr>
+<tr><th>주 소</th><td>{{a_addr}}</td><th>연 락 처</th><td>{{a_phone}}</td></tr>
+<tr><th rowspan="2">을</th><th>성명(상호)</th><td>{{b_name}}</td><th>생년월일</th><td>{{b_birth}}</td></tr>
+<tr><th>주 소</th><td>{{b_addr}}</td><th>연 락 처</th><td>{{b_phone}}</td></tr>
+</table>
+<table>
+<tr><th>합의 대상</th><td>{{subject}}</td></tr>
+<tr><th style="height:60mm" data-grow="1">합의 사항</th><td style="white-space:pre-wrap;vertical-align:top">{{content}}</td></tr>
+{{#money}}<tr><th>합 의 금</th><td>일금 {{money|kor}}원정 (₩ {{money|won}})<br>{{pay_who}} {{pay_date|date}}까지 {{pay_how}}(으)로 지급한다.</td></tr>{{/money}}
+</table>
+{{#__noclaim}}<p class="small" style="font-size:10pt">갑과 을은 이 합의서에 정한 사항 외에는 위 건에 관하여 앞으로 서로 민사상·형사상 이의를 제기하거나 추가로 청구하지 않기로 한다.</p>{{/__noclaim}}
+<p>위와 같이 합의하였음을 확인하기 위하여 합의서 2통을 작성하여 서명(날인)한 후 각 1통씩 보관한다.</p>
+<p class="date-line">{{write_date|date}}</p>
+<div class="sign">갑 &nbsp; {{a_name}} <span class="seal">(서명 또는 인)</span><br>을 &nbsp; {{b_name}} <span class="seal">(서명 또는 인)</span></div>

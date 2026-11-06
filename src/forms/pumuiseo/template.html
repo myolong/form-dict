@@ -1,0 +1,20 @@
+<h1 class="doc-title" style="margin-bottom:6mm">품 의 서</h1>
+{{approval_box}}
+<table>
+<tr><th>기안 부서</th><td>{{dept}}</td><th>기 안 자</th><td>{{writer}}</td></tr>
+<tr><th>기 안 일</th><td>{{write_date|date}}</td><th>시 행 일</th><td>{{do_date|date}}</td></tr>
+<tr><th>제 목</th><td colspan="3">{{title}}</td></tr>
+</table>
+<table>
+<tr><th style="height:60mm" data-grow="1">품의 내용</th><td style="white-space:pre-wrap;vertical-align:top">{{content}}</td></tr>
+</table>
+<table class="items">
+<tr><th class="c" style="width:10mm">No</th><th class="c">항 목</th><th class="c" style="width:18mm">수 량</th><th class="c" style="width:28mm">단 가</th><th class="c" style="width:32mm">금 액</th></tr>
+{{items_rows}}
+<tr><th colspan="4" class="c">예상 비용 합계</th><td class="num">{{sum_total|won}}</td></tr>
+</table>
+<table>
+<tr><th>첨 부</th><td>{{attach}}</td></tr>
+{{#note}}<tr><th>비 고</th><td style="white-space:pre-wrap">{{note}}</td></tr>{{/note}}
+</table>
+<p class="center" style="margin-top:6mm">위와 같이 품의하오니 재가하여 주시기 바랍니다.</p>

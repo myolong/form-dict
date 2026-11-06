@@ -1,0 +1,204 @@
+{
+ "title": "근로계약서",
+ "menu": "hr",
+ "order": 2,
+ "aka": [
+  "표준근로계약서",
+  "근로계약서 양식",
+  "알바 근로계약서",
+  "계약직 근로계약서"
+ ],
+ "card": "채용할 때 근로조건을 서면으로 정하는 계약서",
+ "h1": "근로계약서 양식 — 칸 채우고 바로 인쇄",
+ "seo_title": "근로계약서 양식 무료 작성·인쇄 (표준근로계약서 항목)",
+ "lead": "계약 기간, 근무 장소와 업무, 근로시간, 휴일, 임금만 채우면 A4 근로계약서가 완성됩니다. 정규직·계약직 모두 쓸 수 있어요.",
+ "description": "근로계약서 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 고용노동부 표준근로계약서 항목 기준, 근로기준법상 꼭 적어야 할 근로조건과 쓰는 법을 정리했습니다.",
+ "fields": [
+  {
+   "type": "group",
+   "label": "사업주"
+  },
+  {
+   "key": "company",
+   "label": "사업체명",
+   "type": "text"
+  },
+  {
+   "key": "ceo",
+   "label": "대표자",
+   "type": "text"
+  },
+  {
+   "key": "company_addr",
+   "label": "사업장 주소",
+   "type": "text"
+  },
+  {
+   "key": "company_tel",
+   "label": "전화",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "근로자"
+  },
+  {
+   "key": "emp_name",
+   "label": "성명",
+   "type": "text"
+  },
+  {
+   "key": "emp_addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "emp_phone",
+   "label": "연락처",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "계약 기간·업무"
+  },
+  {
+   "key": "contract_type",
+   "label": "계약 기간",
+   "type": "select",
+   "options": [
+    "기간의 정함이 없음 (정규직)",
+    "기간의 정함이 있음 (계약직)"
+   ]
+  },
+  {
+   "key": "start_date",
+   "label": "근로 시작일",
+   "type": "date"
+  },
+  {
+   "key": "end_date",
+   "label": "계약 종료일",
+   "type": "date",
+   "show_if": {
+    "key": "contract_type",
+    "eq": "기간의 정함이 있음 (계약직)"
+   }
+  },
+  {
+   "key": "work_place",
+   "label": "근무 장소",
+   "type": "text",
+   "placeholder": "본사 사무실"
+  },
+  {
+   "key": "job",
+   "label": "업무 내용",
+   "type": "text",
+   "placeholder": "경영지원(회계·총무)"
+  },
+  {
+   "type": "group",
+   "label": "근로시간·휴일"
+  },
+  {
+   "key": "work_time",
+   "label": "소정근로시간",
+   "type": "text",
+   "default": "09시 00분부터 18시 00분까지"
+  },
+  {
+   "key": "break_time",
+   "label": "휴게시간",
+   "type": "text",
+   "default": "12시 00분부터 13시 00분까지"
+  },
+  {
+   "key": "work_days",
+   "label": "근무일",
+   "type": "text",
+   "default": "매주 5일(월~금) 근무"
+  },
+  {
+   "key": "holiday",
+   "label": "주휴일",
+   "type": "text",
+   "default": "매주 일요일"
+  },
+  {
+   "type": "group",
+   "label": "임금"
+  },
+  {
+   "key": "wage_type",
+   "label": "임금 형태",
+   "type": "select",
+   "options": [
+    "월급",
+    "일급",
+    "시급"
+   ]
+  },
+  {
+   "key": "wage",
+   "label": "금액 (원)",
+   "type": "money"
+  },
+  {
+   "key": "bonus",
+   "label": "상여금",
+   "type": "text",
+   "default": "없음",
+   "placeholder": "있음 (○○○원) / 없음"
+  },
+  {
+   "key": "extra_pay",
+   "label": "기타 급여(수당 등)",
+   "type": "text",
+   "default": "없음",
+   "placeholder": "식대 ○○원, 자격수당 ○○원"
+  },
+  {
+   "key": "pay_day",
+   "label": "임금 지급일",
+   "type": "text",
+   "default": "매월 25일 (휴일인 경우 전날 지급)"
+  },
+  {
+   "key": "pay_method",
+   "label": "지급 방법",
+   "type": "select",
+   "options": [
+    "근로자 명의 예금통장에 입금",
+    "근로자에게 직접 지급"
+   ]
+  },
+  {
+   "type": "group",
+   "label": "그 밖의 사항"
+  },
+  {
+   "key": "insurance",
+   "label": "사회보험 적용",
+   "type": "text",
+   "default": "고용보험, 산재보험, 국민연금, 건강보험"
+  },
+  {
+   "key": "etc",
+   "label": "기타 (선택)",
+   "type": "textarea",
+   "default": "이 계약에 정함이 없는 사항은 근로기준법령에 따릅니다."
+  },
+  {
+   "key": "write_date",
+   "label": "계약일",
+   "type": "date",
+   "default": "today"
+  }
+ ],
+ "notice": "18세 미만 근로자, 단시간(아르바이트) 근로자, 건설일용 근로자 등은 고용노동부가 별도 표준근로계약서를 두고 있습니다. 회사에 정해진 양식이 있으면 그것을 우선 쓰세요.",
+ "related": [
+  "sajikseo",
+  "jaejik",
+  "gyeongryeok"
+ ]
+}

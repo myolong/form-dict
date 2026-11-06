@@ -1,0 +1,15 @@
+<h1 class="doc-title">사 실 확 인 서</h1>
+<table>
+<tr><th rowspan="3">확 인 자</th><th>성 명</th><td>{{name}}</td><th>생년월일</th><td>{{birth}}</td></tr>
+<tr><th>주 소</th><td colspan="3">{{addr}}</td></tr>
+<tr><th>연 락 처</th><td>{{phone}}</td><th>관 계</th><td>{{relation}}</td></tr>
+</table>
+<table>
+{{#title}}<tr><th>제 목</th><td>{{title}}</td></tr>{{/title}}
+<tr><th style="height:90mm" data-grow="1">확인 내용</th><td style="white-space:pre-wrap;vertical-align:top">{{content}}</td></tr>
+<tr><th>첨부 서류</th><td>{{attach}}</td></tr>
+</table>
+<p class="center" style="margin-top:6mm">위 내용은 사실과 다름이 없음을 확인합니다.</p>
+<p class="date-line">{{write_date|date}}</p>
+<div class="sign">확 인 자 &nbsp; {{name}} <span class="seal">(서명 또는 인)</span></div>
+<p class="to">{{submit_to}} 귀중</p>
