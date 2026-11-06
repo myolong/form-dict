@@ -1,14 +1,16 @@
-<h1 class="doc-title" style="margin-bottom:5mm">근 로 계 약 서</h1>
+<h1 class="doc-title" style="margin-bottom:2mm">근 로 계 약 서</h1>
+<p class="center" style="margin:0 0 4mm">(연봉제 · 정규직)</p>
 <p style="margin:0 0 3mm">{{company}} (이하 "사업주"라 함)과(와) {{emp_name}} (이하 "근로자"라 함)은 다음과 같이 근로계약을 체결한다.</p>
 <ol class="terms" style="font-size:10.5pt">
-<li><b>근로계약기간</b>: {{start_date|date}}부터 {{#__fixed}}{{end_date|date}}까지{{/__fixed}}{{^__fixed}}(기간의 정함이 없음){{/__fixed}}</li>
+<li><b>근로계약기간</b>: {{start_date|date}}부터 (기간의 정함이 없음){{#probation}}<br>수습기간: {{probation}}{{/probation}}</li>
 <li><b>근무 장소</b>: {{work_place}}</li>
 <li><b>업무의 내용</b>: {{job}}</li>
 <li><b>소정근로시간</b>: {{work_time}} (휴게시간: {{break_time}})</li>
 <li><b>근무일/휴일</b>: {{work_days}}, 주휴일 {{holiday}}</li>
 <li><b>임금</b>
-<table style="margin:1.5mm 0 1mm"><tr><th>{{wage_type}}</th><td>{{wage|won}} 원{{#__monthly}}<br><span class="small">(매월 {{__monthly}}원씩 나누어 지급)</span>{{/__monthly}}</td><th>상 여 금</th><td>{{bonus}}</td></tr>
-<tr><th>식 대</th><td>{{meal}}{{#meal_amount}} (월 {{meal_amount|won}}원){{/meal_amount}}</td><th>기타급여</th><td>{{extra_pay}}</td></tr>
+<table style="margin:1.5mm 0 1mm"><tr><th>연 봉</th><td colspan="3">{{annual_wage|won}} 원{{#__monthly}} &nbsp;<span class="small">(매월 {{__monthly}}원씩 나누어 지급)</span>{{/__monthly}}{{#wage_detail}}<br><span class="small">구성: {{wage_detail}}</span>{{/wage_detail}}</td></tr>
+<tr><th>상 여 금</th><td>{{bonus}}</td><th>식 대</th><td>{{meal}}{{#meal_amount}} (월 {{meal_amount|won}}원){{/meal_amount}}</td></tr>
+<tr><th>기타급여</th><td colspan="3">{{extra_pay}}</td></tr>
 <tr><th>지 급 일</th><td>{{pay_day}}</td><th>지급방법</th><td>{{pay_method}}</td></tr></table></li>
 <li><b>연차유급휴가</b>: 연차유급휴가는 근로기준법에서 정하는 바에 따라 부여한다.</li>
 <li><b>사회보험 적용</b>: {{insurance}}</li>

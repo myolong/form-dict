@@ -157,7 +157,7 @@
     state.__minor = state.minor === "예" ? "1" : "";
     state.__fixed = /^기간의 정함이 있음/.test(state.contract_type || "") ? "1" : "";
     state.__noclaim = state.no_claim === "넣기" ? "1" : "";
-    var annual = state.wage_type === "연봉" ? num(state.wage) : 0;
+    var annual = num(state.annual_wage) || (state.wage_type === "연봉" ? num(state.wage) : 0);
     state.__monthly = annual ? (annual % 12 ? "약 " : "") + won(Math.floor(annual / 12)) : "";
     var html = F.template.replace(/\{\{#(\w+)\}\}([\s\S]*?)\{\{\/\1\}\}/g, function (_, k, inner) {
       return !blankMode && state[k] ? inner : "";

@@ -1,0 +1,248 @@
+{
+ "title": "알바 근로계약서 (시급·월급)",
+ "menu": "hr",
+ "order": 3,
+ "aka": [
+  "알바 계약서",
+  "아르바이트 근로계약서",
+  "단시간 근로계약서",
+  "시급 근로계약서",
+  "파트타임 계약서"
+ ],
+ "card": "아르바이트·단시간 근무자를 시급·월급으로 채용할 때",
+ "h1": "알바 근로계약서 양식 — 시급·월급, 칸 채우고 바로 인쇄",
+ "seo_title": "알바 근로계약서 양식 무료 작성 (시급·월급·단시간)",
+ "lead": "근무 요일과 시간, 1주 근무시간, 시급(또는 월급)만 채우면 A4 알바 근로계약서가 완성됩니다. 18세 미만이면 필요한 서류 안내도 함께 들어가요.",
+ "description": "알바(아르바이트) 근로계약서 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 시급·월급 선택, 1주 근로시간, 주휴일, 18세 미만 근로자 서류 등 쓰는 법을 정리했습니다.",
+ "fields": [
+  {
+   "type": "group",
+   "label": "사업주"
+  },
+  {
+   "key": "company",
+   "label": "사업체명",
+   "type": "text"
+  },
+  {
+   "key": "ceo",
+   "label": "대표자",
+   "type": "text"
+  },
+  {
+   "key": "company_addr",
+   "label": "사업장 주소",
+   "type": "text"
+  },
+  {
+   "key": "company_tel",
+   "label": "전화",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "근로자"
+  },
+  {
+   "key": "emp_name",
+   "label": "성명",
+   "type": "text"
+  },
+  {
+   "key": "emp_addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "emp_phone",
+   "label": "연락처",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "계약 기간·업무"
+  },
+  {
+   "key": "contract_type",
+   "label": "계약 기간",
+   "type": "select",
+   "options": [
+    "기간의 정함이 있음",
+    "기간의 정함이 없음"
+   ]
+  },
+  {
+   "key": "start_date",
+   "label": "근로 시작일",
+   "type": "date"
+  },
+  {
+   "key": "end_date",
+   "label": "계약 종료일",
+   "type": "date",
+   "show_if": {
+    "key": "contract_type",
+    "eq": "기간의 정함이 있음"
+   }
+  },
+  {
+   "key": "work_place",
+   "label": "근무 장소",
+   "type": "text",
+   "placeholder": "○○카페 ○○점"
+  },
+  {
+   "key": "job",
+   "label": "업무 내용",
+   "type": "text",
+   "placeholder": "음료 제조, 매장 정리, 계산"
+  },
+  {
+   "type": "group",
+   "label": "근무 요일·시간"
+  },
+  {
+   "key": "work_days",
+   "label": "근무 요일",
+   "type": "text",
+   "default": "매주 월·수·금 (주 3일)"
+  },
+  {
+   "key": "work_time",
+   "label": "근무 시간",
+   "type": "text",
+   "default": "18시 00분부터 22시 00분까지"
+  },
+  {
+   "key": "break_time",
+   "label": "휴게시간",
+   "type": "text",
+   "default": "없음",
+   "placeholder": "20시 00분부터 20시 30분까지"
+  },
+  {
+   "key": "weekly_hours",
+   "label": "1주 소정근로시간",
+   "type": "text",
+   "default": "주 12시간",
+   "hint": "1주 근무시간 합계. 4주 평균 1주 15시간 미만이면 주휴일·연차휴가 규정이 적용되지 않아요(근로기준법 제18조 제3항)."
+  },
+  {
+   "key": "holiday",
+   "label": "주휴일",
+   "type": "text",
+   "default": "매주 일요일"
+  },
+  {
+   "type": "group",
+   "label": "임금"
+  },
+  {
+   "key": "wage_type",
+   "label": "임금 형태",
+   "type": "select",
+   "options": [
+    "시급",
+    "월급",
+    "일급"
+   ]
+  },
+  {
+   "key": "wage",
+   "label": "금액 (원)",
+   "type": "money"
+  },
+  {
+   "key": "weekly_pay",
+   "label": "주휴수당",
+   "type": "select",
+   "options": [
+    "별도 지급",
+    "해당 없음 (1주 15시간 미만)",
+    "위 임금에 포함"
+   ]
+  },
+  {
+   "key": "meal",
+   "label": "식대",
+   "type": "select",
+   "options": [
+    "위 임금에 포함",
+    "위 임금과 별도 지급",
+    "지급하지 않음"
+   ],
+   "hint": "식대가 위 임금 금액에 들어 있는지, 따로 주는지 고르세요."
+  },
+  {
+   "key": "meal_amount",
+   "label": "식대 금액 (월, 원)",
+   "type": "money",
+   "hint": "지급하지 않으면 비워 두세요."
+  },
+  {
+   "key": "extra_pay",
+   "label": "기타 급여(수당 등)",
+   "type": "text",
+   "default": "없음",
+   "placeholder": "야간수당 등"
+  },
+  {
+   "key": "pay_day",
+   "label": "임금 지급일",
+   "type": "text",
+   "default": "매월 10일 (휴일인 경우 전날 지급)"
+  },
+  {
+   "key": "pay_method",
+   "label": "지급 방법",
+   "type": "select",
+   "options": [
+    "근로자 명의 예금통장에 입금",
+    "근로자에게 직접 지급"
+   ]
+  },
+  {
+   "type": "group",
+   "label": "18세 미만 근로자"
+  },
+  {
+   "key": "minor",
+   "label": "근로자가 18세 미만인가요?",
+   "type": "select",
+   "options": [
+    "아니요",
+    "예"
+   ],
+   "hint": "'예'를 고르면 가족관계증명서·친권자 동의서를 갖춘다는 조항이 추가돼요(근로기준법 제66조)."
+  },
+  {
+   "type": "group",
+   "label": "그 밖의 사항"
+  },
+  {
+   "key": "insurance",
+   "label": "사회보험 적용",
+   "type": "text",
+   "default": "고용보험, 산재보험",
+   "hint": "근무시간·기간에 따라 적용 보험이 달라질 수 있어요. 해당하는 것만 적으세요."
+  },
+  {
+   "key": "etc",
+   "label": "기타 (선택)",
+   "type": "textarea",
+   "default": "이 계약에 정함이 없는 사항은 근로기준법령에 따릅니다."
+  },
+  {
+   "key": "write_date",
+   "label": "계약일",
+   "type": "date",
+   "default": "today"
+  }
+ ],
+ "notice": "정규직을 연봉으로 채용할 때는 <a href=\"/geunrogyeyakseo/\">근로계약서(연봉·정규직)</a>를 쓰세요. 18세 미만, 건설일용 근로자 등은 고용노동부가 별도 표준근로계약서를 두고 있습니다.",
+ "related": [
+  "geunrogyeyakseo",
+  "sajikseo",
+  "gyeongryeok"
+ ]
+}
