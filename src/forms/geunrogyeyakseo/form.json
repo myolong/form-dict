@@ -112,7 +112,8 @@
    "key": "holiday",
    "label": "주휴일",
    "type": "text",
-   "default": "매주 일요일"
+   "default": "매주 일요일",
+   "hint": "1주에 하루씩 주는 유급휴일이에요(근로기준법 제55조). 보통 일요일로 정해요."
   },
   {
    "type": "group",
