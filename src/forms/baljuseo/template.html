@@ -1,0 +1,29 @@
+<h1 class="doc-title">발 주 서</h1>
+<div style="display:grid;grid-template-columns:1fr 1.25fr;gap:5mm;margin-bottom:5mm;align-items:start">
+<div>
+<p style="font-size:14pt;font-weight:700;margin:2mm 0 4mm;border-bottom:1px solid #000;padding-bottom:1mm">{{to}} &nbsp;귀중</p>
+{{#to_person}}<p style="margin:0">담 당 자: {{to_person}}</p>{{/to_person}}
+<p style="margin:0">발주번호: {{order_no}}</p>
+<p style="margin:0">발 주 일: {{order_date|date}}</p>
+<p style="margin:4mm 0 0">아래와 같이 발주합니다.</p>
+</div>
+<table class="mini" style="margin:0">
+<tr><th rowspan="6" style="width:7mm;writing-mode:vertical-rl;letter-spacing:6px">발주자</th><th>등록번호</th><td>{{buy_bizno}}</td></tr>
+<tr><th>상 호</th><td>{{buy_name}}</td></tr>
+<tr><th>대 표 자</th><td>{{buy_ceo}} <span style="float:right;color:#777">(인)</span></td></tr>
+<tr><th>주 소</th><td>{{buy_addr}}</td></tr>
+<tr><th>담 당 자</th><td>{{buy_person}}</td></tr>
+<tr><th>전 화</th><td>{{buy_tel}}</td></tr>
+</table>
+</div>
+<div class="amount-box"><span>발주금액 &nbsp;일금 {{sum_total|kor}}원정</span><span>(₩ {{sum_total|won}}) {{vat_label}}</span></div>
+<table class='items' data-fill-rows>
+<tr><th class='c' style='width:9mm'>No</th><th class='c'>품 목</th><th class='c' style='width:18mm'>규 격</th><th class='c' style='width:14mm'>수량</th><th class='c' style='width:24mm'>단 가</th><th class='c' style='width:28mm'>공급가액</th><th class='c' style='width:22mm'>세 액</th></tr>
+{{items_rows}}
+<tr><th colspan="5" class="c">합 계</th><td class="num">{{sum_supply|won}}</td><td class="num">{{sum_vat|won}}</td></tr>
+</table>
+<table>
+<tr><th>납 기 일</th><td>{{due_date|date}}</td><th>납품장소</th><td>{{deliver_to}}</td></tr>
+<tr><th>결제조건</th><td colspan="3">{{pay_terms}}</td></tr>
+<tr><th style="height:16mm" data-grow="1">비 고</th><td colspan="3" style="white-space:pre-wrap;vertical-align:top">{{note}}</td></tr>
+</table>

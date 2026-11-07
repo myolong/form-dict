@@ -1,0 +1,134 @@
+{
+ "title": "발주서",
+ "menu": "trade",
+ "order": 2,
+ "aka": [
+  "발주서 양식",
+  "구매 발주서",
+  "주문서",
+  "발주서 엑셀"
+ ],
+ "card": "거래처에 물품·작업을 주문할 때. 합계·부가세 자동",
+ "h1": "발주서 양식 — 합계·부가세 자동 계산",
+ "seo_title": "발주서 양식 무료 작성 (합계·부가세 자동, 인쇄·PDF)",
+ "lead": "받는 업체, 품목·수량·단가, 납기일과 납품 장소만 넣으면 합계·부가세·한글 금액이 자동으로 계산된 A4 발주서가 완성됩니다.",
+ "description": "발주서 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 품목과 단가만 넣으면 합계·부가세·한글 금액이 자동 계산되고, 납기·납품 장소·결제 조건 쓰는 법을 정리했습니다.",
+ "has_items": true,
+ "min_rows": 8,
+ "fields": [
+  {
+   "type": "group",
+   "label": "받는 업체 (공급자)"
+  },
+  {
+   "key": "to",
+   "label": "업체명",
+   "type": "text",
+   "placeholder": "(주)○○상사"
+  },
+  {
+   "key": "to_person",
+   "label": "담당자 (선택)",
+   "type": "text",
+   "placeholder": "영업팀 ○○○ 과장"
+  },
+  {
+   "key": "order_no",
+   "label": "발주번호 (선택)",
+   "type": "text",
+   "placeholder": "PO-2026-001"
+  },
+  {
+   "key": "order_date",
+   "label": "발주일",
+   "type": "date",
+   "default": "today"
+  },
+  {
+   "type": "group",
+   "label": "발주자 (보내는 쪽)"
+  },
+  {
+   "key": "buy_name",
+   "label": "상호",
+   "type": "text"
+  },
+  {
+   "key": "buy_bizno",
+   "label": "사업자등록번호",
+   "type": "text"
+  },
+  {
+   "key": "buy_ceo",
+   "label": "대표자",
+   "type": "text"
+  },
+  {
+   "key": "buy_addr",
+   "label": "주소",
+   "type": "text"
+  },
+  {
+   "key": "buy_person",
+   "label": "담당자",
+   "type": "text"
+  },
+  {
+   "key": "buy_tel",
+   "label": "전화번호",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "품목"
+  },
+  {
+   "key": "vat_mode",
+   "label": "부가세",
+   "type": "select",
+   "options": [
+    "별도",
+    "포함",
+    "없음"
+   ],
+   "hint": "별도: 단가에 10%를 더함 / 포함: 단가에 이미 포함 / 없음: 부가세를 따로 표시하지 않음"
+  },
+  {
+   "type": "items",
+   "key": "items",
+   "label": "품목·수량·단가"
+  },
+  {
+   "type": "group",
+   "label": "납품 조건"
+  },
+  {
+   "key": "due_date",
+   "label": "납기일",
+   "type": "date"
+  },
+  {
+   "key": "deliver_to",
+   "label": "납품 장소",
+   "type": "text",
+   "placeholder": "발주자 본사 1층 창고"
+  },
+  {
+   "key": "pay_terms",
+   "label": "결제 조건",
+   "type": "text",
+   "default": "납품 후 월말 마감, 익월 10일 계좌이체"
+  },
+  {
+   "key": "note",
+   "label": "비고 (선택)",
+   "type": "textarea",
+   "placeholder": "포장·운송비 부담, 검수 방법 등"
+  }
+ ],
+ "related": [
+  "gyeonjeokseo",
+  "georae",
+  "pumuiseo"
+ ]
+}

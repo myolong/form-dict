@@ -1,0 +1,16 @@
+<h1 class="doc-title">영 수 증</h1>
+<div class="amount-box" style="font-size:15pt;padding:5mm 6mm;margin:6mm 0 6mm"><span>금 &nbsp;일금 {{amount|kor}}원정</span><span>(₩ {{amount|won}})</span></div>
+<table>
+<tr><th>명 목</th><td colspan="3">{{purpose}}</td></tr>
+<tr><th>받 은 날</th><td>{{paid_date|date}}</td><th>받은 방법</th><td>{{method}}{{#method_detail}} ({{method_detail}}){{/method_detail}}</td></tr>
+</table>
+<p class="center" style="font-size:13pt;margin:8mm 0">위 금액을 정히 영수합니다.</p>
+<table>
+<tr><th style="height:20mm" data-grow="1">비 고</th><td style="white-space:pre-wrap;vertical-align:top">{{note}}</td></tr>
+</table>
+<p class="date-line">{{write_date|date}}</p>
+<table>
+<tr><th rowspan="2">영 수 인<br><span class="small">(받은 사람)</span></th><th style="width:20mm">성 명</th><td>{{rcv_name}} <span style="float:right;color:#777">(서명 또는 인)</span></td><th style="width:20mm">생년월일</th><td>{{rcv_birth}}</td></tr>
+<tr><th>주 소</th><td>{{rcv_addr}}</td><th>연 락 처</th><td>{{rcv_phone}}</td></tr>
+</table>
+<p class="to">{{payer_name}} &nbsp;귀하 <span style="font-size:10.5pt;font-weight:400">{{#payer_birth}}(생년월일 {{payer_birth}}){{/payer_birth}} {{#payer_phone}}(연락처 {{payer_phone}}){{/payer_phone}}</span></p>
