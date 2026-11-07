@@ -29,6 +29,7 @@ ADSENSE_CLIENT = "ca-pub-5781805498180631"                       # 승인 후 "c
 GOOGLE_VERIFICATION = ""
 NAVER_VERIFICATION = "c27abaacf7acf26970a9db7a4b149e927e392597"
 UPDATED = date.today().isoformat()
+PRIVACY_FROM = "2026-11-05"  # 개인정보처리방침 시행일 (방침을 바꿀 때만 고침)
 # ───────────────────────────────────────────────────────────────────────
 
 ROOT = Path(__file__).parent
@@ -51,6 +52,99 @@ def asset(path):
 def esc(text):
     return html.escape(str(text), quote=True)
 
+
+
+LASTMOD = {}  # 경로 → 수정일 (사이트맵 lastmod)
+
+
+def date_line(pub, mod):
+    if pub == mod:
+        return f'<p class="meta">작성 <time datetime="{pub}">{pub}</time></p>'
+    return f'<p class="meta">작성 <time datetime="{pub}">{pub}</time> · 최종 수정 <time datetime="{mod}">{mod}</time></p>'
+
+
+# ── 글별 날짜 (src/dates.json) ─────────────────────────────────────────
+# 원본 파일 내용이 바뀐 날만 '수정일'이 바뀐다. 빌드할 때마다 모든 글이 오늘 날짜가 되지 않게 하려는 것.
+# 처음 보는 파일은 git 기록(처음 커밋한 날 / 마지막 커밋한 날)으로 채운다.
+DATES_FILE = SRC / "dates.json"
+_dates = json.loads(DATES_FILE.read_text(encoding="utf-8")) if DATES_FILE.exists() else {}
+
+
+def _git_dates(rel):
+    import subprocess
+    try:
+        out = subprocess.run(["git", "log", "--follow", "--format=%cs", "--", rel], cwd=ROOT,
+                             capture_output=True, text=True, check=True).stdout.split()
+        dirty = subprocess.run(["git", "diff", "--quiet", "HEAD", "--", rel], cwd=ROOT).returncode != 0
+    except Exception:
+        return UPDATED, UPDATED
+    if not out:
+        return UPDATED, UPDATED
+    return out[-1], (UPDATED if dirty else out[0])
+
+
+def page_dates(*files):
+    """원본 파일들의 (작성일, 수정일). 여러 파일이면 가장 이른 작성일, 가장 늦은 수정일."""
+    import hashlib
+    pubs, mods = [], []
+    for f in files:
+        f = Path(f)
+        if not f.exists():
+            continue
+        rel = f.relative_to(ROOT).as_posix()
+        h = hashlib.md5(f.read_bytes()).hexdigest()
+        rec = _dates.get(rel)
+        if rec is None:
+            pub, mod = _git_dates(rel)
+            rec = _dates[rel] = {"published": pub, "modified": mod, "hash": h}
+        elif rec["hash"] != h:
+            rec.update(modified=UPDATED, hash=h)
+        pubs.append(rec["published"])
+        mods.append(rec["modified"])
+    if not mods:
+        return UPDATED, UPDATED
+    return min(pubs), max(mods)
+
+
+def save_dates():
+    DATES_FILE.write_text(json.dumps(dict(sorted(_dates.items())), ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+
+
+# ── 자주 묻는 질문 → FAQPage 구조화 데이터 ────────────────────────────────
+def faq_ld(body):
+    """본문의 <h2>자주 묻는 질문</h2> 아래 h3(질문)·다음 내용(답)을 FAQPage로 만든다."""
+    m = re.search(r"<h2[^>]*>\s*자주 묻는 질문\s*</h2>(.*?)(?=<h2|\Z)", body, re.S)
+    if not m:
+        return None
+    pairs = re.findall(r"<h3[^>]*>(.*?)</h3>(.*?)(?=<h3|\Z)", m.group(1), re.S)
+
+    def text(s):
+        return html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", s))).strip()
+
+    qa = [{"@type": "Question", "name": text(q), "acceptedAnswer": {"@type": "Answer", "text": text(a)}}
+          for q, a in pairs if text(q) and text(a)]
+    return {"@type": "FAQPage", "mainEntity": qa} if qa else None
+
+
+# ── 관련 공식 자료 (출처 링크) ─────────────────────────────────────────────────────
+def sources_html(sources):
+    """sources: [(이름, 주소), ...] → 출처 목록 HTML."""
+    if not sources:
+        return ""
+    lis = "".join(
+        f'<li><a href="{esc(u)}" target="_blank" rel="noopener">{esc(n)}</a></li>' for n, u in sources
+    )
+    return f'<section class="sources"><h2>관련 공식 자료</h2><ul>{lis}</ul></section>'
+
+
+def parse_sources(value):
+    """앞머리 한 줄 'sources: 이름 | 주소 ; 이름 | 주소' 를 목록으로."""
+    out = []
+    for part in (value or "").split(";"):
+        if "|" in part:
+            n, u = part.split("|", 1)
+            out.append((n.strip(), u.strip()))
+    return out
 
 
 # 컨닝 시리즈 (푸터 한 줄)
@@ -117,6 +211,11 @@ def layout(*, title, description, path, body, menus, active=None, json_ld=None, 
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{esc(canonical)}">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="{SITE_URL}/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{esc(SITE_NAME)} - {esc(SITE_TAGLINE)}">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#fffdf6">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -172,6 +271,9 @@ AD = '<div class="ad-slot"></div>'
 
 def form_page(f, forms, menus):
     menu = next(m for m in menus if m["id"] == f["menu"])
+    d = SRC / "forms" / f["slug"]
+    pub, mod = page_dates(d / "form.json", d / "template.html", d / "guide.html")
+    LASTMOD[f["path"]] = mod
     by_slug = {x["slug"]: x for x in forms}
     related = [by_slug[s] for s in f.get("related", []) if s in by_slug]
     cfg = {k: f[k] for k in ("slug", "fields", "template") if k in f}
@@ -206,6 +308,7 @@ def form_page(f, forms, menus):
 <div class="crumbs"><a href="{url('/')}">홈</a> › <a href="{url('/' + menu['id'] + '/')}">{esc(menu['title'])}</a></div>
 <h1>{esc(f['h1'])}</h1>
 <p class="lead">{esc(f['lead'])}</p>
+{date_line(pub, mod)}
 {notice}
 <div class="form-layout">
   <section class="panel form-panel" aria-label="입력">
@@ -220,6 +323,7 @@ def form_page(f, forms, menus):
 <article class="article">
 {f['guide']}
 {faq_html}
+{sources_html(f.get("sources", []))}
 </article>
 {rel_html}
 """
@@ -227,7 +331,9 @@ def form_page(f, forms, menus):
         "@context": "https://schema.org", "@type": "WebApplication", "name": f["h1"],
         "applicationCategory": "BusinessApplication", "operatingSystem": "Web",
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"},
-        "url": SITE_URL + f["path"], "description": f["description"], "inLanguage": "ko"}]
+        "url": SITE_URL + f["path"], "description": f["description"], "inLanguage": "ko",
+        "datePublished": pub, "dateModified": mod,
+        "publisher": {"@type": "Organization", "name": SITE_NAME, "url": SITE_URL + "/"}}]
     if faq:
         lds.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", a)}} for q, a in faq]})
@@ -258,6 +364,7 @@ def main():
     # 메뉴 페이지
     for m in menus:
         fs = [f for f in forms if f["menu"] == m["id"]]
+        LASTMOD[f"/{m['id']}/"] = max([LASTMOD[f["path"]] for f in fs], default=UPDATED)
         body = f"""<div class="crumbs"><a href="{url('/')}">홈</a></div>
 <h1>{esc(m['title'])} 양식</h1>
 <p class="lead">{esc(m['card'])}. 칸만 채우면 A4 한 장으로 완성되고, 바로 인쇄하거나 PDF로 저장할 수 있어요.</p>
@@ -293,7 +400,7 @@ def main():
 <li>입력한 내용은 서버로 전송되지 않고, 사용하는 브라우저에만 임시 저장됩니다.</li>
 </ul>
 <p>양식과 작성법은 일반적인 참고용입니다. 회사·기관에 정해진 양식이 있으면 그 양식을 우선 사용해 주세요.</p>
-<p>최종 수정일: {UPDATED}</p>""", menus)
+""", menus)
     static_page("/terms/", "이용 안내", "양식 이용 안내와 책임의 한계", """
 <h2>양식의 성격</h2>
 <p>이 사이트의 양식과 작성법, 자주 묻는 질문은 일반적으로 쓰이는 형식을 정리한 참고 자료입니다. 특정 상황에서의 법적 효력이나 유불리를 보장하지 않습니다.</p>
@@ -313,7 +420,7 @@ def main():
 <p>검색엔진(구글 서치 콘솔, 네이버 서치어드바이저)이 제공하는 검색 유입 통계를 볼 수 있으나, 이를 통해 개인을 식별하지 않습니다.</p>
 <h2>4. 문의</h2>
 <p>개인정보 관련 문의: {esc(CONTACT_EMAIL)}</p>
-<p>시행일: {UPDATED}</p>""", menus)
+<p>시행일: {PRIVACY_FROM}</p>""", menus)
     static_page("/contact/", "문의", "문의하기", f"""
 <p>양식 오류 제보, 추가해 줬으면 하는 양식, 기타 문의는 아래 메일로 보내 주세요.</p>
 <p><a href="mailto:{esc(CONTACT_EMAIL)}">{esc(CONTACT_EMAIL)}</a></p>
@@ -323,7 +430,7 @@ def main():
 
     # sitemap / robots / CNAME / ads.txt
     paths = ["/"] + [f"/{m['id']}/" for m in menus] + [f["path"] for f in forms] + ["/about/", "/terms/", "/privacy/", "/contact/"]
-    sm = "".join(f"<url><loc>{esc(SITE_URL + p)}</loc><lastmod>{UPDATED}</lastmod></url>" for p in paths)
+    sm = "".join(f"<url><loc>{esc(SITE_URL + p)}</loc><lastmod>{LASTMOD.get(p, max(LASTMOD.values(), default=UPDATED))}</lastmod></url>" for p in paths)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n', encoding="utf-8")
     items = "".join(
         f"<item><title>{esc(f['seo_title'])}</title><link>{esc(SITE_URL + f['path'])}</link>"
@@ -333,6 +440,7 @@ def main():
         f'<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>{esc(SITE_NAME)}</title>'
         f"<link>{esc(SITE_URL)}/</link><description>{esc(SITE_TAGLINE)}</description><language>ko</language>"
         f"{items}</channel></rss>\n", encoding="utf-8")
+    save_dates()
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
     if CUSTOM_DOMAIN:
         (OUT / "CNAME").write_text(CUSTOM_DOMAIN + "\n")
