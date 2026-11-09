@@ -1,0 +1,143 @@
+{
+ "title": "인수인계서",
+ "menu": "hr",
+ "order": 8,
+ "aka": [
+  "인수인계서 양식",
+  "업무 인수인계서",
+  "인수인계 양식",
+  "퇴사 인수인계서"
+ ],
+ "card": "퇴사·부서 이동 때 맡던 업무를 넘겨줄 때",
+ "h1": "인수인계서 양식 — 칸 채우고 바로 인쇄",
+ "seo_title": "인수인계서 양식 무료 작성·인쇄 (퇴사·전보 업무 인수인계)",
+ "lead": "인계자·인수자, 맡던 업무, 진행 중인 일, 자료 위치, 거래처 연락처, 주의사항을 적으면 서명란이 있는 A4 인수인계서가 완성됩니다.",
+ "description": "인수인계서 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 퇴사·부서 이동 때 업무 현황, 진행 중인 일, 자료 위치, 거래처를 빠짐없이 넘기는 인수인계서 작성법을 정리했습니다.",
+ "fields": [
+  {
+   "type": "group",
+   "label": "인계자 (넘겨주는 사람)"
+  },
+  {
+   "key": "from_dept",
+   "label": "부서",
+   "type": "text"
+  },
+  {
+   "key": "from_position",
+   "label": "직위",
+   "type": "text"
+  },
+  {
+   "key": "from_name",
+   "label": "성명",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "인수자 (넘겨받는 사람)"
+  },
+  {
+   "key": "to_dept",
+   "label": "부서",
+   "type": "text"
+  },
+  {
+   "key": "to_position",
+   "label": "직위",
+   "type": "text"
+  },
+  {
+   "key": "to_name",
+   "label": "성명",
+   "type": "text"
+  },
+  {
+   "type": "group",
+   "label": "인수인계 정보"
+  },
+  {
+   "key": "reason",
+   "label": "사유",
+   "type": "select",
+   "options": [
+    "퇴사",
+    "부서 이동",
+    "휴직",
+    "업무 조정",
+    "기타"
+   ]
+  },
+  {
+   "key": "hand_date",
+   "label": "인계일",
+   "type": "date",
+   "default": "today"
+  },
+  {
+   "key": "checker",
+   "label": "확인자 (선택)",
+   "type": "text",
+   "placeholder": "경영지원팀 ○○○ 팀장"
+  },
+  {
+   "type": "group",
+   "label": "인계 내용"
+  },
+  {
+   "key": "duties",
+   "label": "담당 업무",
+   "type": "textarea",
+   "default": "1. \n2. \n3. ",
+   "hint": "맡고 있던 업무를 하나씩 적고, 주기(매일·매월 등)를 함께 적으면 좋아요."
+  },
+  {
+   "key": "ongoing",
+   "label": "진행 중인 업무 (현황·다음 할 일)",
+   "type": "textarea",
+   "placeholder": "○○ 프로젝트: 시안 2차 확정, 11. 20.까지 최종본 전달"
+  },
+  {
+   "key": "files",
+   "label": "자료·파일 위치",
+   "type": "textarea",
+   "placeholder": "공유폴더 > 경영지원 > 2026 > 거래처 계약서"
+  },
+  {
+   "key": "contacts",
+   "label": "거래처·연락처",
+   "type": "textarea",
+   "placeholder": "○○상사 김○○ 과장 010-0000-0000 (월말 정산 담당)"
+  },
+  {
+   "key": "items",
+   "label": "비품·계정 (선택)",
+   "type": "textarea",
+   "hint": "노트북, 법인카드, 열쇠, 시스템 계정 등 넘길 물품과 계정 이름만 적고 비밀번호는 적지 마세요."
+  },
+  {
+   "key": "notes",
+   "label": "주의사항 (선택)",
+   "type": "textarea"
+  }
+ ],
+ "faq": [
+  [
+   "인수인계서에는 무엇을 적어야 하나요?",
+   "담당 업무, 진행 중인 업무와 다음 할 일, 자료·파일 위치, 거래처 연락처, 넘겨줄 비품과 주의사항을 적습니다."
+  ],
+  [
+   "비밀번호도 인수인계서에 적나요?",
+   "인쇄물이나 파일에 비밀번호를 적으면 유출될 수 있으니 적지 않는 것이 좋습니다. 회사 보안 담당자의 안내에 따라 따로 넘기세요."
+  ],
+  [
+   "인수인계서는 누가 서명하나요?",
+   "인계자와 인수자가 함께 서명하고, 팀장 등 확인자가 있으면 확인자도 서명합니다."
+  ]
+ ],
+ "related": [
+  "sajikseo",
+  "gyeongryeok",
+  "eommu-ilji"
+ ]
+}

@@ -1,0 +1,15 @@
+<h1 class="doc-title" style="margin-bottom:6mm">회 의 록</h1>
+{{approval_box}}
+<table>
+<tr><th>회 의 명</th><td colspan="3">{{title}}</td></tr>
+<tr><th>일 시</th><td>{{meet_date|date}} {{meet_time}}</td><th>장 소</th><td>{{place}}</td></tr>
+<tr><th>주관 부서</th><td>{{dept}}</td><th>작 성 자</th><td>{{writer}}</td></tr>
+<tr><th>참 석 자</th><td colspan="3" style="white-space:pre-wrap">{{attendees}}</td></tr>
+</table>
+<table>
+<tr><th>안 건</th><td style="white-space:pre-wrap;vertical-align:top">{{agenda}}</td></tr>
+<tr><th style="height:55mm" data-grow="3">논의 내용</th><td style="white-space:pre-wrap;vertical-align:top">{{content}}</td></tr>
+<tr><th style="height:22mm" data-grow="1">결정 사항</th><td style="white-space:pre-wrap;vertical-align:top">{{decision}}</td></tr>
+<tr><th style="height:22mm" data-grow="1">할 일<br><span class="small">(담당·기한)</span></th><td style="white-space:pre-wrap;vertical-align:top">{{todo}}</td></tr>
+{{#next}}<tr><th>다음 회의</th><td>{{next}}</td></tr>{{/next}}
+</table>
