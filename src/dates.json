@@ -14,6 +14,21 @@
   "modified": "2026-11-06",
   "hash": "3c475996be9cf3a556389826234b659c"
  },
+ "src/forms/alba-iryeokseo/form.json": {
+  "published": "2026-11-10",
+  "modified": "2026-11-10",
+  "hash": "d4753a896f973e93a791831309c13662"
+ },
+ "src/forms/alba-iryeokseo/guide.html": {
+  "published": "2026-11-10",
+  "modified": "2026-11-10",
+  "hash": "bf96e22418e12ae91830ebf5aa0b286b"
+ },
+ "src/forms/alba-iryeokseo/template.html": {
+  "published": "2026-11-10",
+  "modified": "2026-11-10",
+  "hash": "cf96ef9a7cb3b9e6168f0cb1a5939184"
+ },
  "src/forms/baljuseo/form.json": {
   "published": "2026-11-07",
   "modified": "2026-11-07",
@@ -118,6 +133,21 @@
   "published": "2026-11-06",
   "modified": "2026-11-06",
   "hash": "78189ac75feebe7eec67c09ff84c3b6f"
+ },
+ "src/forms/gyeongryeok-gisulseo/form.json": {
+  "published": "2026-11-10",
+  "modified": "2026-11-10",
+  "hash": "9508542806e6e4a5472a365d29233945"
+ },
+ "src/forms/gyeongryeok-gisulseo/guide.html": {
+  "published": "2026-11-10",
+  "modified": "2026-11-10",
+  "hash": "4fa85a8d209b00fe961f4a748c86859d"
+ },
+ "src/forms/gyeongryeok-gisulseo/template.html": {
+  "published": "2026-11-10",
+  "modified": "2026-11-10",
+  "hash": "d6ede756bd48be8c9f38c92078dc3957"
  },
  "src/forms/gyeongryeok/form.json": {
   "published": "2026-11-05",
@@ -238,6 +268,21 @@
   "published": "2026-11-09",
   "modified": "2026-11-09",
   "hash": "35f65836c2c1c57e07e577b13f4fc8b6"
+ },
+ "src/forms/iryeokseo/form.json": {
+  "published": "2026-11-10",
+  "modified": "2026-11-10",
+  "hash": "1459d713c95c0733b85a6888d65b5ec4"
+ },
+ "src/forms/iryeokseo/guide.html": {
+  "published": "2026-11-10",
+  "modified": "2026-11-10",
+  "hash": "8136ef512fcd945da1aed97c298fa100"
+ },
+ "src/forms/iryeokseo/template.html": {
+  "published": "2026-11-10",
+  "modified": "2026-11-10",
+  "hash": "2c8ab20ee4dcbfa22e924148577c3afb"
  },
  "src/forms/jaejik/form.json": {
   "published": "2026-11-05",

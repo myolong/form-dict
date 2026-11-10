@@ -138,6 +138,23 @@
     else if (key === "vat_label") return t.mode === "포함" ? "(부가세 포함)" : t.mode === "없음" ? "" : "(부가세 포함)";
     else raw = blankMode ? "" : state[key];
     if (raw === undefined || raw === null) raw = "";
+    if (filter === "img") {
+      return raw ? "<img src='" + esc(raw) + "' alt='' style='width:100%;height:100%;object-fit:cover;display:block'>"
+                 : "<span class='small' style='color:#999'>사 진<br>(3×4cm)</span>";
+    }
+    var rm = /^rows(\d)$/.exec(filter || "");
+    if (rm) {
+      /* 한 줄 = 표 한 행, "|" 로 칸 구분. 줄이 적으면 빈 행으로 채움 */
+      var n = +rm[1], lines = String(raw).split("\n").filter(function (l) { return l.trim(); });
+      var out = lines.map(function (l) {
+        var cells = l.split("|").map(function (c) { return c.trim(); });
+        while (cells.length < n) cells.push("");
+        if (cells.length > n) cells = cells.slice(0, n - 1).concat([cells.slice(n - 1).join(" | ")]);
+        return "<tr>" + cells.map(function (c) { return "<td>" + esc(c) + "</td>"; }).join("") + "</tr>";
+      });
+      while (out.length < 3) out.push("<tr>" + new Array(n + 1).join("<td>&nbsp;</td>") + "</tr>");
+      return out.join("");
+    }
     if (filter === "raw") return esc(raw);
     if (raw === "" || raw === 0) {
       if (filter === "date") return "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;년 &nbsp;&nbsp;&nbsp;&nbsp;월 &nbsp;&nbsp;&nbsp;&nbsp;일";
@@ -349,6 +366,36 @@
       ta.setSelectionRange(head.length, head.length);
     }, true);
   }
+  /* 사진: 서버로 올리지 않고 이 브라우저에서 줄여(3:4) 저장만 한다 */
+  function photoField(f) {
+    var w = document.createElement("div"); w.className = "field";
+    var id = "f-" + f.key;
+    w.innerHTML = "<label for='" + id + "'>" + esc(f.label) + "</label>";
+    var inp = document.createElement("input"); inp.type = "file"; inp.accept = "image/*"; inp.id = id;
+    var rm = document.createElement("button"); rm.type = "button"; rm.textContent = "사진 지우기"; rm.className = "btn-small";
+    rm.style.marginLeft = "6px"; rm.hidden = !state[f.key];
+    inp.addEventListener("change", function () {
+      var file = inp.files && inp.files[0]; if (!file) return;
+      var rd = new FileReader();
+      rd.onload = function () {
+        var img = new Image();
+        img.onload = function () {
+          var W = 354, H = 472, c = document.createElement("canvas"); c.width = W; c.height = H;
+          var r = Math.max(W / img.width, H / img.height), dw = img.width * r, dh = img.height * r;
+          c.getContext("2d").drawImage(img, (W - dw) / 2, (H - dh) / 2, dw, dh);
+          state[f.key] = c.toDataURL("image/jpeg", 0.85); rm.hidden = false; save(); render();
+        };
+        img.src = rd.result;
+      };
+      rd.readAsDataURL(file);
+    });
+    rm.addEventListener("click", function () { delete state[f.key]; inp.value = ""; rm.hidden = true; save(); render(); });
+    w.appendChild(inp); w.appendChild(rm);
+    var h = document.createElement("div"); h.className = "hint";
+    h.textContent = f.hint || "사진은 서버로 올라가지 않고 이 브라우저에만 저장돼요. 3×4 비율로 자동으로 잘려요.";
+    w.appendChild(h);
+    return w;
+  }
   /* show_if: {"key":..., "eq":...} 조건이 맞을 때만 칸을 보여 준다 */
   function updateVisibility() {
     panel.querySelectorAll("[data-show-key]").forEach(function (el) {
@@ -366,6 +413,7 @@
         var t = document.createElement("div"); t.className = "field";
         t.innerHTML = "<label>" + esc(f.label) + "</label>"; t.appendChild(itemsEditor()); panel.appendChild(t); return;
       }
+      if (f.type === "photo") { panel.appendChild(photoField(f)); return; }
       var wrapF = document.createElement("div"); wrapF.className = "field";
       var id = "f-" + f.key;
       var input;

@@ -1,0 +1,140 @@
+{
+ "title": "알바 이력서",
+ "menu": "resume",
+ "order": 2,
+ "aka": [
+  "알바 이력서 양식",
+  "아르바이트 이력서",
+  "알바 이력서 쓰는법",
+  "편의점 알바 이력서",
+  "카페 알바 이력서"
+ ],
+ "card": "근무 가능 요일·시간과 알바 경험을 적는 간단한 이력서",
+ "h1": "알바 이력서 양식 — 칸 채우고 바로 인쇄",
+ "seo_title": "알바 이력서 양식 무료 작성·인쇄 (근무 가능 시간·경험)",
+ "lead": "사진, 연락처, 근무 가능 요일·시간, 알바 경험, 짧은 자기소개만 채우면 A4 알바 이력서가 완성됩니다.",
+ "description": "알바(아르바이트) 이력서 양식을 무료로 작성하고 인쇄·PDF 저장하세요. 근무 가능 요일·시간, 알바 경험, 자기소개 예시와 쓰는 법을 정리했습니다.",
+ "fields": [
+  {
+   "type": "group",
+   "label": "인적사항"
+  },
+  {
+   "key": "photo",
+   "label": "증명사진 (선택)",
+   "type": "photo"
+  },
+  {
+   "key": "name",
+   "label": "성명",
+   "type": "text"
+  },
+  {
+   "key": "birth",
+   "label": "생년월일",
+   "type": "text"
+  },
+  {
+   "key": "phone",
+   "label": "휴대전화",
+   "type": "text"
+  },
+  {
+   "key": "address",
+   "label": "사는 곳",
+   "type": "text",
+   "placeholder": "○○시 ○○동 (가게까지 도보 10분)"
+  },
+  {
+   "key": "school",
+   "label": "학교·학년 (선택)",
+   "type": "text",
+   "placeholder": "○○대학교 2학년 (휴학 중)"
+  },
+  {
+   "type": "group",
+   "label": "희망 근무 조건"
+  },
+  {
+   "key": "days",
+   "label": "근무 가능 요일",
+   "type": "text",
+   "default": "월·수·금"
+  },
+  {
+   "key": "hours",
+   "label": "근무 가능 시간",
+   "type": "text",
+   "default": "18:00 ~ 22:00"
+  },
+  {
+   "key": "start_date",
+   "label": "근무 시작 가능일",
+   "type": "date"
+  },
+  {
+   "key": "period",
+   "label": "근무 가능 기간",
+   "type": "text",
+   "placeholder": "6개월 이상 / 방학 동안"
+  },
+  {
+   "key": "health_cert",
+   "label": "보건증",
+   "type": "select",
+   "options": [
+    "있음",
+    "없음",
+    "발급 예정"
+   ],
+   "hint": "음식점·카페 등은 보건증(건강진단결과서)을 요구하는 경우가 많아요."
+  },
+  {
+   "type": "group",
+   "label": "알바 경험"
+  },
+  {
+   "key": "exp",
+   "label": "알바 경험",
+   "type": "textarea",
+   "placeholder": "2025.07 ~ 2025.12 | ○○편의점 | 계산, 진열, 재고 정리",
+   "hint": "기간 | 가게·업종 | 한 일. 한 줄에 하나씩, 칸은 | 로 나눠 적으세요. 처음이면 비워 두세요."
+  },
+  {
+   "type": "group",
+   "label": "자기소개"
+  },
+  {
+   "key": "intro",
+   "label": "자기소개",
+   "type": "textarea",
+   "default": "성실하게 오래 일할 수 있는 ○○○입니다. "
+  },
+  {
+   "key": "write_date",
+   "label": "작성일",
+   "type": "date",
+   "default": "today"
+  }
+ ],
+ "faq": [
+  [
+   "알바 경험이 없으면 어떻게 쓰나요?",
+   "경험 칸은 비워 두고, 자기소개에 성실함·근무 가능 기간·가까운 거리처럼 가게가 궁금해하는 점을 적으면 됩니다."
+  ],
+  [
+   "자기소개는 얼마나 길게 쓰나요?",
+   "2~4줄이면 충분합니다. 언제, 얼마나 오래 일할 수 있는지를 꼭 넣으세요."
+  ],
+  [
+   "알바 이력서에 사진이 꼭 필요한가요?",
+   "가게마다 다릅니다. 요구하지 않으면 비워 두어도 됩니다."
+  ]
+ ],
+ "notice": "채용되면 <a href=\"/alba-geunrogyeyakseo/\">알바 근로계약서</a>를 꼭 쓰세요.",
+ "related": [
+  "alba-geunrogyeyakseo",
+  "iryeokseo",
+  "gyeongryeok-gisulseo"
+ ]
+}
