@@ -156,3 +156,13 @@ main>h1{font-family:"Nanum Pen Script",cursive;font-size:44px;font-weight:400}
 .logo img{display:block;border-radius:7px;flex:none}
 .meta{color:var(--muted);font-size:13px;margin:-12px 0 16px}
 .sources ul{font-size:15px}.sources a{word-break:break-all}
+
+/* 양식 종이 디자인 A안 · 모던 라인 (2026-11-10): 고딕, 옅은 회색 선, 남색 포인트 */
+.paper{font-family:"Noto Sans KR","Malgun Gothic",sans-serif;font-size:10.5pt;line-height:1.6;color:#1b2230}
+.paper h1.doc-title{font-family:"Noto Sans KR",sans-serif;font-weight:800;font-size:22pt;letter-spacing:10px;color:#1f2a44;padding-bottom:3mm;border-bottom:2.5px solid #1f2a44}
+.paper th,.paper td{border:1px solid #c9d0db;font-size:10pt}
+.paper th{background:#eef2f7;color:#1f2a44;font-weight:600}
+.paper .amount-box{border:0;background:#1f2a44;color:#fff;border-radius:2mm}
+.paper .approval th{background:#1f2a44;color:#fff}
+.paper .blank{border-bottom-color:#c9d0db}
+.paper .to{color:#1f2a44}
