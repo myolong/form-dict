@@ -125,6 +125,67 @@
       rows + "</table>";
   }
 
+  /* ── 개인·생활 양식용 ── */
+  var WD = ["일", "월", "화", "수", "목", "금", "토"];
+  function ym() {
+    var m = /^(\d{4})-(\d{1,2})/.exec(state.month || "");
+    if (m) return [+m[1], +m[2]];
+    var d = new Date(); return [d.getFullYear(), d.getMonth() + 1];
+  }
+  function dayNotes(text) { /* "5 | 병원" → {5:"병원"} */
+    var o = {};
+    String(blankMode ? "" : text || "").split("\n").forEach(function (l) {
+      var m = /^\s*(\d{1,2})\s*(?:[|:.)일]\s*)?(.*)$/.exec(l);
+      if (m && m[2].trim()) { var k = +m[1]; o[k] = (o[k] ? o[k] + "\n" : "") + m[2].trim(); }
+    });
+    return o;
+  }
+  function calendar() {
+    var a = ym(), y = a[0], mo = a[1], first = new Date(y, mo - 1, 1).getDay(), days = new Date(y, mo, 0).getDate();
+    var notes = dayNotes(state.events), weeks = Math.ceil((first + days) / 7), h = weeks > 5 ? 27 : 33;
+    var html = "<table class='cal'><tr>" + WD.map(function (w) { return "<th>" + w + "</th>"; }).join("") + "</tr>";
+    for (var wk = 0; wk < weeks; wk++) {
+      html += "<tr>";
+      for (var c = 0; c < 7; c++) {
+        var d = wk * 7 + c - first + 1, cls = (c === 0 ? "sun" : c === 6 ? "sat" : "");
+        if (d < 1 || d > days) html += "<td class='out' style='height:" + h + "mm'></td>";
+        else html += "<td class='" + cls + "' style='height:" + h + "mm'><div class='dn'>" + d + "</div><div style='white-space:pre-wrap'>" + esc(notes[d] || "") + "</div></td>";
+      }
+      html += "</tr>";
+    }
+    return html + "</table>";
+  }
+  function habitGrid() {
+    var a = ym(), y = a[0], mo = a[1], days = new Date(y, mo, 0).getDate();
+    var hs = String(blankMode ? "" : state.habits || "").split("\n").map(function (x) { return x.trim(); }).filter(Boolean).slice(0, 7);
+    while (hs.length < 7) hs.push("");
+    var html = "<table class='habit'><tr><th style='width:16mm'>날짜</th>" + hs.map(function (x) { return "<th>" + esc(x) + "</th>"; }).join("") + "</tr>";
+    for (var d = 1; d <= days; d++) {
+      var w = new Date(y, mo - 1, d).getDay();
+      html += "<tr><td class='d' style='height:7.1mm" + (w === 0 ? ";color:#d0402b" : w === 6 ? ";color:#2d5bc4" : "") + "'>" + d + " (" + WD[w] + ")</td>" + hs.map(function () { return "<td></td>"; }).join("") + "</tr>";
+    }
+    return html + "</table>";
+  }
+  function hourRows() {
+    var notes = dayNotes(state.timeline), html = "";
+    for (var h = 6; h <= 23; h++) html += "<tr><td class='c' style='width:12mm;color:#1f2a44;font-weight:600'>" + (h < 10 ? "0" + h : h) + "</td><td>" + esc(notes[h] || "").replace(/\n/g, " · ") + "</td></tr>";
+    return html;
+  }
+  function linesBox() {
+    var t = blankMode ? "" : state.content || "", ls = "";
+    for (var i = 0; i < 40; i++) ls += "<div class='ln'></div>";
+    return "<div class='lined' data-grow='1' style='height:60mm'>" + ls + "<div class='txt'>" + esc(t) + "</div></div>";
+  }
+  /* 주간 계획표: 시작일(월요일)부터 7일 날짜 */
+  function weekDates() {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(state.week_start || "");
+    for (var i = 0; i < 7; i++) {
+      var lab = ["월", "화", "수", "목", "금", "토", "일"][i];
+      if (m && !blankMode) { var d = new Date(+m[1], +m[2] - 1, +m[3] + i); lab = (d.getMonth() + 1) + "." + d.getDate() + " (" + WD[d.getDay()] + ")"; }
+      state["__w" + i] = lab;
+    }
+  }
+
   /* ── 템플릿 채우기 ── */
   function value(key, filter) {
     var raw;
@@ -135,12 +196,24 @@
     else if (key === "items_rows") return itemsRows();
     else if (key === "approval_box") return approvalBox();
     else if (key === "schedule") return schedule();
+    else if (key === "calendar") return calendar();
+    else if (key === "habit_grid") return habitGrid();
+    else if (key === "hour_rows") return hourRows();
+    else if (key === "lines") return linesBox();
     else if (key === "vat_label") return t.mode === "포함" ? "(부가세 포함)" : t.mode === "없음" ? "" : "(부가세 포함)";
+    else if (/^__w\d$/.test(key) || key === "__ym") return esc(state[key] || "");
     else raw = blankMode ? "" : state[key];
     if (raw === undefined || raw === null) raw = "";
     if (filter === "img") {
       return raw ? "<img src='" + esc(raw) + "' alt='' style='width:100%;height:100%;object-fit:cover;display:block'>"
                  : "<span class='small' style='color:#999'>사 진<br>(3×4cm)</span>";
+    }
+    var cm = /^check(\d+)$/.exec(filter || "");
+    if (cm) {
+      var ls = String(raw).split("\n").filter(function (l) { return l.trim(); });
+      var o = ls.map(function (l) { return "<tr><td class='chk'>☐</td><td>" + esc(l.replace(/^\s*[-*☐□]\s*/, "")) + "</td></tr>"; });
+      while (o.length < +cm[1]) o.push("<tr><td class='chk'>☐</td><td>&nbsp;</td></tr>");
+      return o.join("");
     }
     var rm = /^rows(\d)$/.exec(filter || "");
     if (rm) {
@@ -175,6 +248,8 @@
     state.__fixed = /^기간의 정함이 있음/.test(state.contract_type || "") ? "1" : "";
     state.__noclaim = state.no_claim === "넣기" ? "1" : "";
     var annual = num(state.annual_wage) || (state.wage_type === "연봉" ? num(state.wage) : 0);
+    weekDates();
+    var yy = ym(); state.__ym = yy[0] + "년 " + yy[1] + "월";
     state.__monthly = annual ? (annual % 12 ? "약 " : "") + won(Math.floor(annual / 12)) : "";
     var html = F.template.replace(/\{\{#(\w+)\}\}([\s\S]*?)\{\{\/\1\}\}/g, function (_, k, inner) {
       return !blankMode && state[k] ? inner : "";
@@ -424,7 +499,7 @@
         if (!state[f.key]) state[f.key] = f.default || (f.key === "vat_mode" && F.vat_default) || f.options[0];
       } else {
         input = document.createElement("input");
-        input.type = f.type === "date" ? "date" : "text";
+        input.type = f.type === "date" ? "date" : f.type === "month" ? "month" : "text";
         if (f.type === "money" || f.type === "number") input.inputMode = "decimal";
         if (fmtKind(f)) { input.inputMode = "numeric"; if (!f.placeholder) f.placeholder = { birth: "숫자만 입력 (예: 19950315)", bizno: "숫자만 입력 (10자리)", rrn: "숫자만 입력 (13자리)", phone: "숫자만 입력 (예: 01012345678)" }[fmtKind(f)]; }
       }

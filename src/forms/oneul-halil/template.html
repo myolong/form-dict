@@ -1,0 +1,8 @@
+<h1 class="doc-title" style="margin-bottom:5mm">오늘 할 일</h1>
+<table><tr><th>날 짜</th><td>{{date|date}}</td></tr>
+<tr><th style="height:20mm">가장 중요한<br>3가지</th><td style="white-space:pre-wrap;vertical-align:top;line-height:1.9">{{top3}}</td></tr></table>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;align-items:start">
+<table class="tight" style="margin:0"><tr><th colspan="2" style="text-align:center">할 일</th></tr>{{todos|check16}}</table>
+<table class="tight" style="margin:0"><tr><th colspan="2" style="text-align:center">시간표</th></tr>{{hour_rows}}</table>
+</div>
+<table style="margin-top:5mm"><tr><th style="height:12mm" data-grow="1">메 모</th><td style="white-space:pre-wrap;vertical-align:top">{{memo}}</td></tr></table>
