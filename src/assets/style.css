@@ -189,3 +189,88 @@ main>h1{font-family:"Nanum Pen Script",cursive;font-size:44px;font-weight:400}
 .paper .wk .day b{display:block;color:#1f2a44;border-bottom:1px solid #dfe4ec;margin-bottom:1.5mm;padding-bottom:1mm}
 .paper table.tight td,.paper table.tight th{padding:1.1mm 2mm}
 .paper table.tight2 td,.paper table.tight2 th{padding:.6mm 2mm;line-height:1.45}
+
+/* ── 가계부 정리 도구 ── */
+.gg-safe{display:flex;gap:14px;align-items:center;background:#e9f7ef;border:2px solid #2f9e44;border-radius:14px;padding:14px 18px;margin:8px 0 18px}
+.gg-safe .gg-lock{font-size:30px;line-height:1}
+.gg-safe b{font-size:19px;color:#1b5e2b}
+.gg-safe p{margin:2px 0 0;font-size:14px;color:#2d4a36}
+.gg-layout{display:block}
+.gg-step{margin-bottom:16px}
+.gg-step h2{margin:0 0 12px;font-size:19px;display:flex;align-items:center;gap:8px}
+.gg-step h2 .num{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;align-items:center;justify-content:center}
+.gg-step h3{font-size:16px;margin:16px 0 8px}
+.gg-drop{display:flex;flex-direction:column;align-items:center;gap:4px;border:2px dashed #b7c2d4;border-radius:14px;padding:30px 16px;text-align:center;cursor:pointer;background:#fafbfd}
+.gg-drop.over,.gg-drop:hover{border-color:var(--brand);background:var(--soft)}
+.gg-drop input{position:absolute;opacity:0;width:1px;height:1px}
+.gg-drop b{font-size:17px}
+.gg-drop span{font-size:14px;color:var(--muted)}
+.gg-note{font-size:13px;color:var(--muted);margin:6px 0}
+.gg-error{background:#fff0f0;border:1px solid #f1b0b0;color:#a12a2a;border-radius:10px;padding:10px 12px;font-size:14px}
+.gg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0 14px}
+.gg-bank{display:contents}
+.gg-mode .radio{display:block;font-weight:400;font-size:14px;margin:2px 0}
+label.radio{font-size:14px;cursor:pointer}
+.gg-tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px;max-width:100%}
+.gg-tablewrap.tall{max-height:440px}
+.gg-ptable,.gg-txtable,.gg-ctable{border-collapse:collapse;font-size:13px;width:100%}
+.gg-ptable th,.gg-ptable td{border-bottom:1px solid var(--line);padding:5px 8px;white-space:nowrap;text-align:left}
+.gg-ptable thead th{background:#f1f3f6;font-size:12px;color:var(--muted);position:sticky;top:0}
+.gg-ptable thead th b{display:block;color:#fff;background:var(--brand);border-radius:4px;padding:0 4px;margin-top:2px;font-size:11px;text-align:center}
+.gg-ptable tbody th{color:var(--muted);font-weight:400;font-size:12px;background:#f8f9fb}
+.gg-ptable td.on{background:var(--soft)}
+.gg-ptable tr.hd td{font-weight:700}
+.gg-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.gg-bar select,.gg-step h3 select{padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:15px;font-family:inherit;background:#fff}
+.gg-step h3 select{font-size:13px;padding:4px 6px;font-weight:400;margin-left:6px}
+.gg-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.gg-tiles .tile{border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:#fafbfd}
+.gg-tiles span{display:block;font-size:13px;color:var(--muted)}
+.gg-tiles b{display:block;font-size:21px;letter-spacing:-.5px}
+.gg-tiles small{display:block;font-size:12px;color:var(--muted)}
+.gg-cols{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:22px}
+.gg-ctable td{padding:6px 4px;border-bottom:1px solid var(--line)}
+.gg-ctable td.bar{width:38%}
+.gg-ctable td.bar span{display:block;height:10px;border-radius:5px}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.muted{color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.gg-txtable th{position:sticky;top:0;background:#f1f3f6;font-size:12px;color:var(--muted);padding:6px;text-align:left;font-weight:600}
+.gg-txtable td{border-bottom:1px solid var(--line);padding:4px 6px}
+.gg-txtable td:first-child{white-space:nowrap;color:var(--muted)}
+.gg-txtable td.in{color:#2b8a3e}
+.gg-txtable select{font-size:13px;padding:3px 4px;border:1px solid var(--line);border-radius:6px;font-family:inherit;background:#fff;max-width:118px}
+.linkbtn{border:0;background:none;color:var(--brand);text-decoration:underline;cursor:pointer;font-size:13px;padding:0;font-family:inherit}
+.gg-preview{margin-top:4px}
+#gg-pages .paper+.paper{margin-top:16px}
+@media (max-width:860px){.gg-cols{grid-template-columns:1fr}}
+/* A4 가계부 */
+.gg-paper{min-height:297mm}
+.gg-paper h1.doc-title{margin-bottom:2mm}
+.gg-paper .gg-period{text-align:center;font-size:12pt;margin:0 0 4mm;color:#1f2a44;font-weight:600}
+.gg-paper h3{font-size:11.5pt;margin:4mm 0 1.6mm;color:#1f2a44}
+.gg-paper table td,.gg-paper table th{line-height:1.4}
+.gg-paper h3 small{font-weight:400;font-size:9pt;color:#666;margin-left:2mm}
+.gg-paper table{margin:0}
+.gg-paper .gg-sum th{width:25%}
+.gg-paper .gg-sum td{text-align:center;font-size:13pt;font-weight:700;padding:1.8mm}
+.gg-paper .gg-cat th:first-child{width:30mm}.gg-paper .gg-cat th:nth-child(3){width:30mm}.gg-paper .gg-cat th:nth-child(4){width:18mm}
+.gg-paper .gg-cat td{padding:.9mm 2.4mm;font-size:9.5pt}
+.gg-paper td.barc span{display:block;height:3mm;border-radius:1.5mm}
+.gg-paper .gg-two{display:grid;grid-template-columns:1fr 1.5fr;gap:6mm}
+.gg-paper table.mini2 th{width:auto;font-size:9pt;padding:1.2mm}
+.gg-paper table.mini2 td{font-size:9pt;padding:1.1mm 2mm}
+.gg-paper .gg-memo{height:30mm;border:1px solid #c9d0db;background:repeating-linear-gradient(#fff 0 8.6mm,#dde2ea 8.6mm calc(8.6mm + 1px))}
+.gg-paper table.gg-list th{width:auto;font-size:9pt;padding:1.2mm}
+.gg-paper table.gg-list td{font-size:9pt;padding:.8mm 2mm;line-height:1.4}
+.gg-paper table.gg-list th:nth-child(1){width:16mm}.gg-paper table.gg-list th:nth-child(3){width:26mm}.gg-paper table.gg-list th:nth-child(4),.gg-paper table.gg-list th:nth-child(5){width:26mm}
+@media print{
+  .gg-layout>.gg-preview{display:block !important;height:auto !important}
+  #gg-pages .paper+.paper{margin-top:0}
+  .gg-paper{break-after:page;page-break-after:always;min-height:0 !important;height:296mm;overflow:hidden}
+  .gg-paper:last-child{break-after:auto;page-break-after:auto}
+}
+.gg-bank[hidden]{display:none}
+.gg-mode label.radio{display:flex;align-items:center;gap:6px;margin:4px 0}
+.gg-mode label.radio input,label.radio input{width:auto;margin:0}
+.gg-txtable{min-width:500px}

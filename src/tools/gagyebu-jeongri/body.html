@@ -1,0 +1,66 @@
+<div class="gg-safe">
+  <div class="gg-lock" aria-hidden="true">🔒</div>
+  <div><b>파일은 내 기기 밖으로 나가지 않습니다</b>
+  <p>엑셀 파일은 이 브라우저 안에서만 읽고 계산해요. 서버로 올라가지 않고 어디에도 저장하지 않아요. 페이지가 열린 뒤에는 인터넷을 끊어도 작동합니다.</p></div>
+</div>
+<div class="form-layout gg-layout">
+<div class="gg-steps">
+  <section class="panel gg-step" id="gg-step1">
+    <h2><span class="num">1</span> 카드·통장 내역 파일 넣기</h2>
+    <label class="gg-drop" id="gg-drop">
+      <input type="file" id="gg-file" accept=".xlsx,.xls,.csv,.txt,.pdf">
+      <b>여기에 파일을 끌어다 놓거나 눌러서 고르세요</b>
+      <span>카드사·은행 홈페이지나 앱에서 '엑셀 다운로드'로 받은 .xlsx · .xls · .csv 파일</span>
+    </label>
+    <div class="actions" style="margin-top:10px"><button type="button" class="btn" id="gg-sample">예시 카드내역으로 해보기</button></div>
+    <p class="gg-note">PDF와 비밀번호가 걸린 파일은 아직 읽지 못해요. 비밀번호 파일은 엑셀에서 열어 비밀번호를 푼 뒤 다시 저장해서 넣어 주세요.</p>
+    <p class="gg-error" id="gg-error" hidden></p>
+  </section>
+
+  <section class="panel gg-step" id="gg-step2" hidden>
+    <h2><span class="num">2</span> 어느 칸이 날짜·사용처·금액인지 확인</h2>
+    <p class="gg-note">파일: <b id="gg-filename"></b> · 자동으로 골라 두었어요. 틀린 곳만 바꿔 주세요.</p>
+    <div class="gg-grid">
+      <div class="field" id="gg-sheet-row"><label for="gg-sheet">시트</label><select id="gg-sheet"></select></div>
+      <div class="field"><label for="gg-head">제목(머리글) 줄</label><select id="gg-head"></select></div>
+      <div class="field gg-mode"><label>파일 종류</label>
+        <label class="radio"><input type="radio" name="gg-mode" value="card" checked> 카드 (금액 한 칸)</label>
+        <label class="radio"><input type="radio" name="gg-mode" value="bank"> 통장 (출금·입금 따로)</label>
+      </div>
+      <div class="field"><label for="gg-col-date">날짜 열</label><select id="gg-col-date"></select></div>
+      <div class="field"><label for="gg-col-place">사용처(가맹점·적요) 열</label><select id="gg-col-place"></select></div>
+      <div id="gg-card-cols" class="field"><label for="gg-col-amount">금액 열</label><select id="gg-col-amount"></select></div>
+      <div id="gg-bank-cols" class="gg-bank" hidden>
+        <div class="field"><label for="gg-col-out">출금(찾으신 금액) 열</label><select id="gg-col-out"></select></div>
+        <div class="field"><label for="gg-col-inn">입금(맡기신 금액) 열</label><select id="gg-col-inn"></select></div>
+      </div>
+    </div>
+    <div class="gg-tablewrap"><table class="gg-ptable" id="gg-preview-table"></table></div>
+    <div class="actions" style="margin-top:12px"><button type="button" class="btn primary" id="gg-build">가계부로 정리하기</button></div>
+  </section>
+
+  <section class="panel gg-step" id="gg-step3" hidden>
+    <h2><span class="num">3</span> 정리 결과</h2>
+    <div class="gg-bar">
+      <select id="gg-month" aria-label="기간"></select>
+      <button type="button" class="btn primary" id="gg-print">가계부 인쇄 · PDF 저장</button>
+      <button type="button" class="btn" id="gg-xlsx">엑셀로 저장</button>
+      <button type="button" class="btn" id="gg-reset">다른 파일 넣기</button>
+    </div>
+    <div class="gg-tiles" id="gg-tiles"></div>
+    <div class="gg-cols">
+      <div><h3>분류별 지출</h3><table class="gg-ctable" id="gg-cats"></table>
+        <div id="gg-months-box" hidden><h3>월별 지출</h3><table class="gg-ctable" id="gg-months"></table></div>
+      </div>
+      <div><h3>거래 내역 <select id="gg-filter" aria-label="분류 거르기"></select></h3>
+        <p class="gg-note">분류가 틀리면 바로 고르세요. 같은 사용처는 함께 바뀌고, 다음에 파일을 넣을 때도 기억해요(이 브라우저에만). <button type="button" class="linkbtn" id="gg-forget">기억 지우기</button></p>
+        <div class="gg-tablewrap tall"><table class="gg-txtable"><thead><tr><th>날짜</th><th>사용처</th><th>분류</th><th>쓴 돈</th><th id="gg-in-col">들어온 돈</th></tr></thead><tbody id="gg-tx"></tbody></table></div>
+        <p class="gg-note" id="gg-tx-more"></p><p class="gg-note" id="gg-skipped"></p>
+      </div>
+    </div>
+    <h3>A4 가계부 미리보기 <small id="gg-pagecount"></small></h3>
+    <label class="radio"><input type="checkbox" id="gg-printlist" checked> 거래 내역도 함께 인쇄</label>
+  </section>
+</div>
+<div class="preview-wrap gg-preview" id="gg-preview" hidden><div class="preview-scale" id="gg-scale"><div id="gg-pages"></div></div></div>
+</div>

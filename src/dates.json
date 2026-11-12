@@ -1,4 +1,9 @@
 {
+ "src/assets/gagyebu.js": {
+  "published": "2026-11-12",
+  "modified": "2026-11-12",
+  "hash": "ab29b54c1f83b2fe5f952822ceecac8e"
+ },
  "src/forms/alba-geunrogyeyakseo/form.json": {
   "published": "2026-11-06",
   "modified": "2026-11-07",
@@ -508,5 +513,20 @@
   "published": "2026-11-07",
   "modified": "2026-11-07",
   "hash": "87dcff12ad40619fa46b66d13f17fdcd"
+ },
+ "src/tools/gagyebu-jeongri/body.html": {
+  "published": "2026-11-12",
+  "modified": "2026-11-12",
+  "hash": "34b9160a08db30b386b0e626b747a337"
+ },
+ "src/tools/gagyebu-jeongri/guide.html": {
+  "published": "2026-11-12",
+  "modified": "2026-11-12",
+  "hash": "9ff55aa163e3163fb7bb7d8094b27d20"
+ },
+ "src/tools/gagyebu-jeongri/page.json": {
+  "published": "2026-11-12",
+  "modified": "2026-11-12",
+  "hash": "5b0ea8fae441a29b0672aaa34c20998a"
  }
 }

@@ -343,6 +343,57 @@ def form_page(f, forms, menus):
                             path=f["path"], body=body, menus=menus, active=f["menu"], json_ld=lds, scripts=scripts))
 
 
+def read_tools():
+    """src/tools/<slug>/ = 양식이 아닌 도구 페이지 (page.json·body.html·guide.html)"""
+    tools = []
+    for d in sorted((SRC / "tools").iterdir()) if (SRC / "tools").exists() else []:
+        if not (d / "page.json").exists():
+            continue
+        t = json.loads((d / "page.json").read_text(encoding="utf-8"))
+        t["slug"] = d.name
+        t["path"] = f"/{d.name}/"
+        t["dir"] = d
+        tools.append(t)
+    return tools
+
+
+def tool_page(t, menus):
+    d = t["dir"]
+    menu = next(m for m in menus if m["id"] == t["menu"])
+    pub, mod = page_dates(d / "page.json", d / "body.html", d / "guide.html", SRC / "assets" / t["js"])
+    LASTMOD[t["path"]] = mod
+    faq = t.get("faq", [])
+    faq_html = ('<h2>자주 묻는 질문</h2><div class="faq">' + "".join(
+        f"<details><summary>{esc(q)}</summary><p>{a}</p></details>" for q, a in faq) + "</div>") if faq else ""
+    guide = (d / "guide.html").read_text(encoding="utf-8").replace('href="/', f'href="{BASE_PATH}/')
+    body = f"""
+<div class="crumbs"><a href="{url('/')}">홈</a> › <a href="{url('/' + menu['id'] + '/')}">{esc(menu['title'])}</a></div>
+<h1>{esc(t['h1'])}</h1>
+<p class="lead">{esc(t['lead'])}</p>
+{date_line(pub, mod)}
+{(d / "body.html").read_text(encoding="utf-8")}
+{AD}
+<article class="article">
+{guide}
+{faq_html}
+</article>
+"""
+    lds = [{
+        "@context": "https://schema.org", "@type": "WebApplication", "name": t["h1"],
+        "applicationCategory": "FinanceApplication", "operatingSystem": "Web",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"},
+        "url": SITE_URL + t["path"], "description": t["description"], "inLanguage": "ko",
+        "datePublished": pub, "dateModified": mod,
+        "publisher": {"@type": "Organization", "name": SITE_NAME, "url": SITE_URL + "/"}}]
+    if faq:
+        lds.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", a)}} for q, a in faq]})
+    scripts = (f'<script src="{asset("/assets/vendor/xlsx.full.min.js")}"></script>'
+               f'<script src="{asset("/assets/" + t["js"])}"></script>')
+    write(t["path"], layout(title=t["seo_title"], page_title=f'{t["seo_title"]} | {SITE_NAME}', description=t["description"],
+                            path=t["path"], body=body, menus=menus, active=t["menu"], json_ld=lds, scripts=scripts))
+
+
 def static_page(path, title, description, inner, menus, noindex=False):
     write(path, layout(title=title, description=description, path=path, menus=menus, noindex=noindex,
                        body=f'<article class="article" style="margin-top:0"><h1 style="margin-top:20px">{esc(title)}</h1>{inner}</article>'))
@@ -360,10 +411,15 @@ def main():
 
     for f in forms:
         form_page(f, forms, menus)
+    tools = read_tools()
+    for t in tools:
+        tool_page(t, menus)
+    listed = forms + tools   # 메뉴·홈 카드에는 도구도 함께 (도구는 메뉴 맨 앞)
 
     # 메뉴 페이지
     for m in menus:
-        fs = [f for f in forms if f["menu"] == m["id"]]
+        fs = [f for f in listed if f["menu"] == m["id"]]
+        fs = [f for f in fs if "dir" in f] + [f for f in fs if "dir" not in f]
         LASTMOD[f"/{m['id']}/"] = max([LASTMOD[f["path"]] for f in fs], default=UPDATED)
         body = f"""<div class="crumbs"><a href="{url('/')}">홈</a></div>
 <h1>{esc(m['title'])} 양식</h1>
@@ -375,7 +431,8 @@ def main():
     # 홈
     blocks = ""
     for m in menus:
-        fs = [f for f in forms if f["menu"] == m["id"]]
+        fs = [f for f in listed if f["menu"] == m["id"]]
+        fs = [f for f in fs if "dir" in f] + [f for f in fs if "dir" not in f]
         blocks += f'<section class="section-block"><h2><a href="{url("/" + m["id"] + "/")}" style="color:inherit;text-decoration:none">{esc(m["title"])}</a></h2><ul class="cards">{cards(fs)}</ul></section>'
     home = f"""<section class="hero">
 <h1>필요한 양식, 칸만 채우면 바로 완성</h1>
@@ -429,7 +486,7 @@ def main():
                              body=f'<h1>페이지를 찾을 수 없어요</h1><p><a href="{url("/")}">홈으로 가서 양식 찾기</a></p>'))
 
     # sitemap / robots / CNAME / ads.txt
-    paths = ["/"] + [f"/{m['id']}/" for m in menus] + [f["path"] for f in forms] + ["/about/", "/terms/", "/privacy/", "/contact/"]
+    paths = ["/"] + [f"/{m['id']}/" for m in menus] + [f["path"] for f in listed] + ["/about/", "/terms/", "/privacy/", "/contact/"]
     sm = "".join(f"<url><loc>{esc(SITE_URL + p)}</loc><lastmod>{LASTMOD.get(p, max(LASTMOD.values(), default=UPDATED))}</lastmod></url>" for p in paths)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n', encoding="utf-8")
     items = "".join(
