@@ -188,3 +188,4 @@ main>h1{font-family:"Nanum Pen Script",cursive;font-size:44px;font-weight:400}
 .paper .wk .day{border:1px solid #c9d0db;border-radius:1.5mm;padding:2mm 3mm;min-height:40mm;white-space:pre-wrap;font-size:10pt}
 .paper .wk .day b{display:block;color:#1f2a44;border-bottom:1px solid #dfe4ec;margin-bottom:1.5mm;padding-bottom:1mm}
 .paper table.tight td,.paper table.tight th{padding:1.1mm 2mm}
+.paper table.tight2 td,.paper table.tight2 th{padding:.6mm 2mm;line-height:1.45}

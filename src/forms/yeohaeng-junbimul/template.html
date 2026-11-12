@@ -1,0 +1,12 @@
+<h1 class="doc-title" style="margin-bottom:4mm">여행 준비물 체크리스트</h1>
+<table class="tight"><tr><th>여 행 지</th><td>{{dest}}</td><th>기 간</th><td>{{start|date}} ~ {{end|date}}</td></tr>
+<tr><th>동 행</th><td colspan="3">{{who}}</td></tr></table>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;align-items:start">
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">서류·돈</th></tr>{{c_doc|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">옷·신발</th></tr>{{c_cloth|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">세면·화장품</th></tr>{{c_wash|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">전자기기</th></tr>{{c_elec|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">상비약</th></tr>{{c_med|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">기타</th></tr>{{c_etc|check6}}</table>
+</div>
+<table style="margin-top:4mm"><tr><th style="height:12mm" data-grow="1">메 모</th><td style="white-space:pre-wrap;vertical-align:top">{{memo}}</td></tr></table>

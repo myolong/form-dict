@@ -166,6 +166,15 @@
     }
     return html + "</table>";
   }
+  /* 식단표: 아침·점심·저녁·간식 칸에 한 줄씩(월→일) 적은 내용을 요일별 행으로 */
+  function mealRows() {
+    var cols = ["m_b", "m_l", "m_d", "m_s"].map(function (k) { return String(blankMode ? "" : state[k] || "").split("\n"); });
+    var html = "";
+    for (var i = 0; i < 7; i++) {
+      html += "<tr><th style='height:22mm'>" + esc(state["__w" + i] || "") + "</th>" + cols.map(function (c) { return "<td style='vertical-align:top;white-space:pre-wrap'>" + esc((c[i] || "").trim()) + "</td>"; }).join("") + "</tr>";
+    }
+    return html;
+  }
   function hourRows() {
     var notes = dayNotes(state.timeline), html = "";
     for (var h = 6; h <= 23; h++) html += "<tr><td class='c' style='width:12mm;color:#1f2a44;font-weight:600'>" + (h < 10 ? "0" + h : h) + "</td><td>" + esc(notes[h] || "").replace(/\n/g, " · ") + "</td></tr>";
@@ -199,6 +208,7 @@
     else if (key === "calendar") return calendar();
     else if (key === "habit_grid") return habitGrid();
     else if (key === "hour_rows") return hourRows();
+    else if (key === "meal_rows") return mealRows();
     else if (key === "lines") return linesBox();
     else if (key === "vat_label") return t.mode === "포함" ? "(부가세 포함)" : t.mode === "없음" ? "" : "(부가세 포함)";
     else if (/^__w\d$/.test(key) || key === "__ym") return esc(state[key] || "");
@@ -249,6 +259,8 @@
     state.__noclaim = state.no_claim === "넣기" ? "1" : "";
     var annual = num(state.annual_wage) || (state.wage_type === "연봉" ? num(state.wage) : 0);
     weekDates();
+    var sh = String(state.shop || "").split("\n").filter(function (l) { return l.trim(); });
+    state.__shop1 = sh.slice(0, 6).join("\n"); state.__shop2 = sh.slice(6).join("\n");
     var yy = ym(); state.__ym = yy[0] + "년 " + yy[1] + "월";
     state.__monthly = annual ? (annual % 12 ? "약 " : "") + won(Math.floor(annual / 12)) : "";
     var html = F.template.replace(/\{\{#(\w+)\}\}([\s\S]*?)\{\{\/\1\}\}/g, function (_, k, inner) {
