@@ -135,7 +135,7 @@
   function dayNotes(text) { /* "5 | 병원" → {5:"병원"} */
     var o = {};
     String(blankMode ? "" : text || "").split("\n").forEach(function (l) {
-      var m = /^\s*(\d{1,2})\s*(?:[|:.)일]\s*)?(.*)$/.exec(l);
+      var m = /^\s*(\d{1,2})\s*(?:[|/:.)일시]\s*)?(.*)$/.exec(l);
       if (m && m[2].trim()) { var k = +m[1]; o[k] = (o[k] ? o[k] + "\n" : "") + m[2].trim(); }
     });
     return o;
