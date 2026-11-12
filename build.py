@@ -430,7 +430,8 @@ def main():
 
     # 홈
     blocks = ""
-    for m in menus:
+    HOME_FIRST = "personal"   # 홈에서 맨 위에 둘 묶음 (메뉴 순서는 그대로)
+    for m in sorted(menus, key=lambda m: m["id"] != HOME_FIRST):
         fs = [f for f in listed if f["menu"] == m["id"]]
         fs = [f for f in fs if "dir" in f] + [f for f in fs if "dir" not in f]
         blocks += f'<section class="section-block"><h2><a href="{url("/" + m["id"] + "/")}" style="color:inherit;text-decoration:none">{esc(m["title"])}</a></h2><ul class="cards">{cards(fs)}</ul></section>'
