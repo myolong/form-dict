@@ -28,6 +28,7 @@ CONTACT_EMAIL = "salimdict.help@gmail.com"  # 문의 메일 (본업과 분리된
 ADSENSE_CLIENT = "ca-pub-5781805498180631"                       # 승인 후 "ca-pub-..." 입력 → 광고 스크립트·ads.txt 생성
 GOOGLE_VERIFICATION = ""
 NAVER_VERIFICATION = "c27abaacf7acf26970a9db7a4b149e927e392597"
+DAUM_VERIFICATION = "#DaumWebMasterTool:fad476f4501db47dc022af77cfb697b7c4355336e6b10e2d5173902ea6e60862:LJPampnqaffzNtkuALZiYQ=="  # 다음 웹마스터도구 PIN 코드 (robots.txt 맨 아래)
 UPDATED = date.today().isoformat()
 PRIVACY_FROM = "2026-11-05"  # 개인정보처리방침 시행일 (방침을 바꿀 때만 고침)
 # ───────────────────────────────────────────────────────────────────────
@@ -499,7 +500,10 @@ def main():
         f"<link>{esc(SITE_URL)}/</link><description>{esc(SITE_TAGLINE)}</description><language>ko</language>"
         f"{items}</channel></rss>\n", encoding="utf-8")
     save_dates()
-    (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
+    robots = f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n"
+    if DAUM_VERIFICATION:
+        robots += f"\n{DAUM_VERIFICATION}\n"
+    (OUT / "robots.txt").write_text(robots, encoding="utf-8")
     if CUSTOM_DOMAIN:
         (OUT / "CNAME").write_text(CUSTOM_DOMAIN + "\n")
     if ADSENSE_CLIENT:

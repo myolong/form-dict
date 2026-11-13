@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
 Sitemap: https://formcunning.co.kr/sitemap.xml
+
+#DaumWebMasterTool:fad476f4501db47dc022af77cfb697b7c4355336e6b10e2d5173902ea6e60862:LJPampnqaffzNtkuALZiYQ==
