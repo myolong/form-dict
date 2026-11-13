@@ -1,0 +1,12 @@
+<h1 class="doc-title" style="margin-bottom:4mm">이사 체크리스트</h1>
+<table class="tight"><tr><th>이 사 일</th><td>{{move_date|date}}</td><th>이사업체</th><td>{{mover}}</td></tr>
+<tr><th>지금 집</th><td>{{from}}</td><th>새 집</th><td>{{to}}</td></tr></table>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;align-items:start">
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">한 달 전</th></tr>{{c_m1|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">2주 전</th></tr>{{c_w2|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">일주일 전</th></tr>{{c_w1|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">전날</th></tr>{{c_d1|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">이사 당일</th></tr>{{c_d0|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">이사 후</th></tr>{{c_after|check6}}</table>
+</div>
+<table style="margin-top:4mm"><tr><th style="height:12mm" data-grow="1">메 모</th><td style="white-space:pre-wrap;vertical-align:top">{{memo}}</td></tr></table>

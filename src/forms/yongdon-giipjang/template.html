@@ -1,0 +1,10 @@
+<h1 class="doc-title" style="margin-bottom:4mm">용 돈 기 입 장</h1>
+<table class="tight"><tr><th>이 름</th><td>{{name}}</td><th>기 간</th><td>{{__ym}}</td></tr>
+<tr><th>지난달 남은 돈</th><td>{{start_bal|won}}{{#start_bal}}원{{/start_bal}}</td><th>이번 달 목표</th><td>{{goal}}</td></tr></table>
+<table class="tight" data-fill-rows="1"><tr><th style="width:18mm">날 짜</th><th>내 용</th><th style="width:26mm">들어온 돈</th><th style="width:26mm">쓴 돈</th><th style="width:28mm">남은 돈</th></tr>
+{{allowance_rows}}
+<tr><th colspan="2">합 계</th><td class="num"><b>{{__a_in}}</b></td><td class="num"><b>{{__a_out}}</b></td><td class="num"><b>{{__a_left}}</b></td></tr></table>
+<table class="tight"><tr><th style="width:30mm">잘한 점</th><td style="height:10mm;white-space:pre-wrap">{{good}}</td></tr>
+<tr><th>아쉬운 점</th><td style="height:10mm;white-space:pre-wrap">{{bad}}</td></tr>
+<tr><th>다음 달 다짐</th><td style="height:10mm;white-space:pre-wrap">{{next}}</td></tr></table>
+<p class="right" style="margin:2mm 0 0">부모님 확인 <span class="blank" style="min-width:30mm"></span></p>

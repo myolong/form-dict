@@ -175,6 +175,22 @@
     }
     return html;
   }
+  /* 용돈기입장: "날짜 / 내용 / 금액" 한 줄씩. +금액은 들어온 돈, 나머지는 쓴 돈. 남은 돈은 이어서 계산 */
+  function allowanceRows() {
+    var bal = num(state.start_bal), tin = 0, tout = 0, html = "";
+    String(blankMode ? "" : state.entries || "").split("\n").forEach(function (l) {
+      if (!l.trim()) return;
+      var p = l.split(/\s*[|/]\s*/), amt = (p.length > 1 ? p[p.length - 1] : "").trim();
+      var d = p.length > 2 ? p[0] : "", what = p.length > 2 ? p.slice(1, -1).join(" / ") : (p.length > 1 ? p[0] : l);
+      var v = Math.abs(num(amt)), plus = /^\+/.test(amt);
+      if (plus) { tin += v; bal += v; } else { tout += v; bal -= v; }
+      html += "<tr><td class='c'>" + esc(d.trim()) + "</td><td>" + esc(what.trim()) + "</td><td class='num'>" + (plus && v ? won(v) : "") + "</td><td class='num'>" + (!plus && v ? won(v) : "") + "</td><td class='num'>" + won(bal) + "</td></tr>";
+    });
+    state.__a_in = blankMode || !html ? "" : won(tin);
+    state.__a_out = blankMode || !html ? "" : won(tout);
+    state.__a_left = blankMode || !html ? "" : won(bal);
+    return html;
+  }
   function hourRows() {
     var notes = dayNotes(state.timeline), html = "";
     for (var h = 6; h <= 23; h++) html += "<tr><td class='c' style='width:12mm;color:#1f2a44;font-weight:600'>" + (h < 10 ? "0" + h : h) + "</td><td>" + esc(notes[h] || "").replace(/\n/g, " · ") + "</td></tr>";
@@ -209,6 +225,7 @@
     else if (key === "habit_grid") return habitGrid();
     else if (key === "hour_rows") return hourRows();
     else if (key === "meal_rows") return mealRows();
+    else if (key === "allowance_rows") return allowanceRows();
     else if (key === "lines") return linesBox();
     else if (key === "vat_label") return t.mode === "포함" ? "(부가세 포함)" : t.mode === "없음" ? "" : "(부가세 포함)";
     else if (/^__w\d$/.test(key) || key === "__ym") return esc(state[key] || "");
