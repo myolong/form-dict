@@ -156,7 +156,7 @@ SERIES = [
 ]
 
 
-# 컨닝 시리즈 상단 바 (모든 페이지 맨 위, 다른 시리즈 사이트로 바로 가는 버튼)
+# 컨닝 시리즈 바로가기 (로고 줄 오른쪽 카드 버튼, 다른 시리즈 사이트로 이동)
 SERIES_BAR = [
     ("살림컨닝", "https://salimdict.com", "살림 꿀팁", "#2f8a4f", "salim"),
     ("첫직장컨닝", "https://firstjobdict.co.kr", "월급·회사생활", "#7a44c2", "firstjob"),
@@ -167,15 +167,13 @@ SERIES_BAR = [
 def series_bar():
     items = []
     for name, href, desc, color, icon in SERIES_BAR:
-        img = f'<img src="{url("/assets/series/" + icon + ".svg")}" alt="" width="20" height="20">'
-        inner = f'{img}<b>{esc(name)}</b><small>{esc(desc)}</small>'
         if name == SITE_NAME:
-            items.append(f'<span class="sb-item is-current" aria-current="page">{inner}<em>지금 여기</em></span>')
-        else:
-            items.append(f'<a class="sb-item" style="--c:{color}" href="{href}/">{inner}<i aria-hidden="true">→</i></a>')
-    return ('<nav class="series-bar" aria-label="컨닝 시리즈"><div class="wrap">'
-            '<span class="sb-label">컨닝 시리즈</span>' + "".join(items) + '</div></nav>')
-
+            continue
+        img = f'<img src="{url("/assets/series/" + icon + ".svg")}" alt="" width="22" height="22">'
+        items.append(f'<a class="sb-item" style="--c:{color}" href="{href}/">{img}<b>{esc(name)}</b>'
+                     f'<small>{esc(desc)}</small><i aria-hidden="true">→</i></a>')
+    return ('<nav class="series-bar" aria-label="컨닝 시리즈">'
+            '<span class="sb-label">컨닝 시리즈</span>' + "".join(items) + '</nav>')
 
 def series_line():
     parts = []
@@ -250,10 +248,9 @@ def layout(*, title, description, path, body, menus, active=None, json_ld=None, 
 {chr(10).join(head)}
 </head>
 <body>
-{series_bar()}
 <header class="site-header">
   <div class="wrap">
-    <div class="top"><a class="logo" href="{url('/')}"><img src="{url('/assets/favicon.svg') + '?v=2'}" alt="" width="30" height="30">{esc(SITE_NAME)}</a><span class="tagline">{esc(SITE_TAGLINE)}</span></div>
+    <div class="top"><a class="logo" href="{url('/')}"><img src="{url('/assets/favicon.svg') + '?v=2'}" alt="" width="30" height="30">{esc(SITE_NAME)}</a><div class="head-side"><span class="tagline">{esc(SITE_TAGLINE)}</span>{series_bar()}</div></div>
     <nav class="menu" aria-label="메뉴">{nav}</nav>
   </div>
 </header>
