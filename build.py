@@ -381,7 +381,7 @@ def tool_page(t, menus):
 """
     lds = [{
         "@context": "https://schema.org", "@type": "WebApplication", "name": t["h1"],
-        "applicationCategory": "FinanceApplication", "operatingSystem": "Web",
+        "applicationCategory": t.get("app_category", "UtilitiesApplication"), "operatingSystem": "Web",
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"},
         "url": SITE_URL + t["path"], "description": t["description"], "inLanguage": "ko",
         "datePublished": pub, "dateModified": mod,
@@ -389,8 +389,8 @@ def tool_page(t, menus):
     if faq:
         lds.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", a)}} for q, a in faq]})
-    scripts = (f'<script src="{asset("/assets/vendor/xlsx.full.min.js")}"></script>'
-               f'<script src="{asset("/assets/" + t["js"])}"></script>')
+    scripts = "".join(f'<script src="{asset("/assets/vendor/" + v)}"></script>' for v in t.get("vendor", [])) + \
+        f'<script src="{asset("/assets/" + t["js"])}"></script>'
     write(t["path"], layout(title=t["seo_title"], page_title=f'{t["seo_title"]} | {SITE_NAME}', description=t["description"],
                             path=t["path"], body=body, menus=menus, active=t["menu"], json_ld=lds, scripts=scripts))
 

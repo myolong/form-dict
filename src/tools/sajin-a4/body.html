@@ -1,0 +1,28 @@
+<div class="gg-safe">
+  <div class="gg-lock" aria-hidden="true">🔒</div>
+  <div><b>사진은 내 기기 밖으로 나가지 않습니다</b>
+  <p>고른 사진은 이 브라우저 안에서만 열고 배치해요. 서버로 올라가지 않고 저장하지도 않아요. 페이지를 닫으면 사라지니 끝나면 인쇄하거나 PDF로 저장하세요.</p></div>
+</div>
+<div class="form-layout">
+  <section class="panel form-panel" aria-label="설정">
+    <label class="gg-drop" id="sj-drop">
+      <input type="file" id="sj-file" accept="image/*,.heic,.heif" multiple>
+      <b>사진 고르기 (여러 장)</b>
+      <span>끌어다 놓아도 돼요 · JPG · PNG · WEBP</span>
+    </label>
+    <p class="gg-error" id="sj-error" hidden></p>
+    <div class="actions" style="margin:12px 0"><button type="button" class="btn primary" id="sj-print" disabled>인쇄 · PDF 저장</button><button type="button" class="btn" id="sj-clear">모두 지우기</button></div>
+    <div class="field"><label for="sj-per">한 장에 몇 개</label>
+      <select id="sj-per"><option value="1">1개</option><option value="2">2개 (위아래)</option><option value="3">3개 (가로로 나란히)</option><option value="4" selected>4개 (2×2)</option><option value="6">6개 (2×3)</option><option value="8">8개 (2×4)</option><option value="9">9개 (3×3)</option></select></div>
+    <div class="field"><label for="sj-title">맨 위 제목 (선택)</label><input type="text" id="sj-title" placeholder="11월 출장비 영수증 / 현장 사진"></div>
+    <div class="field"><label for="sj-sub">제목 아래 한 줄 (선택)</label><input type="text" id="sj-sub" placeholder="경영지원팀 홍길동 / 2026. 11. 16."></div>
+    <div class="field"><label class="radio"><input type="checkbox" id="sj-cap" checked> 사진 아래 설명 넣기</label>
+      <label class="radio" style="display:block;margin-top:4px"><input type="checkbox" id="sj-border" checked> 칸 테두리</label>
+      <label class="radio" style="display:block;margin-top:4px"><input type="checkbox" id="sj-num" checked> 번호 붙이기</label></div>
+    <div id="sj-list" class="sj-list"></div>
+    <p class="saved-note" id="sj-count"></p>
+  </section>
+  <section aria-label="A4 미리보기">
+    <div class="preview-wrap" id="sj-preview"><div class="preview-scale" id="sj-scale"><div id="sj-pages"></div></div></div>
+  </section>
+</div>

@@ -275,3 +275,30 @@ label.radio{font-size:14px;cursor:pointer}
 .gg-mode label.radio input,label.radio input{width:auto;margin:0}
 .gg-txtable{min-width:500px}
 @media print{.paper{-webkit-box-decoration-break:clone;box-decoration-break:clone}}
+/* ── 사진 A4 붙이기 ── */
+.sj-list{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.sj-item{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:6px;background:#fff}
+.sj-item img{width:56px;height:56px;object-fit:cover;border-radius:6px;flex:none;background:#eee}
+.sj-ctl{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.sj-ctl input{width:100%;padding:5px 7px;border:1px solid var(--line);border-radius:6px;font-size:13px;font-family:inherit}
+.sj-ctl button{border:1px solid var(--line);background:#fff;border-radius:6px;width:30px;height:26px;cursor:pointer;font-size:14px;margin-right:3px;color:var(--ink)}
+.sj-ctl button.del{color:#c33}
+#sj-pages .paper+.paper{margin-top:16px}
+.sj-paper{display:flex;flex-direction:column;height:297mm;min-height:0 !important;padding:12mm 12mm 10mm !important;overflow:hidden}
+.sj-paper header{text-align:center;margin-bottom:5mm;border-bottom:2px solid #1f2a44;padding-bottom:3mm}
+.sj-paper header h1{font-size:17pt;margin:0;color:#1f2a44;letter-spacing:1px}
+.sj-paper header p{margin:1mm 0 0;font-size:10pt;color:#444}
+.sj-grid{flex:1;display:grid;gap:4mm;min-height:0}
+.sj-cell{margin:0;display:flex;flex-direction:column;min-height:0;min-width:0}
+.sj-paper.bordered .sj-cell{border:1px solid #c9d0db;padding:2mm}
+.sj-img{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.sj-img img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.sj-cell figcaption{font-size:9.5pt;text-align:center;padding-top:1.5mm;line-height:1.35;word-break:break-all}
+.sj-cell figcaption b{color:#1f2a44;margin-right:1mm}
+.sj-paper footer{text-align:center;font-size:9pt;color:#666;padding-top:3mm}
+.sj-empty{align-items:center;justify-content:center;color:#888;text-align:center;font-size:14pt}
+@media print{
+  #sj-pages .paper+.paper{margin-top:0}
+  .sj-paper{break-after:page;page-break-after:always;height:296mm;box-decoration-break:slice !important;-webkit-box-decoration-break:slice !important}
+  .sj-paper:last-child{break-after:auto;page-break-after:auto}
+}

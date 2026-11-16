@@ -4,6 +4,11 @@
   "modified": "2026-11-12",
   "hash": "ab29b54c1f83b2fe5f952822ceecac8e"
  },
+ "src/assets/sajin.js": {
+  "published": "2026-11-16",
+  "modified": "2026-11-16",
+  "hash": "bb51fbf8f513c122ffa7a178a77f7e3a"
+ },
  "src/forms/alba-geunrogyeyakseo/form.json": {
   "published": "2026-11-06",
   "modified": "2026-11-07",
@@ -571,7 +576,22 @@
  },
  "src/tools/gagyebu-jeongri/page.json": {
   "published": "2026-11-12",
-  "modified": "2026-11-12",
-  "hash": "5b0ea8fae441a29b0672aaa34c20998a"
+  "modified": "2026-11-16",
+  "hash": "f806be482162da6b8071ddadf5825e0f"
+ },
+ "src/tools/sajin-a4/body.html": {
+  "published": "2026-11-16",
+  "modified": "2026-11-16",
+  "hash": "d2f8a0f2eb114ac3b8d8e16b08bb2dc7"
+ },
+ "src/tools/sajin-a4/guide.html": {
+  "published": "2026-11-16",
+  "modified": "2026-11-16",
+  "hash": "612ccc4d0aa166f6f558364cafeb489c"
+ },
+ "src/tools/sajin-a4/page.json": {
+  "published": "2026-11-16",
+  "modified": "2026-11-16",
+  "hash": "9e1ca8a370eba336abdc546cf516e53f"
  }
 }
