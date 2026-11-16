@@ -191,6 +191,43 @@
     state.__a_left = blankMode || !html ? "" : won(bal);
     return html;
   }
+  /* 경조사 장부: 받은 장부(우리 행사) / 보낸 기록. 한 줄에 한 사람, "/"로 구분, 금액은 숫자(10만 가능) */
+  function moneyTok(t) {
+    var m = /^([\d,]+(?:\.\d+)?)\s*(만)?\s*원?$/.exec(t.trim());
+    if (!m) return null;
+    var v = parseFloat(m[1].replace(/,/g, "")); return m[2] ? v * 10000 : v;
+  }
+  function jangbu() {
+    var recv = !/보낸/.test(state.kind || ""), rows = "", n = 0, sum = 0;
+    String(blankMode ? "" : state.entries || "").split("\n").forEach(function (l) {
+      if (!l.trim()) return;
+      var toks = l.split(/\s*[|/]\s*/), amt = null, date = "", rest = [];
+      toks.forEach(function (t) {
+        var v = moneyTok(t);
+        if (amt === null && v !== null && !(rest.length === 0 && !recv && !date && /^\d{1,2}[.\-]\d{1,2}$|^\d{4}[.\-]/.test(t.trim()))) { amt = v; return; }
+        if (!recv && !date && rest.length === 0 && /^(\d{2,4}[.\-])?\d{1,2}[.\-]\d{1,2}\.?$|월/.test(t.trim())) { date = t.trim(); return; }
+        rest.push(t.trim());
+      });
+      n++; sum += amt || 0;
+      var a = amt ? won(amt) : "";
+      rows += recv
+        ? "<tr><td class='c'>" + n + "</td><td>" + esc(rest[0] || "") + "</td><td>" + esc(rest[1] || "") + "</td><td class='num'>" + a + "</td><td class='c'>☐</td><td>" + esc(rest.slice(2).join(" / ")) + "</td></tr>"
+        : "<tr><td class='c'>" + n + "</td><td class='c'>" + esc(date) + "</td><td>" + esc(rest[0] || "") + "</td><td>" + esc(rest[1] || "") + "</td><td class='num'>" + a + "</td><td>" + esc(rest.slice(2).join(" / ")) + "</td></tr>";
+    });
+    var tot = blankMode || !n ? "" : won(sum), cnt = blankMode || !n ? "" : n + "명";
+    var head = recv
+      ? "<tr><th style='width:10mm'>번호</th><th style='width:32mm'>이 름</th><th>관 계</th><th style='width:26mm'>금 액</th><th style='width:12mm'>답례</th><th style='width:40mm'>메 모</th></tr>"
+      : "<tr><th style='width:10mm'>번호</th><th style='width:22mm'>날 짜</th><th style='width:30mm'>이 름</th><th>행 사</th><th style='width:26mm'>금 액</th><th style='width:34mm'>메 모</th></tr>";
+    var foot = recv
+      ? "<tr><th colspan='3'>합 계 " + cnt + "</th><td class='num'><b>" + tot + "</b></td><td colspan='2'></td></tr>"
+      : "<tr><th colspan='4'>합 계 " + cnt + "</th><td class='num'><b>" + tot + "</b></td><td></td></tr>";
+    var v = function (k) { return blankMode ? "" : esc(state[k] || ""); };
+    var title = "경조사 장부" + (recv ? " (받은 내역)" : " (보낸 내역)");
+    var info = recv
+      ? "<table class='tight'><tr><th>행 사</th><td>" + v("event") + "</td><th>날 짜</th><td>" + (blankMode ? "" : esc(fmtDate(state.date))) + "</td></tr><tr><th>주 인 공</th><td>" + v("host") + "</td><th>장 소</th><td>" + v("place") + "</td></tr></table>"
+      : "<table class='tight'><tr><th>작 성 자</th><td>" + v("host") + "</td><th>기 간</th><td>" + v("period") + "</td></tr></table>";
+    return "<h1 class='doc-title' style='margin-bottom:4mm'>" + title + "</h1>" + info + "<table class='tight' data-fill-rows='1'><thead>" + head + "</thead><tbody>" + rows + foot + "</tbody></table>";
+  }
   function hourRows() {
     var notes = dayNotes(state.timeline), html = "";
     for (var h = 6; h <= 23; h++) html += "<tr><td class='c' style='width:12mm;color:#1f2a44;font-weight:600'>" + (h < 10 ? "0" + h : h) + "</td><td>" + esc(notes[h] || "").replace(/\n/g, " · ") + "</td></tr>";
@@ -226,6 +263,7 @@
     else if (key === "hour_rows") return hourRows();
     else if (key === "meal_rows") return mealRows();
     else if (key === "allowance_rows") return allowanceRows();
+    else if (key === "jangbu") return jangbu();
     else if (key === "lines") return linesBox();
     else if (key === "vat_label") return t.mode === "포함" ? "(부가세 포함)" : t.mode === "없음" ? "" : "(부가세 포함)";
     else if (/^__w\d$/.test(key) || key === "__ym") return esc(state[key] || "");
@@ -297,7 +335,7 @@
   }
   function fill() {
     var tbl = paper.querySelector("table[data-fill-rows]");
-    if (tbl && tbl.rows.length > 2) {
+    if (tbl && tbl.rows.length >= 2) {
       var cols = 0, head = tbl.rows[0].cells;
       for (var i = 0; i < head.length; i++) cols += head[i].colSpan;
       var last = tbl.rows[tbl.rows.length - 1], n = tbl.rows.length - 1;

@@ -274,3 +274,4 @@ label.radio{font-size:14px;cursor:pointer}
 .gg-mode label.radio{display:flex;align-items:center;gap:6px;margin:4px 0}
 .gg-mode label.radio input,label.radio input{width:auto;margin:0}
 .gg-txtable{min-width:500px}
+@media print{.paper{-webkit-box-decoration-break:clone;box-decoration-break:clone}}

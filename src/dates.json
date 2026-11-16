@@ -139,6 +139,21 @@
   "modified": "2026-11-06",
   "hash": "78189ac75feebe7eec67c09ff84c3b6f"
  },
+ "src/forms/gyeongjosa-jangbu/form.json": {
+  "published": "2026-11-16",
+  "modified": "2026-11-16",
+  "hash": "ac3456875aad418c1107e4b9a3ea70a1"
+ },
+ "src/forms/gyeongjosa-jangbu/guide.html": {
+  "published": "2026-11-16",
+  "modified": "2026-11-16",
+  "hash": "4ab39c0d2d65c6379a1b1c7372174aa2"
+ },
+ "src/forms/gyeongjosa-jangbu/template.html": {
+  "published": "2026-11-16",
+  "modified": "2026-11-16",
+  "hash": "e90fdab461e1ae5a9ebbee3842f0a8fe"
+ },
  "src/forms/gyeongryeok-gisulseo/form.json": {
   "published": "2026-11-10",
   "modified": "2026-11-10",
