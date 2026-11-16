@@ -302,3 +302,28 @@ label.radio{font-size:14px;cursor:pointer}
   .sj-paper{break-after:page;page-break-after:always;height:296mm;box-decoration-break:slice !important;-webkit-box-decoration-break:slice !important}
   .sj-paper:last-child{break-after:auto;page-break-after:auto}
 }
+
+/* ── 컨닝 시리즈 상단 바: 다른 시리즈 사이트로 바로 가는 버튼 ── */
+.series-bar{background:#1f2a44;color:#fff3c4}
+.series-bar .wrap{display:flex;align-items:center;gap:8px;min-height:44px;padding-block:6px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.series-bar .wrap::-webkit-scrollbar{display:none}
+.series-bar .sb-label{font-family:"Nanum Pen Script",cursive;font-size:21px;line-height:1;white-space:nowrap;margin-right:4px;color:#ffd166}
+.series-bar .sb-item{display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;padding:4px 12px 4px 6px;border-radius:999px;font-size:14px;line-height:1.2;white-space:nowrap;text-decoration:none}
+.series-bar .sb-item img{width:20px;height:20px;border-radius:5px;display:block}
+.series-bar .sb-item b{font-weight:700}
+.series-bar .sb-item small{font-size:12px;opacity:.85}
+.series-bar a.sb-item{background:var(--c);color:#fff;border:1.5px solid #fff3c4;box-shadow:2px 2px 0 rgba(0,0,0,.35);transition:transform .1s}
+.series-bar a.sb-item i{font-style:normal;font-weight:700}
+.series-bar a.sb-item:hover,.series-bar a.sb-item:focus-visible{transform:translate(-1px,-1px);box-shadow:3px 3px 0 rgba(0,0,0,.45);color:#fff}
+.series-bar .is-current{color:#fff3c4;border:1.5px dashed rgba(255,243,196,.55)}
+.series-bar .is-current em{font-style:normal;font-size:11px;background:#fff3c4;color:#1f2a44;border-radius:999px;padding:1px 6px}
+@media (max-width:720px){
+  .series-bar .wrap{gap:6px}
+  .series-bar .sb-label{font-size:18px;margin-right:0}
+  .series-bar .sb-item{font-size:13px;padding:3px 9px 3px 4px;gap:4px}
+  .series-bar .sb-item small,.series-bar .is-current em{display:none}
+  .series-bar .is-current img{display:none}
+  .series-bar .is-current{padding-left:9px}
+}
+@media (max-width:370px){.series-bar .sb-label{display:none}}
+@media print{.series-bar{display:none !important}}
