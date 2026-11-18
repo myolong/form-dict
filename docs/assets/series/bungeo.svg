@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="붕어빵">
+  <path d="M150 100 L192 64 Q186 100 192 136 Z" fill="#d98a3a" stroke="#8a4a17" stroke-width="5" stroke-linejoin="round"/>
+  <ellipse cx="92" cy="100" rx="78" ry="54" fill="#e9a24f" stroke="#8a4a17" stroke-width="5"/>
+  <path d="M60 52 Q92 30 124 52" fill="none" stroke="#8a4a17" stroke-width="5" stroke-linecap="round"/>
+  <path d="M60 148 Q92 170 124 148" fill="none" stroke="#8a4a17" stroke-width="5" stroke-linecap="round"/>
+  <path d="M54 62 Q40 100 54 138" fill="none" stroke="#b9682a" stroke-width="5" stroke-linecap="round"/>
+  <g fill="none" stroke="#b9682a" stroke-width="5" stroke-linecap="round">
+    <path d="M80 82 q10 10 0 20 q10 10 0 20"/><path d="M104 82 q10 10 0 20 q10 10 0 20"/><path d="M128 86 q8 8 0 14 q8 8 0 14"/>
+  </g>
+  <circle cx="34" cy="90" r="7" fill="#3b2a20"/><circle cx="36" cy="88" r="2.2" fill="#fff"/>
+  <ellipse cx="44" cy="112" rx="8" ry="4.5" fill="#ff9e9e" opacity=".7"/>
+  <path d="M20 108 Q26 114 32 110" fill="none" stroke="#3b2a20" stroke-width="3" stroke-linecap="round"/>
+</svg>

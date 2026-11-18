@@ -175,6 +175,25 @@ def series_bar():
     return ('<nav class="series-bar" aria-label="컨닝 시리즈">'
             '<span class="sb-label">컨닝 시리즈</span>' + "".join(items) + '</nav>')
 
+# 쉬는 시간 쪽지: 푸터 바로 위, 운영 중인 미니게임 연결. 본문 안에는 넣지 않음. 인쇄 시 숨김.
+# 게임이 늘면 GAMES에 (이름, 주소, 한 줄 설명, 아이콘 파일명) 추가. 아이콘은 src/assets/series/에.
+GAMES = [
+    ("냥이 꼬리기차", "https://nyangtrain.com/", "아기냥이를 모아 가장 긴 기차 만들기", "nyangtrain"),
+    ("붕어빵 사장님", "https://myolong.github.io/haru/", "반죽 붓고, 팥 넣고, 뒤집어서 가게 키우기", "bungeo"),
+]
+
+def game_note():
+    cards = []
+    for name, href, desc, icon in GAMES:
+        img = f'<img src="{url("/assets/series/" + icon + ".svg")}" alt="" width="52" height="52">'
+        cards.append(f'<a class="nt-game" href="{href}" target="_blank" rel="noopener">{img}'
+                     f'<span class="t"><strong>{esc(name)}</strong><small>{esc(desc)}</small></span>'
+                     '<span class="go">놀러 가기 →</span></a>')
+    return ('<aside class="nt-note" aria-label="쉬는 시간 미니게임"><div class="wrap"><div class="nt-paper">'
+            '<p class="nt-head"><span class="k">쉬는 시간 쪽지</span><strong>머리 식힐 땐 게임 한 판</strong>'
+            '<small>무료 · 설치·가입 없이 휴대폰과 PC에서 바로</small></p>'
+            '<div class="nt-games">' + "".join(cards) + '</div></div></div></aside>')
+
 def series_line():
     parts = []
     for name, href in SERIES:
@@ -257,6 +276,7 @@ def layout(*, title, description, path, body, menus, active=None, json_ld=None, 
 <main class="wrap">
 {body}
 </main>
+{game_note()}
 <footer class="site-footer">
   <div class="wrap">
     <p>이 사이트의 양식과 설명은 일반적인 참고용입니다. 회사·기관·관공서에 정해진 양식이 있으면 그 양식을 우선 사용하고, 법률 문제는 전문가 상담을 받으세요. 입력한 내용은 서버로 전송·저장되지 않습니다.</p>
