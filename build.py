@@ -394,13 +394,20 @@ def read_tools():
         t["path"] = f"/{d.name}/"
         t["dir"] = d
         tools.append(t)
-    return tools
+    return sorted(tools, key=lambda t: (t.get("order", 0), t["slug"]))
+
+
+def tool_body(t):
+    """활동지처럼 같은 화면을 쓰는 도구는 page.json의 act로 공용 본문(src/tools/_hwaldong-body.html)을 쓴다."""
+    if "act" in t:
+        return (SRC / "tools" / "_hwaldong-body.html").read_text(encoding="utf-8").replace("{{act}}", t["act"])
+    return (t["dir"] / "body.html").read_text(encoding="utf-8")
 
 
 def tool_page(t, menus):
     d = t["dir"]
     menu = next(m for m in menus if m["id"] == t["menu"])
-    pub, mod = page_dates(d / "page.json", d / "body.html", d / "guide.html", SRC / "assets" / t["js"])
+    pub, mod = page_dates(d / "page.json", (SRC / "tools" / "_hwaldong-body.html") if "act" in t else (d / "body.html"), d / "guide.html", SRC / "assets" / t["js"])
     LASTMOD[t["path"]] = mod
     faq = t.get("faq", [])
     faq_html = ('<h2>자주 묻는 질문</h2><div class="faq">' + "".join(
@@ -411,7 +418,7 @@ def tool_page(t, menus):
 <h1>{esc(t['h1'])}</h1>
 <p class="lead">{esc(t['lead'])}</p>
 {date_line(pub, mod)}
-{(d / "body.html").read_text(encoding="utf-8")}
+{tool_body(t)}
 {AD}
 <article class="article">
 {guide}
@@ -462,15 +469,15 @@ def main():
         fs = [f for f in fs if "dir" in f] + [f for f in fs if "dir" not in f]
         LASTMOD[f"/{m['id']}/"] = max([LASTMOD[f["path"]] for f in fs], default=UPDATED)
         body = f"""<div class="crumbs"><a href="{url('/')}">홈</a></div>
-<h1>{esc(m['title'])} 양식</h1>
-<p class="lead">{esc(m['card'])}. 칸만 채우면 A4 한 장으로 완성되고, 바로 인쇄하거나 PDF로 저장할 수 있어요.</p>
+<h1>{esc(m.get('h1', m['title'] + ' 양식'))}</h1>
+<p class="lead">{esc(m.get('lead', m['card'] + '. 칸만 채우면 A4 한 장으로 완성되고, 바로 인쇄하거나 PDF로 저장할 수 있어요.'))}</p>
 <ul class="cards">{cards(fs)}</ul>"""
-        write(f"/{m['id']}/", layout(title=f"{m['title']} 양식 모음", description=f"{m['card']} 무료 양식. 회원가입·다운로드 없이 칸만 채우면 바로 인쇄·PDF 저장.",
+        write(f"/{m['id']}/", layout(title=m.get("page_title", f"{m['title']} 양식 모음"), description=m.get("description", f"{m['card']} 무료 양식. 회원가입·다운로드 없이 칸만 채우면 바로 인쇄·PDF 저장."),
                                      path=f"/{m['id']}/", body=body, menus=menus, active=m["id"]))
 
     # 홈
     blocks = ""
-    HOME_FIRST = ["personal", "approval"]   # 홈에서 위에 둘 묶음 순서 (메뉴 순서는 그대로)
+    HOME_FIRST = ["personal", "approval", "senior"]   # 홈에서 위에 둘 묶음 순서 (메뉴 순서는 그대로)
     for m in sorted(menus, key=lambda m: HOME_FIRST.index(m["id"]) if m["id"] in HOME_FIRST else len(HOME_FIRST)):
         fs = [f for f in listed if f["menu"] == m["id"]]
         fs = [f for f in fs if "dir" in f] + [f for f in fs if "dir" not in f]
