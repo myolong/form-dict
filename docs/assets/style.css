@@ -334,3 +334,120 @@ label.radio{font-size:14px;cursor:pointer}
 .nt-game .go{flex:0 0 auto;background:#22a35a;color:#fff;font-weight:700;border-radius:12px;padding:8px 12px;box-shadow:0 3px 0 #17803f;font-size:14px;white-space:nowrap}
 @media (max-width:620px){.nt-paper{padding:16px 14px}.nt-games{grid-template-columns:1fr}.nt-game img{width:44px;height:44px}.nt-game .go{padding:7px 10px;font-size:13px}}
 @media print{.nt-note{display:none !important}}
+
+/* ── 어르신 두뇌 활동지 (hwaldong.js) ───────────────────────── */
+.hd-safe{display:flex;gap:10px;align-items:flex-start;background:#fff8e2;border:1.5px solid #2b2a27;border-radius:6px;padding:10px 14px;margin:0 0 16px;font-size:14px}
+.hd-safe p{margin:2px 0 0;color:#5a5440}
+.hd-field{margin-bottom:12px}
+.hd-lab{display:block;font-size:14px;font-weight:700;margin-bottom:5px}
+.hd-seg{display:flex;flex-wrap:wrap;gap:6px}
+.hd-seg button{font-family:inherit;font-size:15px;padding:8px 13px;border:1.5px solid #2b2a27;border-radius:8px;background:#fff;color:#2b2a27;cursor:pointer;font-weight:600}
+.hd-seg button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.hd-checks{display:flex;gap:16px;flex-wrap:wrap;font-size:15px}
+.hd-checks input{width:18px;height:18px;vertical-align:-3px;margin-right:4px}
+.hd-field input[type=text],.hd-field input[type=date],.hd-field select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}
+.hd-note{font-size:13px;color:var(--muted);margin:-6px 0 12px}
+.hd-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 8px}
+.hd-actions .btn{padding:12px 10px;font-size:16px}
+#hd-pages .paper+.paper{margin-top:16px}
+.hd-paper{height:297mm;min-height:0 !important;overflow:hidden;padding:13mm 16mm 12mm !important;font-family:"Noto Sans KR","Malgun Gothic",sans-serif !important;color:#000 !important;line-height:1.45}
+.hd-top{display:flex;justify-content:space-between;gap:6mm;font-size:13pt;font-weight:700;border-bottom:.6mm solid #000;padding-bottom:2.5mm}
+.hd-blank{display:inline-block;width:38mm;border-bottom:.4mm solid #000;margin-left:2mm;vertical-align:-1mm}
+.hd-title{font-size:26pt;font-weight:800;margin:6mm 0 1mm;letter-spacing:-.5px;color:#000;font-family:inherit;background:none;padding:0;border:0;display:block}
+.hd-guide{font-size:15pt;margin:0 0 7mm;line-height:1.5}
+.hd-ring{display:inline-block;border:.6mm solid #000;border-radius:50%;padding:0 2mm;font-size:17pt}
+/* 계산 */
+.hd-calc{display:grid;grid-template-columns:1fr 1fr;column-gap:10mm}
+.hd-calc .q{display:flex;align-items:center;gap:3mm;font-weight:700;white-space:nowrap}
+.hd-calc .q b{font-size:11pt;color:#555;width:7mm;text-align:right}
+.hd-calc .hd-box{display:inline-block;border:.6mm solid #000;border-radius:2mm;flex:none}
+.hd-calc.s1 .q{height:25mm;font-size:26pt}.hd-calc.s1 .hd-box{width:24mm;height:16mm}
+.hd-calc.s2 .q{height:40mm;font-size:34pt}.hd-calc.s2 .hd-box{width:28mm;height:21mm}
+/* 돈 계산 */
+.hd-board{border:.6mm solid #000;border-radius:3mm;padding:3mm 4mm;margin-bottom:6mm}
+.hd-board-t{font-size:14pt;font-weight:800;margin-bottom:2mm}.hd-board-t small{font-size:10pt;font-weight:400;color:#555}
+.hd-board-g{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm 4mm;font-size:13pt}
+.hd-board-g span{display:flex;flex-direction:column;border-bottom:.3mm dashed #999;padding-bottom:1mm}
+.hd-board-g b{font-size:13pt}
+.hd-money .mq{border-bottom:.3mm solid #bbb}
+.hd-money .mq p{margin:0}
+.hd-money .mq em{font-style:normal;font-weight:800;margin-right:3mm;color:#555}
+.hd-money .ml{text-align:right;font-weight:700}
+.hd-money.s1 .mq{padding:4mm 0;font-size:15pt}.hd-money.s1 .ml{font-size:16pt;margin-top:3mm}
+.hd-money.s2 .mq{padding:6mm 0;font-size:19pt}.hd-money.s2 .ml{font-size:20pt;margin-top:6mm}
+/* 시계 */
+.hd-clocks{display:grid;justify-items:center}
+.hd-clocks.s1{grid-template-columns:repeat(3,1fr);row-gap:6mm}.hd-clocks.s2{grid-template-columns:repeat(2,1fr);row-gap:10mm}
+.hd-clocks svg{display:block}
+.hd-clocks p{margin:2mm 0 0;text-align:center;font-weight:700}
+.hd-clocks.s1 p{font-size:14pt}.hd-clocks.s2 p{font-size:19pt}
+/* 잇기·미로 */
+.hd-trail{display:block;margin:0 auto}
+.hd-maze{display:flex;justify-content:center}
+/* 숫자 채우기 */
+.hd-seq .row{display:flex;justify-content:space-between;align-items:center;border-bottom:.3mm dashed #aaa}
+.hd-seq .row span,.hd-seq .hd-box{display:inline-flex;align-items:center;justify-content:center;font-weight:800}
+.hd-seq .hd-box{border:.6mm solid #000;border-radius:2mm}
+.hd-seq.s1 .row{height:26mm}.hd-seq.s1 span,.hd-seq.s1 .hd-box{width:24mm;height:18mm;font-size:26pt}
+.hd-seq.s2 .row{height:34mm}.hd-seq.s2 span,.hd-seq.s2 .hd-box{width:30mm;height:23mm;font-size:34pt}
+/* 같은 글자 찾기 */
+.hd-find{display:grid;border:.5mm solid #000}
+.hd-find span{text-align:center;font-weight:700;border:.2mm solid #bbb}
+.hd-find.s1 span{font-size:26pt;padding:2.6mm 0}
+.hd-find.s2 span{font-size:34pt;padding:3.4mm 0}
+/* 낱말 찾기 */
+.hd-chips{display:flex;flex-wrap:wrap;gap:2.5mm;margin-bottom:6mm}
+.hd-chips span{border:.5mm solid #000;border-radius:2mm;padding:1mm 3.5mm;font-weight:700}
+.hd-chips.s1 span{font-size:15pt}.hd-chips.s2 span{font-size:18pt}
+.hd-ws{display:grid;justify-content:center;border:0}
+.hd-ws span{display:flex;align-items:center;justify-content:center;font-weight:700;border:.25mm solid #999}
+.hd-ws span.on{background:#ddd;font-weight:900}
+/* 첫소리 */
+.hd-cho .row{display:flex;align-items:center;gap:4mm;border-bottom:.3mm solid #bbb}
+.hd-cho b{width:7mm;color:#555;font-size:12pt}
+.hd-cho .cs{font-weight:900;letter-spacing:1mm}
+.hd-cho .hint{color:#333}
+.hd-cho .line{flex:1;border-bottom:.5mm solid #000;align-self:flex-end;margin-bottom:5mm}
+.hd-cho.s1 .row{height:21mm}.hd-cho.s1 .cs{font-size:26pt;width:52mm}.hd-cho.s1 .hint{font-size:13pt;width:48mm}
+.hd-cho.s2 .row{height:30mm}.hd-cho.s2 .cs{font-size:34pt;width:60mm}.hd-cho.s2 .hint{font-size:15pt;width:46mm}
+/* 속담 */
+.pv{margin-bottom:5mm}
+.pv-q{margin:0 0 1mm;font-weight:700}.pv-q b{color:#555;margin-right:2mm}
+.pv-tr{font-family:"Nanum Myeongjo",serif;font-weight:700;color:#c4c4c4;border-bottom:.3mm dashed #999;white-space:nowrap;letter-spacing:.5mm}
+.pv-w{border-bottom:.4mm solid #555}
+.pv.s1 .pv-q{font-size:14pt}.pv.s1 .pv-tr{font-size:27pt;height:14mm;line-height:14mm}.pv.s1 .pv-w{height:14mm}
+.pv.s2 .pv-q{font-size:17pt}.pv.s2 .pv-tr{font-size:33pt;height:17mm;line-height:17mm}.pv.s2 .pv-w{height:17mm}
+.pv.pvb .pv-q{line-height:2.2}
+.pv.pvb .pv-b{display:inline-block;width:80mm;border-bottom:.5mm solid #000}
+.pv.pvb .pv-h{margin:0;color:#444}
+.pv.pvb.s1 .pv-q{font-size:18pt}.pv.pvb.s2 .pv-q{font-size:22pt}
+.pv.pvb.s1 .pv-h{font-size:13pt}.pv.pvb.s2 .pv-h{font-size:15pt}
+/* 오늘 날짜 */
+.hd-today .row{border-bottom:.3mm solid #bbb;padding:4mm 0}
+.hd-today .row p{margin:0 0 2mm;font-weight:800}
+.hd-today .opts{display:flex;flex-wrap:wrap;gap:3mm 6mm}
+.hd-today .opts i{font-style:normal;font-weight:700}
+.hd-today .ln{display:block;border-bottom:.5mm solid #000;height:12mm}
+.hd-today.s1 .row{font-size:16pt}.hd-today.s1 .opts i{font-size:17pt}
+.hd-today.s2 .row{font-size:20pt}.hd-today.s2 .opts i{font-size:21pt}
+.hd-today.s2.l3 .row{font-size:17pt;padding:3mm 0}
+/* 스도쿠 */
+.hd-sdk-wrap{display:flex;flex-direction:column;align-items:center;margin-bottom:6mm}
+.hd-sdk-wrap p{margin:0 0 2mm;font-weight:700;font-size:13pt}
+.hd-sdk{display:grid;border:1mm solid #000}
+.hd-sdk span{display:flex;align-items:center;justify-content:center;font-weight:800;border:.3mm solid #777}
+.hd-sdk span.vr{border-right:1mm solid #000}.hd-sdk span.hr{border-bottom:1mm solid #000}
+/* 정답 */
+.hd-answers .ans-item{border-bottom:.3mm solid #ccc;padding:3mm 0;font-size:12pt;line-height:1.7}
+.hd-answers .ans-item b{display:block;font-size:12.5pt}
+.ans-sdks{display:flex;gap:8mm;flex-wrap:wrap}
+.ans-sdk{font-size:10pt}
+.ans-sdk .hd-sdk{border-width:.5mm}.ans-sdk .hd-sdk span{font-weight:600}
+/* 홈·세트 */
+.hd-set-box{background:#fff;border:1.5px solid #2b2a27;border-radius:6px;box-shadow:3px 3px 0 #2b2a27;padding:16px 18px;margin:14px 0 22px}
+.hd-set-box h2{margin:0 0 4px}
+@media print{
+  .hd-paper{break-after:page;page-break-after:always;height:296mm;margin:0 !important}
+  .hd-paper:last-child{break-after:auto;page-break-after:auto}
+  #hd-pages .paper+.paper{margin-top:0}
+}

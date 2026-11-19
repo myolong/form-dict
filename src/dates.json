@@ -4,6 +4,11 @@
   "modified": "2026-11-12",
   "hash": "ab29b54c1f83b2fe5f952822ceecac8e"
  },
+ "src/assets/hwaldong.js": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "8595d39a71e2e54e763102700fe15e95"
+ },
  "src/assets/sajin.js": {
   "published": "2026-11-16",
   "modified": "2026-11-16",
@@ -564,6 +569,51 @@
   "modified": "2026-11-13",
   "hash": "1b25903648cedf09a74fa9203ed8474c"
  },
+ "src/tools/_hwaldong-body.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "a95c8c557767ff5ff7b64ea168f48bbc"
+ },
+ "src/tools/binkan-sutja-chaeugi/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "9078787ce2bf5adf081f6d8afa8056c0"
+ },
+ "src/tools/binkan-sutja-chaeugi/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "c9a4249d4122cb2b4e3919924cc309f0"
+ },
+ "src/tools/choseong-natmal/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "9c65dfdae086b7ccff49bb697edb51f6"
+ },
+ "src/tools/choseong-natmal/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "1008356d553180caf25a0aab88390184"
+ },
+ "src/tools/deohagi-ppaegi-hwaldongji/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "0bca68df1f74dfe8c53fd5a76a443bc7"
+ },
+ "src/tools/deohagi-ppaegi-hwaldongji/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "3f69cfae8ceace06254f5732ca72b9c1"
+ },
+ "src/tools/don-gyesan-hwaldongji/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "fdf537314088fc82b5d1ac90920c4a00"
+ },
+ "src/tools/don-gyesan-hwaldongji/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "8dd2539bc792d126b4ba243c0e14e568"
+ },
  "src/tools/gagyebu-jeongri/body.html": {
   "published": "2026-11-12",
   "modified": "2026-11-12",
@@ -579,6 +629,56 @@
   "modified": "2026-11-16",
   "hash": "f806be482162da6b8071ddadf5825e0f"
  },
+ "src/tools/gateun-geulja-chatgi/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "5f7ece2583aabf8481b7a1952fbedff2"
+ },
+ "src/tools/gateun-geulja-chatgi/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "366aeed9f77b50f5a355fd14571c5f4b"
+ },
+ "src/tools/miro-chatgi/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "2272030294ed76d18dc8dc944abcd903"
+ },
+ "src/tools/miro-chatgi/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "d6e659ff531028ed36911c5139161f85"
+ },
+ "src/tools/natmal-chatgi-peojeul/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "ce2c109d9280e925f1233febfff9e06a"
+ },
+ "src/tools/natmal-chatgi-peojeul/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "67119019c793664b5623b7b7d359db1f"
+ },
+ "src/tools/oneul-hwaldongji/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "f614e4765d03e7894a3cab738f2c5b0d"
+ },
+ "src/tools/oneul-hwaldongji/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "d1fbc22e168e30e413204fbdbaff08ed"
+ },
+ "src/tools/oneul-naljja-sseugi/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "5b61b743ec1177174f74746590e47087"
+ },
+ "src/tools/oneul-naljja-sseugi/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "54f867e64e3b66e8bc4c294cef80a5cd"
+ },
  "src/tools/sajin-a4/body.html": {
   "published": "2026-11-16",
   "modified": "2026-11-16",
@@ -593,5 +693,45 @@
   "published": "2026-11-16",
   "modified": "2026-11-16",
   "hash": "9e1ca8a370eba336abdc546cf516e53f"
+ },
+ "src/tools/sigye-ilkgi-hwaldongji/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "38847315df09a0e5fb85bb0d9df7a353"
+ },
+ "src/tools/sigye-ilkgi-hwaldongji/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "6006d77ee43d3ccd5b62564b0e8f8870"
+ },
+ "src/tools/sokdam-ttara-sseugi/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "9e1f934ac504b8b09ad6002937d839be"
+ },
+ "src/tools/sokdam-ttara-sseugi/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "340b90d3825d3f06579b375c9ad39e0b"
+ },
+ "src/tools/sutja-itgi/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "d0cb6e7257fdd851cafd28a0148bb417"
+ },
+ "src/tools/sutja-itgi/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "c30133f1db59a19d32828b45099ed6a0"
+ },
+ "src/tools/swiun-sudoku/guide.html": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "27052c667d80c2f041b49dc09325e70b"
+ },
+ "src/tools/swiun-sudoku/page.json": {
+  "published": "2026-11-19",
+  "modified": "2026-11-19",
+  "hash": "f2b50692f6b2677190c18e9ac6b772d4"
  }
 }
