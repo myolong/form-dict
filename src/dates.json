@@ -181,13 +181,13 @@
  },
  "src/forms/gyeongryeok/form.json": {
   "published": "2026-11-05",
-  "modified": "2026-11-07",
-  "hash": "252ee9b01c99900c589a8327ce6276e2"
+  "modified": "2026-11-23",
+  "hash": "1a965fa96dfce4bd01c9e31d63112123"
  },
  "src/forms/gyeongryeok/guide.html": {
   "published": "2026-11-05",
-  "modified": "2026-11-05",
-  "hash": "83c4c6d651b1444b879485fbf7aa63f2"
+  "modified": "2026-11-23",
+  "hash": "fb9c74809d01cf46af7042bd0c6a365e"
  },
  "src/forms/gyeongryeok/template.html": {
   "published": "2026-11-05",
@@ -286,13 +286,13 @@
  },
  "src/forms/ingam-wiimjang/form.json": {
   "published": "2026-11-05",
-  "modified": "2026-11-07",
-  "hash": "b27f2e7a99a07598578470b8a7729ab5"
+  "modified": "2026-11-23",
+  "hash": "3a9c9a69257b2302732609fe3b0ada1c"
  },
  "src/forms/ingam-wiimjang/guide.html": {
   "published": "2026-11-05",
-  "modified": "2026-11-05",
-  "hash": "ddd01b9e2d067e971b2026a8ca42bde6"
+  "modified": "2026-11-23",
+  "hash": "7910a46dcbf4998eb383d2a3281a88ec"
  },
  "src/forms/ingam-wiimjang/template.html": {
   "published": "2026-11-05",
@@ -346,13 +346,13 @@
  },
  "src/forms/jaejik/form.json": {
   "published": "2026-11-05",
-  "modified": "2026-11-07",
-  "hash": "b80dc06e13ac7810138a6c22b298dd11"
+  "modified": "2026-11-23",
+  "hash": "f2b290b4608ee3c04b0de2f455e2a1c2"
  },
  "src/forms/jaejik/guide.html": {
   "published": "2026-11-05",
-  "modified": "2026-11-05",
-  "hash": "33018f82c6af9af079083a92b1067bd8"
+  "modified": "2026-11-23",
+  "hash": "847dd118d25701e22fa29f792591cbc9"
  },
  "src/forms/jaejik/template.html": {
   "published": "2026-11-05",
@@ -421,13 +421,13 @@
  },
  "src/forms/sajikseo/form.json": {
   "published": "2026-11-05",
-  "modified": "2026-11-07",
-  "hash": "89261cc8bff412337b71b15b5a5318a8"
+  "modified": "2026-11-23",
+  "hash": "65eccbdb3e8d3aedd81fc78780e7ab7b"
  },
  "src/forms/sajikseo/guide.html": {
   "published": "2026-11-05",
-  "modified": "2026-11-05",
-  "hash": "1c8c029ad28c2d3567bbde1dad67fe75"
+  "modified": "2026-11-23",
+  "hash": "aeff852e095276406fd194d583358a51"
  },
  "src/forms/sajikseo/template.html": {
   "published": "2026-11-05",
@@ -436,8 +436,8 @@
  },
  "src/forms/sasilhwaginseo/form.json": {
   "published": "2026-11-06",
-  "modified": "2026-11-07",
-  "hash": "26ef4dec43d92a20f84b3874a687b79f"
+  "modified": "2026-11-23",
+  "hash": "b37f91275f4d5f30c40573b22277d00a"
  },
  "src/forms/sasilhwaginseo/guide.html": {
   "published": "2026-11-06",
@@ -496,8 +496,8 @@
  },
  "src/forms/wiimjang/form.json": {
   "published": "2026-11-05",
-  "modified": "2026-11-07",
-  "hash": "fec9b8768cc03407f2dc9a2e0b9e80d1"
+  "modified": "2026-11-23",
+  "hash": "7d5e970813921ac576ab6bdef3584a65"
  },
  "src/forms/wiimjang/guide.html": {
   "published": "2026-11-05",
