@@ -1,0 +1,145 @@
+{
+ "title": "새해 계획표",
+ "menu": "personal",
+ "order": 0.1,
+ "aka": [
+  "새해 계획",
+  "신년 계획표",
+  "2027 계획표",
+  "새해 목표",
+  "신년 목표",
+  "버킷리스트",
+  "올해 계획"
+ ],
+ "card": "건강·일·돈·관계·취미 영역별 목표와 실천, 그만둘 것까지 A4 한 장",
+ "h1": "2027 새해 계획표 — 영역별 목표 쓰고 바로 인쇄",
+ "seo_title": "2027 새해 계획표 양식 무료 인쇄 (신년 목표·영역별 계획)",
+ "lead": "건강·일·돈·관계·취미 다섯 영역에 올해 목표와 실천 방법을 적고, 그만둘 것·새로 시작할 것까지 A4 한 장에 정리하세요. 비워 두고 인쇄해 손으로 써도 됩니다.",
+ "description": "2027 새해 계획표 양식을 무료로 작성하고 인쇄하세요. 올해의 한 단어, 건강·일·돈·관계·취미 영역별 목표와 실천 방법, 그만둘 것·새로 시작할 것, 분기별 중간 점검 칸이 있는 A4 한 장입니다.",
+ "fields": [
+  {
+   "key": "year",
+   "label": "연도",
+   "type": "select",
+   "options": [
+    "2027",
+    "2026"
+   ]
+  },
+  {
+   "key": "name",
+   "label": "이름 (선택)",
+   "type": "text"
+  },
+  {
+   "key": "word",
+   "label": "올해의 한 단어",
+   "type": "text",
+   "placeholder": "꾸준히 / 건강 / 도전"
+  },
+  {
+   "type": "group",
+   "label": "영역별 목표와 실천"
+  },
+  {
+   "key": "g_health",
+   "label": "건강 — 목표",
+   "type": "text",
+   "placeholder": "10km 마라톤 완주"
+  },
+  {
+   "key": "h_health",
+   "label": "건강 — 실천",
+   "type": "text",
+   "placeholder": "주 3회 30분 달리기"
+  },
+  {
+   "key": "g_work",
+   "label": "일·공부 — 목표",
+   "type": "text",
+   "placeholder": "자격증 하나 따기"
+  },
+  {
+   "key": "h_work",
+   "label": "일·공부 — 실천",
+   "type": "text",
+   "placeholder": "출근 전 30분 공부"
+  },
+  {
+   "key": "g_money",
+   "label": "돈 — 목표",
+   "type": "text",
+   "placeholder": "비상금 300만 원 모으기"
+  },
+  {
+   "key": "h_money",
+   "label": "돈 — 실천",
+   "type": "text",
+   "placeholder": "월급날 25만 원 자동이체"
+  },
+  {
+   "key": "g_rel",
+   "label": "관계 — 목표",
+   "type": "text",
+   "placeholder": "부모님께 자주 연락"
+  },
+  {
+   "key": "h_rel",
+   "label": "관계 — 실천",
+   "type": "text",
+   "placeholder": "일요일 저녁 안부 전화"
+  },
+  {
+   "key": "g_hobby",
+   "label": "취미·성장 — 목표",
+   "type": "text",
+   "placeholder": "책 24권 읽기"
+  },
+  {
+   "key": "h_hobby",
+   "label": "취미·성장 — 실천",
+   "type": "text",
+   "placeholder": "자기 전 20쪽"
+  },
+  {
+   "type": "group",
+   "label": "그 밖에"
+  },
+  {
+   "key": "stop",
+   "label": "올해 그만둘 것",
+   "type": "textarea",
+   "placeholder": "자기 전 휴대폰 보기\n충동구매"
+  },
+  {
+   "key": "start_new",
+   "label": "새로 시작할 것",
+   "type": "textarea",
+   "placeholder": "아침 스트레칭\n한 달에 한 번 혼자 여행"
+  },
+  {
+   "key": "promise",
+   "label": "나에게 하는 약속",
+   "type": "text"
+  }
+ ],
+ "faq": [
+  [
+   "새해 계획은 몇 개가 적당한가요?",
+   "영역마다 하나씩, 많아도 다섯 개 안팎이 지키기 좋습니다. 목표는 숫자나 기한이 있게(예: 책 24권, 6월까지) 적고, 실천 칸에는 매일·매주 할 수 있는 작은 행동을 적으세요."
+  ],
+  [
+   "손으로 쓰고 싶어요.",
+   "칸을 비워 두고 [빈 양식 인쇄]를 누르면 연도만 들어간 빈 계획표가 인쇄됩니다."
+  ],
+  [
+   "중간 점검 칸은 어떻게 쓰나요?",
+   "3·6·9·12월 말에 계획표를 다시 보고 체크하세요. 맞지 않는 목표는 그때 고쳐 적어도 괜찮습니다."
+  ]
+ ],
+ "related": [
+  "yeongan-mokpyo",
+  "yeongan-dallyeok",
+  "jugan-planner"
+ ]
+}

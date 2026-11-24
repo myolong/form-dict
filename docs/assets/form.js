@@ -149,11 +149,95 @@
       for (var c = 0; c < 7; c++) {
         var d = wk * 7 + c - first + 1, cls = (c === 0 ? "sun" : c === 6 ? "sat" : "");
         if (d < 1 || d > days) html += "<td class='out' style='height:" + h + "mm'></td>";
-        else html += "<td class='" + cls + "' style='height:" + h + "mm'><div class='dn'>" + d + "</div><div style='white-space:pre-wrap'>" + esc(notes[d] || "") + "</div></td>";
+        else { var hn = holi(y, mo, d); html += "<td class='" + (hn ? "sun" : cls) + "' style='height:" + h + "mm'><div class='dn'>" + d + (hn ? " <span class='hn'>" + esc(hn) + "</span>" : "") + "</div><div style='white-space:pre-wrap'>" + esc(notes[d] || "") + "</div></td>"; }
       }
       html += "</tr>";
     }
     return html + "</table>";
+  }
+  /* 공휴일 (관공서의 공휴일에 관한 규정, 2026.5.1 시행분 기준 — 노동절·제헌절 포함, 대체공휴일 반영). 2028년분은 2027년 말 전에 추가 */
+  var HOLI = {
+    "2026-01-01": "신정", "2026-02-16": "설날 연휴", "2026-02-17": "설날", "2026-02-18": "설날 연휴", "2026-03-01": "삼일절", "2026-03-02": "대체공휴일",
+    "2026-05-01": "노동절", "2026-05-05": "어린이날", "2026-05-24": "부처님오신날", "2026-05-25": "대체공휴일", "2026-06-03": "지방선거일", "2026-06-06": "현충일",
+    "2026-07-17": "제헌절", "2026-08-15": "광복절", "2026-08-17": "대체공휴일", "2026-09-24": "추석 연휴", "2026-09-25": "추석", "2026-09-26": "추석 연휴",
+    "2026-10-03": "개천절", "2026-10-05": "대체공휴일", "2026-10-09": "한글날", "2026-12-25": "성탄절",
+    "2027-01-01": "신정", "2027-02-06": "설날 연휴", "2027-02-07": "설날", "2027-02-08": "설날 연휴", "2027-02-09": "대체공휴일", "2027-03-01": "삼일절",
+    "2027-05-01": "노동절", "2027-05-03": "대체공휴일", "2027-05-05": "어린이날", "2027-05-13": "부처님오신날", "2027-06-06": "현충일",
+    "2027-07-17": "제헌절", "2027-07-19": "대체공휴일", "2027-08-15": "광복절", "2027-08-16": "대체공휴일", "2027-09-14": "추석 연휴", "2027-09-15": "추석",
+    "2027-09-16": "추석 연휴", "2027-10-03": "개천절", "2027-10-04": "대체공휴일", "2027-10-09": "한글날", "2027-10-11": "대체공휴일", "2027-12-25": "성탄절", "2027-12-27": "대체공휴일"
+  };
+  function p2(n) { return (n < 10 ? "0" : "") + n; }
+  function holi(y, m, d) { return HOLI[y + "-" + p2(m) + "-" + p2(d)] || ""; }
+  function yr() { var y = parseInt(state.year, 10); return y > 1900 ? y : new Date().getFullYear() + 1; }
+
+  /* 연간 달력: A4 한 장에 12달 (3열 × 4행), 공휴일 빨간색 + 아래 목록 */
+  function yearCalendar() {
+    var y = yr(), html = "<div class='ycal'>", list = [];
+    for (var m = 1; m <= 12; m++) {
+      var first = new Date(y, m - 1, 1).getDay(), days = new Date(y, m, 0).getDate();
+      html += "<div class='ym'><div class='mt'>" + m + "월</div><table><tr>" + WD.map(function (w, i) { return "<th class='" + (i === 0 ? "sun" : i === 6 ? "sat" : "") + "'>" + w + "</th>"; }).join("") + "</tr>";
+      for (var wk = 0; wk < 6; wk++) {
+        html += "<tr>";
+        for (var c = 0; c < 7; c++) {
+          var d = wk * 7 + c - first + 1;
+          if (d < 1 || d > days) { html += "<td></td>"; continue; }
+          var h = holi(y, m, d), cls = h || c === 0 ? "sun" : c === 6 ? "sat" : "";
+          if (h) list.push(m + "." + d + " " + h);
+          html += "<td class='" + cls + "'" + (h ? " title='" + esc(h) + "'" : "") + ">" + d + "</td>";
+        }
+        html += "</tr>";
+      }
+      html += "</table></div>";
+    }
+    html += "</div>";
+    if (list.length && state.show_holi !== "빼기") html += "<div class='hlist'><b>" + y + "년 공휴일</b> " + list.map(esc).join(" · ") + "</div>";
+    else if (!list.length) html += "<div class='hlist'>" + y + "년 공휴일 정보는 아직 넣지 않았어요. 빨간 날은 일요일만 표시됩니다.</div>";
+    return html;
+  }
+
+  /* 주간 플래너: 시작 주(월요일)부터 N주를 한 주 한 장으로 */
+  function weekPlanner() {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(state.start || ""), base;
+    if (m) base = new Date(+m[1], +m[2] - 1, +m[3]); else { var y = yr(); base = new Date(y, 0, 1); }
+    base.setDate(base.getDate() - ((base.getDay() + 6) % 7));   // 그 주 월요일
+    var n = Math.max(1, Math.min(53, parseInt(state.weeks, 10) || 1)), out = "";
+    for (var w = 0; w < n; w++) {
+      var mon = new Date(base.getFullYear(), base.getMonth(), base.getDate() + w * 7), sun = new Date(mon.getFullYear(), mon.getMonth(), mon.getDate() + 6);
+      var thu = new Date(mon.getFullYear(), mon.getMonth(), mon.getDate() + 3);   // 그 주가 속한 달 = 목요일 기준
+      var wom = Math.floor((thu.getDate() - 1) / 7) + 1;
+      var days = "";
+      for (var i = 0; i < 7; i++) {
+        var d = new Date(mon.getFullYear(), mon.getMonth(), mon.getDate() + i), h = holi(d.getFullYear(), d.getMonth() + 1, d.getDate()), wd = d.getDay();
+        days += "<div class='pd" + (h || wd === 0 ? " sun" : wd === 6 ? " sat" : "") + "'><div class='pdh'><b>" + (d.getMonth() + 1) + "." + d.getDate() + "</b> " + WD[wd] + (h ? " <span>" + esc(h) + "</span>" : "") + "</div></div>";
+      }
+      var checks = ""; for (var k = 0; k < 12; k++) checks += "<div class='ck'>☐</div>";
+      out += "<div class='wp" + (w ? " page-break" : "") + "'><div class='wph'><b>" + thu.getFullYear() + "년 " + (thu.getMonth() + 1) + "월 " + wom + "주차</b><span>" +
+        (mon.getMonth() + 1) + "." + mon.getDate() + " ~ " + (sun.getMonth() + 1) + "." + sun.getDate() + "</span></div>" +
+        "<div class='wpb'><div class='wpd'>" + days + "</div><div class='wps'><div class='bx'><b>이번 주 목표</b></div><div class='bx tall'><b>할 일</b>" + checks + "</div><div class='bx memo'><b>메모</b></div></div></div></div>";
+    }
+    return out;
+  }
+
+  /* 연간 목표 시트: 목표 × 12달 진행 칸 + 달별 초점 */
+  function goalGrid() {
+    var gs = String(blankMode ? "" : state.goals || "").split("\n").map(function (l) { return l.trim(); }).filter(Boolean).slice(0, 10);
+    while (gs.length < 8) gs.push("");
+    var mh = ""; for (var m = 1; m <= 12; m++) mh += "<th>" + m + "월</th>";
+    var html = "<table class='goal'><tr><th style='width:52mm'>목표</th><th style='width:22mm'>목표치</th>" + mh + "<th style='width:12mm'>달성</th></tr>";
+    gs.forEach(function (g) {
+      var p = g.split(/\s*[|/]\s*/), cells = ""; for (var m = 1; m <= 12; m++) cells += "<td></td>";
+      html += "<tr><td>" + esc(p[0] || "") + "</td><td class='c'>" + esc(p.slice(1).join(" / ")) + "</td>" + cells + "<td class='c'>☐</td></tr>";
+    });
+    return html + "</table>";
+  }
+  function focusRows() {
+    var fs = String(blankMode ? "" : state.focus || "").split("\n"), html = "";
+    for (var r = 0; r < 6; r++) {
+      html += "<tr>";
+      for (var c = 0; c < 2; c++) { var m = r + c * 6 + 1; html += "<th style='width:13mm'>" + m + "월</th><td>" + esc((fs[m - 1] || "").trim()) + "</td>"; }
+      html += "</tr>";
+    }
+    return html;
   }
   function habitGrid() {
     var a = ym(), y = a[0], mo = a[1], days = new Date(y, mo, 0).getDate();
@@ -264,6 +348,11 @@
     else if (key === "meal_rows") return mealRows();
     else if (key === "allowance_rows") return allowanceRows();
     else if (key === "jangbu") return jangbu();
+    else if (key === "year_calendar") return yearCalendar();
+    else if (key === "week_planner") return weekPlanner();
+    else if (key === "goal_grid") return goalGrid();
+    else if (key === "focus_rows") return focusRows();
+    else if (key === "__year") return String(yr());
     else if (key === "lines") return linesBox();
     else if (key === "vat_label") return t.mode === "포함" ? "(부가세 포함)" : t.mode === "없음" ? "" : "(부가세 포함)";
     else if (/^__w\d$/.test(key) || key === "__ym") return esc(state[key] || "");
