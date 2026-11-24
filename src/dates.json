@@ -389,6 +389,21 @@
   "modified": "2026-11-11",
   "hash": "e1ac6e8208e2d8e8434a6cfa19e89c92"
  },
+ "src/forms/jugan-planner/form.json": {
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "hash": "afc27c15b6b51537b28af1464d6f205b"
+ },
+ "src/forms/jugan-planner/guide.html": {
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "hash": "72fa86df6e1a9de256f2ac08b41316f5"
+ },
+ "src/forms/jugan-planner/template.html": {
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "hash": "45be3b96ce65631a884cc6828816e7ae"
+ },
  "src/forms/oneul-halil/form.json": {
   "published": "2026-11-11",
   "modified": "2026-11-12",
@@ -418,6 +433,21 @@
   "published": "2026-11-06",
   "modified": "2026-11-06",
   "hash": "26c7477cee08d4414e06aaaaa4b697ec"
+ },
+ "src/forms/saehae-gyehoek/form.json": {
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "hash": "38f35cd39fa73c4c24be76e40a0866c0"
+ },
+ "src/forms/saehae-gyehoek/guide.html": {
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "hash": "dcb67ef6204dd186bef72b5c44e3d4d9"
+ },
+ "src/forms/saehae-gyehoek/template.html": {
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "hash": "e3d57135e666bb0169dc37cf12936396"
  },
  "src/forms/sajikseo/form.json": {
   "published": "2026-11-05",
@@ -538,6 +568,36 @@
   "published": "2026-11-12",
   "modified": "2026-11-12",
   "hash": "8bf486ddcdf7094db260f78c202d0b56"
+ },
+ "src/forms/yeongan-dallyeok/form.json": {
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "hash": "e3a483491a6de7f65338875c10f9cd08"
+ },
+ "src/forms/yeongan-dallyeok/guide.html": {
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "hash": "b35291b727add5b02b4a30728dea99ef"
+ },
+ "src/forms/yeongan-dallyeok/template.html": {
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "hash": "58626fae13eb994a0d5b126ca064c59f"
+ },
+ "src/forms/yeongan-mokpyo/form.json": {
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "hash": "962d687d7fdc0866e7798e8049d3a4ca"
+ },
+ "src/forms/yeongan-mokpyo/guide.html": {
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "hash": "814427ff6972f6604422d81fa94980f9"
+ },
+ "src/forms/yeongan-mokpyo/template.html": {
+  "published": "2026-11-24",
+  "modified": "2026-11-24",
+  "hash": "213b6733b118fb24109ef26c6fc5d3e2"
  },
  "src/forms/yeongsujeung/form.json": {
   "published": "2026-11-07",
