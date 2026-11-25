@@ -488,3 +488,13 @@ label.radio{font-size:14px;cursor:pointer}
 .paper table.goal td{height:11mm;font-size:9pt;padding:1mm 1.5mm}
 .paper table.plan td{vertical-align:top;white-space:pre-wrap;font-size:9.5pt}
 .paper table.plan th{width:22mm}
+/* ── 개인·생활 양식: E안 컨닝페이퍼 형광펜 (2026-11-25 사용자 선택) ── */
+.paper.theme-e{color:#2b2a27}
+.paper.theme-e h1.doc-title{font-family:"Nanum Pen Script",cursive;font-weight:400;font-size:38pt;letter-spacing:4px;line-height:1.1;color:#2b2a27;border:0;display:table;margin-left:auto;margin-right:auto;padding:0 4mm;background:linear-gradient(transparent 58%,#ffe66d 58%,#ffe66d 92%,transparent 92%);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.paper.theme-e table{border:1.5px solid #2b2a27}
+.paper.theme-e th,.paper.theme-e td{border:1px dashed #cfc8b5}
+.paper.theme-e th{background:#fff6c9;color:#2b2a27;border-style:solid;border-color:#e3d9b4}
+.paper.theme-e .amount-box{background:#fff;color:#2b2a27;border:1.5px solid #2b2a27;border-radius:0;box-shadow:2mm 2mm 0 #ffe66d}
+.paper.theme-e .blank{border-bottom-color:#999}
+.paper.theme-e .to{color:#e2543b}
+.paper.theme-e .box{border:1.5px solid #2b2a27}
