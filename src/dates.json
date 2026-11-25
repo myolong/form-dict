@@ -59,6 +59,21 @@
   "modified": "2026-11-07",
   "hash": "d034709bc2ada0812d41b4c7262de14a"
  },
+ "src/forms/charye-checklist/form.json": {
+  "published": "2026-11-25",
+  "modified": "2026-11-25",
+  "hash": "c20098c4ad40fbfe402fd3c5e211af43"
+ },
+ "src/forms/charye-checklist/guide.html": {
+  "published": "2026-11-25",
+  "modified": "2026-11-25",
+  "hash": "c2cc67411d2fe9e8cd67be205471aaf4"
+ },
+ "src/forms/charye-checklist/template.html": {
+  "published": "2026-11-25",
+  "modified": "2026-11-25",
+  "hash": "1659f0f58529c805089a661a5b4d55f7"
+ },
  "src/forms/chayongjeung/form.json": {
   "published": "2026-11-05",
   "modified": "2026-11-07",
@@ -478,6 +493,36 @@
   "published": "2026-11-06",
   "modified": "2026-11-06",
   "hash": "ac127db39ed0f0be5adf5ddff5e904bb"
+ },
+ "src/forms/sebaetdon/form.json": {
+  "published": "2026-11-25",
+  "modified": "2026-11-25",
+  "hash": "cf199c43fb57c151af73a3b8ffd2ca0b"
+ },
+ "src/forms/sebaetdon/guide.html": {
+  "published": "2026-11-25",
+  "modified": "2026-11-25",
+  "hash": "656e8157a64eb971470a2dfcb6261875"
+ },
+ "src/forms/sebaetdon/template.html": {
+  "published": "2026-11-25",
+  "modified": "2026-11-25",
+  "hash": "9b9ab0b1c6234a2d9c14e96a96a19f49"
+ },
+ "src/forms/seol-jangbogi/form.json": {
+  "published": "2026-11-25",
+  "modified": "2026-11-25",
+  "hash": "ce1aa63412b4820a0b06eb5830026d75"
+ },
+ "src/forms/seol-jangbogi/guide.html": {
+  "published": "2026-11-25",
+  "modified": "2026-11-25",
+  "hash": "53d4f6aafc8509889e6c47e04c2d7e27"
+ },
+ "src/forms/seol-jangbogi/template.html": {
+  "published": "2026-11-25",
+  "modified": "2026-11-25",
+  "hash": "796d89a5d083dd482dbd3593b1ddf629"
  },
  "src/forms/seupgwan-check/form.json": {
   "published": "2026-11-11",
