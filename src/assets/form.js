@@ -239,6 +239,31 @@
     }
     return html;
   }
+  /* 설 명절: 연도별 설날(음력 1월 1일) 양력 날짜, 기준일 ± 며칠 라벨 */
+  var SEOL = { 2026: [2, 17], 2027: [2, 7] };
+  function seolDay(off) {
+    var y = yr(), sd = SEOL[y]; if (!sd) return "";
+    var d = new Date(y, sd[0] - 1, sd[1] + off);
+    return (d.getMonth() + 1) + "월 " + d.getDate() + "일 (" + WD[d.getDay()] + ")";
+  }
+  /* 세뱃돈 기록표: "이름 / 관계 / 금액" — 금액 앞 + 는 받은 돈, 없으면 준 돈 */
+  function sebaeRows() {
+    var html = "", n = 0, give = 0, got = 0;
+    String(blankMode ? "" : state.entries || "").split("\n").forEach(function (l) {
+      if (!l.trim()) return;
+      var toks = l.split(/\s*[|/]\s*/), amt = null, plus = false, rest = [];
+      toks.forEach(function (t) {
+        var tt = t.trim(), pl = /^\+/.test(tt), v = moneyTok(tt.replace(/^[+\-]/, ""));
+        if (amt === null && v !== null) { amt = v; plus = pl; } else rest.push(tt);
+      });
+      n++; if (plus) got += amt || 0; else give += amt || 0;
+      var a = amt ? won(amt) : "";
+      html += "<tr><td class='c'>" + n + "</td><td>" + esc(rest[0] || "") + "</td><td>" + esc(rest[1] || "") + "</td><td class='num'>" + (plus ? "" : a) + "</td><td class='num'>" + (plus ? a : "") + "</td><td>" + esc(rest.slice(2).join(" / ")) + "</td></tr>";
+    });
+    state.__sb_give = blankMode || !n ? "" : won(give);
+    state.__sb_got = blankMode || !n ? "" : won(got);
+    return html;
+  }
   function habitGrid() {
     var a = ym(), y = a[0], mo = a[1], days = new Date(y, mo, 0).getDate();
     var hs = String(blankMode ? "" : state.habits || "").split("\n").map(function (x) { return x.trim(); }).filter(Boolean).slice(0, 7);
@@ -353,6 +378,8 @@
     else if (key === "goal_grid") return goalGrid();
     else if (key === "focus_rows") return focusRows();
     else if (key === "__year") return String(yr());
+    else if (key === "sebae_rows") return sebaeRows();
+    else if (/^__seol(m?\d+)$/.test(key)) { var o = key.slice(6); return seolDay(o.charAt(0) === "m" ? -parseInt(o.slice(1), 10) : parseInt(o, 10)); }
     else if (key === "lines") return linesBox();
     else if (key === "vat_label") return t.mode === "포함" ? "(부가세 포함)" : t.mode === "없음" ? "" : "(부가세 포함)";
     else if (/^__w\d$/.test(key) || key === "__ym") return esc(state[key] || "");

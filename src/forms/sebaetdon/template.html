@@ -1,0 +1,7 @@
+<h1 class="doc-title" style="margin-bottom:4mm">{{__year}} 세뱃돈 기록표</h1>
+<table class="tight"><tr><th>설 날</th><td>{{__seol0}}</td><th>준비한 돈</th><td>{{budget|won}}{{#budget}}원{{/budget}}</td></tr>
+<tr><th>작 성 자</th><td colspan="3">{{name}}</td></tr></table>
+<table class="tight" data-fill-rows="1"><thead><tr><th style="width:10mm">번호</th><th style="width:30mm">이 름</th><th>관 계</th><th style="width:26mm">준 돈</th><th style="width:26mm">받은 돈</th><th style="width:38mm">메 모</th></tr></thead><tbody>
+{{sebae_rows}}
+<tr><th colspan="3">합 계</th><td class="num"><b>{{__sb_give}}</b></td><td class="num"><b>{{__sb_got}}</b></td><td></td></tr></tbody></table>
+<table class="tight"><tr><th style="width:30mm">메 모</th><td style="height:14mm;white-space:pre-wrap;vertical-align:top">{{memo}}</td></tr></table>

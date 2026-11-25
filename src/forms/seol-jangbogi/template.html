@@ -1,0 +1,12 @@
+<h1 class="doc-title" style="margin-bottom:4mm">{{__year}} 설 장보기 목록</h1>
+<table class="tight"><tr><th>설 날</th><td>{{__seol0}}</td><th>장 보는 날</th><td>{{shop_date|date}}</td></tr>
+<tr><th>예 산</th><td>{{budget|won}}{{#budget}}원{{/budget}}</td><th>인 원</th><td>{{people}}</td></tr></table>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;align-items:start">
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">떡국·떡·곡류</th></tr>{{c_rice|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">고기·생선</th></tr>{{c_meat|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">전·부침 재료</th></tr>{{c_jeon|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">나물·채소</th></tr>{{c_veg|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">과일·한과</th></tr>{{c_fruit|check6}}</table>
+<table class="tight tight2" style="margin:0"><tr><th colspan="2" style="text-align:center">양념·음료·기타</th></tr>{{c_etc|check6}}</table>
+</div>
+<table style="margin-top:4mm"><tr><th style="height:12mm" data-grow="1">메 모</th><td style="white-space:pre-wrap;vertical-align:top">{{memo}}</td></tr></table>
