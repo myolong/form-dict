@@ -356,7 +356,7 @@ def form_page(f, forms, menus):
     {panel}
   </section>
   <section aria-label="A4 미리보기">
-    <div class="preview-wrap" id="preview-wrap"><div class="preview-scale" id="preview-scale"><div class="paper" id="paper"></div></div></div>
+    <div class="preview-wrap" id="preview-wrap"><div class="preview-scale" id="preview-scale"><div class="paper{' theme-e' if menu['id'] == 'personal' else ''}" id="paper"></div></div></div>
   </section>
 </div>
 {AD}
