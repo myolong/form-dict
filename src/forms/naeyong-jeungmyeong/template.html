@@ -1,0 +1,15 @@
+<h1 class="doc-title">내 용 증 명</h1>
+<table>
+<tr><th rowspan="3">발 신 인</th><th>성 명</th><td>{{from_name}}</td></tr>
+<tr><th>주 소</th><td>{{from_addr}}</td></tr>
+<tr><th>연 락 처</th><td>{{from_phone}}</td></tr>
+<tr><th rowspan="2">수 신 인</th><th>성 명</th><td>{{to_name}}</td></tr>
+<tr><th>주 소</th><td>{{to_addr}}</td></tr>
+</table>
+<table>
+<tr><th>제 목</th><td><b>{{title}}</b></td></tr>
+<tr><th style="height:120mm" data-grow="1">내 용</th><td style="white-space:pre-wrap;vertical-align:top;line-height:1.85">{{content}}</td></tr>
+{{#attach}}<tr><th>첨 부</th><td>{{attach}}</td></tr>{{/attach}}
+</table>
+<p class="date-line">{{write_date|date}}</p>
+<div class="sign">발 신 인 &nbsp; {{from_name}} <span class="seal">(서명 또는 인)</span></div>
