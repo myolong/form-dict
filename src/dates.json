@@ -419,6 +419,21 @@
   "modified": "2026-11-24",
   "hash": "45be3b96ce65631a884cc6828816e7ae"
  },
+ "src/forms/naeyong-jeungmyeong/form.json": {
+  "published": "2026-11-27",
+  "modified": "2026-11-27",
+  "hash": "43b535ae552fcdffb55cf1088d3177de"
+ },
+ "src/forms/naeyong-jeungmyeong/guide.html": {
+  "published": "2026-11-27",
+  "modified": "2026-11-27",
+  "hash": "fdf30c1a6ca8ef32af0773e09f469459"
+ },
+ "src/forms/naeyong-jeungmyeong/template.html": {
+  "published": "2026-11-27",
+  "modified": "2026-11-27",
+  "hash": "59cd7db730c334ece38f330424d9547a"
+ },
  "src/forms/oneul-halil/form.json": {
   "published": "2026-11-11",
   "modified": "2026-11-12",
